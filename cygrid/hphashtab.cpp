@@ -5133,7 +5133,7 @@ static void __pyx_f_6cygrid_9hphashtab_12HpxHashTable__fill_disc_hash(struct __p
             __pyx_t_5numpy_uint64_t __pyx_parallel_temp3 = 0xbad0bad0;
             __pyx_t_5numpy_uint64_t __pyx_parallel_temp4 = 0xbad0bad0;
             const char *__pyx_parallel_filename = NULL; int __pyx_parallel_lineno = 0, __pyx_parallel_clineno = 0;
-            PyObject *__pyx_parallel_exc_type = NULL, *__pyx_parallel_exc_value = NULL, *__pyx_parallel_exc_tb = NULL;
+            PyObject *__pyx_parallel_curexc_type = NULL, *__pyx_parallel_curexc_value = NULL, *__pyx_parallel_exc_tb = NULL;
             int __pyx_parallel_why;
             __pyx_parallel_why = 0;
             __pyx_t_6 = 50;
@@ -5147,7 +5147,7 @@ static void __pyx_f_6cygrid_9hphashtab_12HpxHashTable__fill_disc_hash(struct __p
             if (__pyx_t_5 > 0)
             {
                 #ifdef _OPENMP
-                #pragma omp parallel private(__pyx_t_7, __pyx_t_8) private(__pyx_filename, __pyx_lineno, __pyx_clineno) shared(__pyx_parallel_why, __pyx_parallel_exc_type, __pyx_parallel_exc_value, __pyx_parallel_exc_tb)
+                #pragma omp parallel private(__pyx_t_7, __pyx_t_8) private(__pyx_filename, __pyx_lineno, __pyx_clineno) shared(__pyx_parallel_why, __pyx_parallel_curexc_type, __pyx_parallel_curexc_value, __pyx_parallel_exc_tb)
                 #endif /* _OPENMP */
                 {
                     #ifdef _OPENMP
@@ -5261,12 +5261,12 @@ static void __pyx_f_6cygrid_9hphashtab_12HpxHashTable__fill_disc_hash(struct __p
                                 PyGILState_STATE __pyx_gilstate_save = PyGILState_Ensure();
                                 #endif
                                 #ifdef _OPENMP
-                                #pragma omp flush(__pyx_parallel_exc_type)
+                                #pragma omp flush(__pyx_parallel_curexc_type)
                                 #endif /* _OPENMP */
-                                if (!__pyx_parallel_exc_type) {
-                                  __Pyx_ErrFetchWithState(&__pyx_parallel_exc_type, &__pyx_parallel_exc_value, &__pyx_parallel_exc_tb);
+                                if (!__pyx_parallel_curexc_type) {
+                                  __Pyx_ErrFetchWithState(&__pyx_parallel_curexc_type, &__pyx_parallel_curexc_value, &__pyx_parallel_exc_tb);
                                   __pyx_parallel_filename = __pyx_filename; __pyx_parallel_lineno = __pyx_lineno; __pyx_parallel_clineno = __pyx_clineno;
-                                  __Pyx_GOTREF(__pyx_parallel_exc_type);
+                                  __Pyx_GOTREF(__pyx_parallel_curexc_type);
                                 }
                                 #ifdef WITH_THREAD
                                 PyGILState_Release(__pyx_gilstate_save);
@@ -5308,7 +5308,7 @@ static void __pyx_f_6cygrid_9hphashtab_12HpxHashTable__fill_disc_hash(struct __p
 #endif /* _OPENMP */
                 }
             }
-            if (__pyx_parallel_exc_type) {
+            if (__pyx_parallel_curexc_type) {
               /* This may have been overridden by a continue, break or return in another thread. Prefer the error. */
               __pyx_parallel_why = 4;
             }
@@ -5324,8 +5324,8 @@ static void __pyx_f_6cygrid_9hphashtab_12HpxHashTable__fill_disc_hash(struct __p
                     #ifdef WITH_THREAD
                     PyGILState_STATE __pyx_gilstate_save = PyGILState_Ensure();
                     #endif
-                    __Pyx_GIVEREF(__pyx_parallel_exc_type);
-                    __Pyx_ErrRestoreWithState(__pyx_parallel_exc_type, __pyx_parallel_exc_value, __pyx_parallel_exc_tb);
+                    __Pyx_GIVEREF(__pyx_parallel_curexc_type);
+                    __Pyx_ErrRestoreWithState(__pyx_parallel_curexc_type, __pyx_parallel_curexc_value, __pyx_parallel_exc_tb);
                     __pyx_filename = __pyx_parallel_filename; __pyx_lineno = __pyx_parallel_lineno; __pyx_clineno = __pyx_parallel_clineno;
                     #ifdef WITH_THREAD
                     PyGILState_Release(__pyx_gilstate_save);
@@ -5968,7 +5968,7 @@ static void __pyx_f_6cygrid_9hphashtab_12HpxHashTable__compute_input_output_mapp
             __pyx_t_5numpy_uint64_t __pyx_parallel_temp18 = 0xbad0bad0;
             __pyx_t_5numpy_uint64_t __pyx_parallel_temp19 = 0xbad0bad0;
             const char *__pyx_parallel_filename = NULL; int __pyx_parallel_lineno = 0, __pyx_parallel_clineno = 0;
-            PyObject *__pyx_parallel_exc_type = NULL, *__pyx_parallel_exc_value = NULL, *__pyx_parallel_exc_tb = NULL;
+            PyObject *__pyx_parallel_curexc_type = NULL, *__pyx_parallel_curexc_value = NULL, *__pyx_parallel_exc_tb = NULL;
             int __pyx_parallel_why;
             __pyx_parallel_why = 0;
             __pyx_t_4 = 0x1F4;
@@ -5982,7 +5982,7 @@ static void __pyx_f_6cygrid_9hphashtab_12HpxHashTable__compute_input_output_mapp
             if (__pyx_t_1 > 0)
             {
                 #ifdef _OPENMP
-                #pragma omp parallel private(__pyx_t_10, __pyx_t_11, __pyx_t_12, __pyx_t_13, __pyx_t_8) private(__pyx_filename, __pyx_lineno, __pyx_clineno) shared(__pyx_parallel_why, __pyx_parallel_exc_type, __pyx_parallel_exc_value, __pyx_parallel_exc_tb)
+                #pragma omp parallel private(__pyx_t_10, __pyx_t_11, __pyx_t_12, __pyx_t_13, __pyx_t_8) private(__pyx_filename, __pyx_lineno, __pyx_clineno) shared(__pyx_parallel_why, __pyx_parallel_curexc_type, __pyx_parallel_curexc_value, __pyx_parallel_exc_tb)
                 #endif /* _OPENMP */
                 {
                     #ifdef _OPENMP
@@ -6310,12 +6310,12 @@ static void __pyx_f_6cygrid_9hphashtab_12HpxHashTable__compute_input_output_mapp
                                 PyGILState_STATE __pyx_gilstate_save = PyGILState_Ensure();
                                 #endif
                                 #ifdef _OPENMP
-                                #pragma omp flush(__pyx_parallel_exc_type)
+                                #pragma omp flush(__pyx_parallel_curexc_type)
                                 #endif /* _OPENMP */
-                                if (!__pyx_parallel_exc_type) {
-                                  __Pyx_ErrFetchWithState(&__pyx_parallel_exc_type, &__pyx_parallel_exc_value, &__pyx_parallel_exc_tb);
+                                if (!__pyx_parallel_curexc_type) {
+                                  __Pyx_ErrFetchWithState(&__pyx_parallel_curexc_type, &__pyx_parallel_curexc_value, &__pyx_parallel_exc_tb);
                                   __pyx_parallel_filename = __pyx_filename; __pyx_parallel_lineno = __pyx_lineno; __pyx_parallel_clineno = __pyx_clineno;
-                                  __Pyx_GOTREF(__pyx_parallel_exc_type);
+                                  __Pyx_GOTREF(__pyx_parallel_curexc_type);
                                 }
                                 #ifdef WITH_THREAD
                                 PyGILState_Release(__pyx_gilstate_save);
@@ -6372,7 +6372,7 @@ static void __pyx_f_6cygrid_9hphashtab_12HpxHashTable__compute_input_output_mapp
 #endif /* _OPENMP */
                 }
             }
-            if (__pyx_parallel_exc_type) {
+            if (__pyx_parallel_curexc_type) {
               /* This may have been overridden by a continue, break or return in another thread. Prefer the error. */
               __pyx_parallel_why = 4;
             }
@@ -6403,8 +6403,8 @@ static void __pyx_f_6cygrid_9hphashtab_12HpxHashTable__compute_input_output_mapp
                     #ifdef WITH_THREAD
                     PyGILState_STATE __pyx_gilstate_save = PyGILState_Ensure();
                     #endif
-                    __Pyx_GIVEREF(__pyx_parallel_exc_type);
-                    __Pyx_ErrRestoreWithState(__pyx_parallel_exc_type, __pyx_parallel_exc_value, __pyx_parallel_exc_tb);
+                    __Pyx_GIVEREF(__pyx_parallel_curexc_type);
+                    __Pyx_ErrRestoreWithState(__pyx_parallel_curexc_type, __pyx_parallel_curexc_value, __pyx_parallel_exc_tb);
                     __pyx_filename = __pyx_parallel_filename; __pyx_lineno = __pyx_parallel_lineno; __pyx_clineno = __pyx_parallel_clineno;
                     #ifdef WITH_THREAD
                     PyGILState_Release(__pyx_gilstate_save);
@@ -6603,7 +6603,7 @@ static void __pyx_f_6cygrid_9hphashtab_12HpxHashTable__compute_output_input_mapp
             std::vector<__pyx_t_5numpy_uint64_t> ::iterator __pyx_parallel_temp5;
             std::vector<__pyx_t_5numpy_uint64_t>  __pyx_parallel_temp6;
             const char *__pyx_parallel_filename = NULL; int __pyx_parallel_lineno = 0, __pyx_parallel_clineno = 0;
-            PyObject *__pyx_parallel_exc_type = NULL, *__pyx_parallel_exc_value = NULL, *__pyx_parallel_exc_tb = NULL;
+            PyObject *__pyx_parallel_curexc_type = NULL, *__pyx_parallel_curexc_value = NULL, *__pyx_parallel_exc_tb = NULL;
             int __pyx_parallel_why;
             __pyx_parallel_why = 0;
             #if ((defined(__APPLE__) || defined(__OSX__)) && (defined(__GNUC__) && (__GNUC__ > 2 || (__GNUC__ == 2 && (__GNUC_MINOR__ > 95)))))
@@ -6616,7 +6616,7 @@ static void __pyx_f_6cygrid_9hphashtab_12HpxHashTable__compute_output_input_mapp
             if (__pyx_t_6 > 0)
             {
                 #ifdef _OPENMP
-                #pragma omp parallel private(__pyx_t_10, __pyx_t_11, __pyx_t_12, __pyx_t_13, __pyx_t_14, __pyx_t_7, __pyx_t_8, __pyx_t_9) private(__pyx_filename, __pyx_lineno, __pyx_clineno) shared(__pyx_parallel_why, __pyx_parallel_exc_type, __pyx_parallel_exc_value, __pyx_parallel_exc_tb)
+                #pragma omp parallel private(__pyx_t_10, __pyx_t_11, __pyx_t_12, __pyx_t_13, __pyx_t_14, __pyx_t_7, __pyx_t_8, __pyx_t_9) private(__pyx_filename, __pyx_lineno, __pyx_clineno) shared(__pyx_parallel_why, __pyx_parallel_curexc_type, __pyx_parallel_curexc_value, __pyx_parallel_exc_tb)
                 #endif /* _OPENMP */
                 {
                     #ifdef _OPENMP
@@ -7024,12 +7024,12 @@ static void __pyx_f_6cygrid_9hphashtab_12HpxHashTable__compute_output_input_mapp
                                 PyGILState_STATE __pyx_gilstate_save = PyGILState_Ensure();
                                 #endif
                                 #ifdef _OPENMP
-                                #pragma omp flush(__pyx_parallel_exc_type)
+                                #pragma omp flush(__pyx_parallel_curexc_type)
                                 #endif /* _OPENMP */
-                                if (!__pyx_parallel_exc_type) {
-                                  __Pyx_ErrFetchWithState(&__pyx_parallel_exc_type, &__pyx_parallel_exc_value, &__pyx_parallel_exc_tb);
+                                if (!__pyx_parallel_curexc_type) {
+                                  __Pyx_ErrFetchWithState(&__pyx_parallel_curexc_type, &__pyx_parallel_curexc_value, &__pyx_parallel_exc_tb);
                                   __pyx_parallel_filename = __pyx_filename; __pyx_parallel_lineno = __pyx_lineno; __pyx_parallel_clineno = __pyx_clineno;
-                                  __Pyx_GOTREF(__pyx_parallel_exc_type);
+                                  __Pyx_GOTREF(__pyx_parallel_curexc_type);
                                 }
                                 #ifdef WITH_THREAD
                                 PyGILState_Release(__pyx_gilstate_save);
@@ -7073,7 +7073,7 @@ static void __pyx_f_6cygrid_9hphashtab_12HpxHashTable__compute_output_input_mapp
 #endif /* _OPENMP */
                 }
             }
-            if (__pyx_parallel_exc_type) {
+            if (__pyx_parallel_curexc_type) {
               /* This may have been overridden by a continue, break or return in another thread. Prefer the error. */
               __pyx_parallel_why = 4;
             }
@@ -7091,8 +7091,8 @@ static void __pyx_f_6cygrid_9hphashtab_12HpxHashTable__compute_output_input_mapp
                     #ifdef WITH_THREAD
                     PyGILState_STATE __pyx_gilstate_save = PyGILState_Ensure();
                     #endif
-                    __Pyx_GIVEREF(__pyx_parallel_exc_type);
-                    __Pyx_ErrRestoreWithState(__pyx_parallel_exc_type, __pyx_parallel_exc_value, __pyx_parallel_exc_tb);
+                    __Pyx_GIVEREF(__pyx_parallel_curexc_type);
+                    __Pyx_ErrRestoreWithState(__pyx_parallel_curexc_type, __pyx_parallel_curexc_value, __pyx_parallel_exc_tb);
                     __pyx_filename = __pyx_parallel_filename; __pyx_lineno = __pyx_parallel_lineno; __pyx_clineno = __pyx_parallel_clineno;
                     #ifdef WITH_THREAD
                     PyGILState_Release(__pyx_gilstate_save);
@@ -12464,9 +12464,9 @@ static char *__pyx_memoryview_get_item_pointer(struct __pyx_memoryview_obj *__py
     } else {
       __pyx_t_5 = __pyx_t_4(__pyx_t_2);
       if (unlikely(!__pyx_t_5)) {
-        PyObject* exc_type = PyErr_Occurred();
-        if (exc_type) {
-          if (likely(exc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
+        PyObject* curexc_type = PyErr_Occurred();
+        if (curexc_type) {
+          if (likely(curexc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(curexc_type, PyExc_StopIteration))) PyErr_Clear();
           else __PYX_ERR(2, 389, __pyx_L1_error)
         }
         break;
@@ -15978,9 +15978,9 @@ static PyObject *_unellipsify(PyObject *__pyx_v_index, int __pyx_v_ndim) {
     } else {
       __pyx_t_7 = __pyx_t_6(__pyx_t_4);
       if (unlikely(!__pyx_t_7)) {
-        PyObject* exc_type = PyErr_Occurred();
-        if (exc_type) {
-          if (likely(exc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
+        PyObject* curexc_type = PyErr_Occurred();
+        if (curexc_type) {
+          if (likely(curexc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(curexc_type, PyExc_StopIteration))) PyErr_Clear();
           else __PYX_ERR(2, 665, __pyx_L1_error)
         }
         break;
@@ -16589,9 +16589,9 @@ static struct __pyx_memoryview_obj *__pyx_memview_slice(struct __pyx_memoryview_
     } else {
       __pyx_t_9 = __pyx_t_8(__pyx_t_3);
       if (unlikely(!__pyx_t_9)) {
-        PyObject* exc_type = PyErr_Occurred();
-        if (exc_type) {
-          if (likely(exc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
+        PyObject* curexc_type = PyErr_Occurred();
+        if (curexc_type) {
+          if (likely(curexc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(curexc_type, PyExc_StopIteration))) PyErr_Clear();
           else __PYX_ERR(2, 732, __pyx_L1_error)
         }
         break;
@@ -23888,7 +23888,7 @@ static CYTHON_INLINE PyObject * __Pyx_PyCFunction_FastCall(PyObject *func_obj, P
        because it may clear it (directly or indirectly) and so the
        caller loses its exception */
     assert(!PyErr_Occurred());
-    return (*((__Pyx_PyCFunctionFast)meth)) (self, args, nargs, NULL);
+    return (*((__Pyx_PyCFunctionFast)meth)) (self, args, nargs);
 }
 #endif  // CYTHON_FAST_PYCCALL
 
@@ -24240,21 +24240,21 @@ bad:
 /* SaveResetException */
       #if CYTHON_FAST_THREAD_STATE
 static CYTHON_INLINE void __Pyx__ExceptionSave(PyThreadState *tstate, PyObject **type, PyObject **value, PyObject **tb) {
-    *type = tstate->exc_type;
-    *value = tstate->exc_value;
-    *tb = tstate->exc_traceback;
+    *type = tstate->curexc_type;
+    *value = tstate->curexc_value;
+    *tb = tstate->curexc_traceback;
     Py_XINCREF(*type);
     Py_XINCREF(*value);
     Py_XINCREF(*tb);
 }
 static CYTHON_INLINE void __Pyx__ExceptionReset(PyThreadState *tstate, PyObject *type, PyObject *value, PyObject *tb) {
     PyObject *tmp_type, *tmp_value, *tmp_tb;
-    tmp_type = tstate->exc_type;
-    tmp_value = tstate->exc_value;
-    tmp_tb = tstate->exc_traceback;
-    tstate->exc_type = type;
-    tstate->exc_value = value;
-    tstate->exc_traceback = tb;
+    tmp_type = tstate->curexc_type;
+    tmp_value = tstate->curexc_value;
+    tmp_tb = tstate->curexc_traceback;
+    tstate->curexc_type = type;
+    tstate->curexc_value = value;
+    tstate->curexc_traceback = tb;
     Py_XDECREF(tmp_type);
     Py_XDECREF(tmp_value);
     Py_XDECREF(tmp_tb);
@@ -24264,10 +24264,10 @@ static CYTHON_INLINE void __Pyx__ExceptionReset(PyThreadState *tstate, PyObject 
 /* PyErrExceptionMatches */
       #if CYTHON_FAST_THREAD_STATE
 static CYTHON_INLINE int __Pyx_PyErr_ExceptionMatchesInState(PyThreadState* tstate, PyObject* err) {
-    PyObject *exc_type = tstate->curexc_type;
-    if (exc_type == err) return 1;
-    if (unlikely(!exc_type)) return 0;
-    return PyErr_GivenExceptionMatches(exc_type, err);
+    PyObject *curexc_type = tstate->curexc_type;
+    if (curexc_type == err) return 1;
+    if (unlikely(!curexc_type)) return 0;
+    return PyErr_GivenExceptionMatches(curexc_type, err);
 }
 #endif
 
@@ -24309,12 +24309,12 @@ static int __Pyx_GetException(PyObject **type, PyObject **value, PyObject **tb) 
     *value = local_value;
     *tb = local_tb;
 #if CYTHON_FAST_THREAD_STATE
-    tmp_type = tstate->exc_type;
-    tmp_value = tstate->exc_value;
-    tmp_tb = tstate->exc_traceback;
-    tstate->exc_type = local_type;
-    tstate->exc_value = local_value;
-    tstate->exc_traceback = local_tb;
+    tmp_type = tstate->curexc_type;
+    tmp_value = tstate->curexc_value;
+    tmp_tb = tstate->curexc_traceback;
+    tstate->curexc_type = local_type;
+    tstate->curexc_value = local_value;
+    tstate->curexc_traceback = local_tb;
     Py_XDECREF(tmp_type);
     Py_XDECREF(tmp_value);
     Py_XDECREF(tmp_tb);
@@ -24531,12 +24531,12 @@ return_ne:
         #if CYTHON_FAST_THREAD_STATE
 static CYTHON_INLINE void __Pyx__ExceptionSwap(PyThreadState *tstate, PyObject **type, PyObject **value, PyObject **tb) {
     PyObject *tmp_type, *tmp_value, *tmp_tb;
-    tmp_type = tstate->exc_type;
-    tmp_value = tstate->exc_value;
-    tmp_tb = tstate->exc_traceback;
-    tstate->exc_type = *type;
-    tstate->exc_value = *value;
-    tstate->exc_traceback = *tb;
+    tmp_type = tstate->curexc_type;
+    tmp_value = tstate->curexc_value;
+    tmp_tb = tstate->curexc_traceback;
+    tstate->curexc_type = *type;
+    tstate->curexc_value = *value;
+    tstate->curexc_traceback = *tb;
     *type = tmp_type;
     *value = tmp_value;
     *tb = tmp_tb;
