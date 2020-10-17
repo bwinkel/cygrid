@@ -42,10 +42,11 @@ def get_extensions():
         extra_compile_args = [
             '-fopenmp', '-O3', '-mmacosx-version-min=10.7', '-std=c++11',
             ]
-        if ('clang' in getoutput('gcc -v')) and all(
-                'command not found' in getoutput('gcc-{:d} -v'.format(d))
-                for d in [6, 7, 8]
-                ):
+        # if ('clang' in getoutput('gcc -v')) and all(
+        #         'command not found' in getoutput('gcc-{:d} -v'.format(d))
+        #         for d in [6, 7, 8, 9]
+        #         ):
+        if 'clang' in getoutput('gcc -v'):
             extra_compile_args += ['-stdlib=libc++', ]
         comp_args = {
             'extra_compile_args': extra_compile_args,
