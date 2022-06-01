@@ -94,7 +94,7 @@ __all__ = ['Cygrid', 'WcsGrid', 'SlGrid', 'ShapeError']
 
 
 from .kernels cimport (
-    gaussian_1d_kernel, gaussian_2d_kernel, tapered_sinc_1d_kernel
+    gaussian_1d_kernel, gaussian_2d_kernel, tapered_sinc_1d_kernel, gauss_bessel_kernel
     )
 from .hphashtab cimport HpxHashTable
 from .helpers cimport (
@@ -424,6 +424,10 @@ cdef class Cygrid(object):
                     '1D tapered-sinc kernel', 3, <bint> False,
                     # ('kernel_sigma', 'param_a', 'param_b')
                     ),
+                'gaussbessel': (
+                    '1D Gauss-Bessel kernel', 3, <bint> False,
+                    # ('bessel_width', '0.5 / kernel_sigma ** 2')
+                    ),
                 }
 
         try:
@@ -456,6 +460,8 @@ cdef class Cygrid(object):
             self.kernel_func_ptr = gaussian_2d_kernel
         elif kernel_type_u == 'tapered_sinc':
             self.kernel_func_ptr = tapered_sinc_1d_kernel
+        elif kernel_type_u == 'gaussbessel':
+            self.kernel_func_ptr = gauss_bessel_kernel
 
         self.kernel_set = <bint> True
         self.kernel_params_arr = kernel_params_arr

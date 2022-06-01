@@ -36,6 +36,8 @@ from numpy cimport (
     uint32_t, uint64_t, float32_t, float64_t
     )
 
+#cimport numpy as np
+cimport scipy.special.cython_special as csc
 
 cdef:
     # Kernels must have the following call signature:
@@ -48,6 +50,9 @@ cdef:
         double distance, double bearing, double[::1] kernel_params
         ) nogil
     double tapered_sinc_1d_kernel(
+        double distance, double bearing, double[::1] kernel_params
+        ) nogil
+    double gauss_bessel_kernel(
         double distance, double bearing, double[::1] kernel_params
         ) nogil
 

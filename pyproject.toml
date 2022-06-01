@@ -13,6 +13,7 @@ requires = [
     "numpy==1.23.4; python_version=='3.11'",
     # "oldest-supported-numpy",
     "extension-helpers",
+    "scipy"
     ]
 build-backend = "setuptools.build_meta"
 
