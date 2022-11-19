@@ -37,6 +37,9 @@ jobs:
     python.architecture: x64
     sphinx.version: '>=3.0'
     # sphinx.version: '<3.0'
+    pytest.version: ''
+    doctestplus.version: ''
+    extra.packages: ''
 
   strategy:
     matrix:
@@ -47,93 +50,64 @@ jobs:
       #   numpy.version: '1.13.1'
       #   astropy.version: '2'
       #   sphinx.version: '<3.0'
-      linux36:
-        imageName: 'ubuntu-16.04'
-        python.version: '3.6'
-        py_whl: 36
-        numpy.version: '1.13.1'
-        astropy.version: '3'
-      linux37:
-        # note: manylinux builds could have different version pins!
-        # see pip-requirements-dev
-        imageName: 'ubuntu-16.04'
-        python.version: '3.7'
-        py_whl: 37
-        numpy.version: '1.14.5'
-        astropy.version: '3'
-        # docs should only be published by one thread, as they are version-
-        # independent; and only if on the master branch
+      linux38:
+        imageName: 'ubuntu-latest'
+        python.version: '3.8'
+        py_whl: cp38-
+        numpy.version: '1.18.1'
+        astropy.version: '4'
+        pytest.version: '<6'
+        doctestplus.version: '<0.6.1'
+        extra.packages: 'sysroot_linux-64 "jinja2<3.1"'
+      linux39:
+        imageName: 'ubuntu-latest'
+        python.version: '3.9'
+        py_whl: cp39-
+        numpy.version: '1.20.0'
         publish.docs: ${{ or(eq(variables['is.master'], true), eq(variables['is.tag'], true)) }}
         # publish.docs: ${{ true }}
         ${{ if eq(variables['is.tag'], true) }}:
-          docs.target: 'stable'
+          docs.target: '.'
         ${{ if eq(variables['is.tag'], false) }}:
           docs.target: 'latest'
         # tarball should only be published by one thread, as it is version-
         # independent
         build.tarball: ${{ true }}
         publish.tarball: ${{ eq(variables['is.tag'], true) }}
-      linux38:
-        imageName: 'ubuntu-16.04'
+      linux310:
+        imageName: 'ubuntu-latest'
+        python.version: '3.10'
+        py_whl: cp310-
+        numpy.version: '1.22.0'
+      mac38:
+        imageName: 'macos-latest'
         python.version: '3.8'
-        py_whl: 38
-        numpy.version: '1.17.4'
-        astropy.version: '4'
-      # astropy not yet available for py3.9
-      # linux39:
-      #   imageName: 'ubuntu-16.04'
-      #   python.version: '3.9'
-      #   py_whl: 39
-      #   numpy.version: '1.19.2'
-      #   astropy.version: '4'
-      # mac35:
-      #   imageName: 'macos-10.14'
-      #   python.version: '3.5'
-      #   numpy.version: '1.13.1'
-      #   astropy.version: '2'
-      #   sphinx.version: '<3.0'
-      mac36:
-        imageName: 'macos-10.14'
-        python.version: '3.6'
-        numpy.version: '1.13.1'
-        astropy.version: '3'
-      mac37:
-        imageName: 'macos-10.14'
-        python.version: '3.7'
-        numpy.version: '1.14.5'
-        astropy.version: '3'
-      # mac 3.8 leads to anaconda conflicts
-      # mac38:
-      #   imageName: 'macos-10.15'
-      #   python.version: '3.8'
-      #   numpy.version: '1.18.1'
-      #   astropy.version: '4'
-      # win35:
-      #   imageName: 'vs2017-win2016'
-      #   python.version: '3.5'
-      #   numpy.version: '1.13.1'
-      #   astropy.version: '2'
-      #   sphinx.version: '<3.0'
-      win36:
-        imageName: 'vs2017-win2016'
-        python.version: '3.6'
-        numpy.version: '1.13.1'
-        astropy.version: '3'
-      win37:
-        imageName: 'vs2017-win2016'
-        python.version: '3.7'
-        numpy.version: '1.14.5'
-        astropy.version: '3'
+        numpy.version: '1.18.1'
+        astropy.version: '5'
+        pyproj.version: '>=2.2,<3'
+      mac39:
+        imageName: 'macos-latest'
+        python.version: '3.9'
+        numpy.version: '1.20.0'
+      mac310:
+        imageName: 'macos-latest'
+        python.version: '3.10'
+        numpy.version: '1.22.0'
       win38:
-        imageName: 'vs2017-win2016'
+        imageName: 'windows-latest'
         python.version: '3.8'
-        numpy.version: '1.17.4'
+        # numpy.version: '1.17.4'
+        numpy.version: '1.18.1'
         astropy.version: '4'
-      # win39:
-      #   imageName: 'vs2017-win2016'
-      #   python.version: '3.9'
-      #   numpy.version: '1.19.2'
-      #   astropy.version: '4'
+        pyproj.version: '>=2.2,<3'
+      win39:
+        imageName: 'windows-latest'
+        python.version: '3.9'
+        numpy.version: '1.20.0'
+      win310:
+        imageName: 'windows-latest'
+        python.version: '3.10'
+        numpy.version: '1.22.0'
 
   pool:
     vmImage: $(imageName)
@@ -145,6 +119,13 @@ jobs:
     displayName: Fix a conda bug on MacOS
     condition: startsWith(variables['Agent.OS'], 'Darwin')
 
+  # see https://github.com/mamba-org/mamba/issues/488
+  # and https://github.com/MPAS-Dev/compass/pull/320
+  - bash: |
+      rm /usr/share/miniconda/pkgs/cache/*.json
+    displayName: Fix a conda bug on Linux
+    condition: startsWith(variables['Agent.OS'], 'Linux')
+
   - bash: |
       echo "##vso[task.prependpath]$CONDA/bin"
       echo "##vso[task.setvariable variable=conda.activate]source activate"
@@ -152,10 +133,10 @@ jobs:
     condition: not(startsWith(variables['Agent.OS'], 'Windows'))
 
   - bash: |
-      echo "##vso[task.setvariable variable=display]:99.0"
-      /sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -screen 0 1920x1200x24 -ac +extension GLX +render -noreset
-    displayName: Activate display, Linux
-    condition: startsWith(variables['Agent.OS'], 'Linux')
+      echo "##vso[task.prependpath]/usr/bin"
+      echo "##vso[task.setvariable variable=SETUPTOOLS_ENABLE_FEATURES]legacy-editable"
+    displayName: Bugfix MacOS command line interface
+    condition: startsWith(variables['Agent.OS'], 'Darwin')
 
   # echo "##vso[task.setvariable variable=conda.activate]call $env:CONDA\Scripts\activate.bat"
   - powershell: |
@@ -163,6 +144,11 @@ jobs:
       echo "##vso[task.setvariable variable=conda.activate]call activate.bat"
     displayName: Add conda to PATH, Windows
     condition: startsWith(variables['Agent.OS'], 'Windows')
+
+  - script: |
+      set -x
+    displayName: Verbosity on Linux/MacOS
+    condition: not(startsWith(variables['Agent.OS'], 'Windows'))
 
   - script: |
       echo on
@@ -197,7 +183,9 @@ jobs:
     # condition: not(eq(variables['is.win'], true))
     condition: not(startsWith(variables['Agent.OS'], 'Windows'))
 
-  - script: conda create --yes --quiet --name cygrid-env -c conda-forge
+  - script: |
+      conda install --yes -c conda-forge mamba
+      conda create --yes --quiet --name cygrid-env -c conda-forge
     displayName: Create Anaconda environment
 
   # note: with project.toml it should not be necessary to have cython
@@ -206,37 +194,67 @@ jobs:
   # pip installation)
   - script: |
       $(conda.activate) cygrid-env
-      conda install --yes --quiet -c conda-forge python=$(python.version) astropy=$(astropy.version) astroquery cython matplotlib numpy==$(numpy.version) pip "pytest<6" pytest-astropy "pytest-doctestplus<0.6.1" reproject scipy "sphinx$(sphinx.version)" sphinx-astropy twine wheel
+      mamba install --yes --quiet -c conda-forge python=$(python.version) astropy=$(astropy.version) astroquery build cython matplotlib numpy==$(numpy.version) pip "pytest$(pytest.version)" pytest-astropy "pytest-doctestplus$(doctestplus.version)" reproject scipy "sphinx$(sphinx.version)" sphinx-astropy twine wheel $(extra.packages)
     displayName: Install Anaconda packages
 
   # need to fix cctools and ld64 to slightly older version, otherwise an
   # error ("ld: library not found for -lSystem") occurs during build
+  # - script: |
+  #     $(conda.activate) cygrid-env
+  #     conda install --yes --quiet --name cygrid-env -c conda-forge clang_osx-64 clangxx_osx-64 llvm-openmp openmp cctools==921 ld64==409.12
+  #   displayName: Prepare clang, MacOS
+  #   # condition: and(succeeded(), eq(variables['is.macos'], true))
+  #   condition: and(succeeded(), startsWith(variables['Agent.OS'], 'Darwin'))
+
   - script: |
-      $(conda.activate) cygrid-env
-      conda install --yes --quiet --name cygrid-env -c conda-forge clang_osx-64 clangxx_osx-64 llvm-openmp openmp cctools==921 ld64==409.12
+      $(conda.activate) pycraf-env
+      mamba install --yes --quiet --name pycraf-env -c conda-forge compilers llvm-openmp clang_osx-64 clangxx_osx-64
     displayName: Prepare clang, MacOS
     # condition: and(succeeded(), eq(variables['is.macos'], true))
     condition: and(succeeded(), startsWith(variables['Agent.OS'], 'Darwin'))
 
   - script: |
       $(conda.activate) cygrid-env
-      pip install -e .
+      # pip install -e .
+      python -m pip install --no-build-isolation --no-deps -v -v -v -e .
     displayName: Building
 
   # pytest -rsx --doctest-rst docs cygrid
   - script: |
       $(conda.activate) cygrid-env
-      pip install pytest-azurepipelines
-      python setup.py test
+      # pip install pytest-azurepipelines
+      # python setup.py test
+      pytest -rsx --ignore-glob="*/setup_package.py" cygrid
     displayName: Testing
+    condition: succeeded()
+
+  - script: |
+      $(conda.activate) cygrid-env
+      # --doctest-rst not recommended, use --doctest-glob instead
+      # the following only works because of pip install -e
+      pytest -rsx --doctest-plus --doctest-glob="*.rst" --doctest-ignore-import-errors docs
+    displayName: Testing docs
+    condition: and(succeeded(), startsWith(variables['Agent.OS'], 'Linux'), eq(variables['python.version'], 3.9))
 
   # sphinx-build docs docs/_build/html -W -b html
   # conda install --yes --quiet --name cygrid-env -c conda-forge sphinx-astropy
+  # - script: |
+  #     $(conda.activate) cygrid-env
+  #     python setup.py build_docs
+  #   displayName: Make docs
+  #   condition: succeeded()
   - script: |
       $(conda.activate) cygrid-env
-      python setup.py build_docs
+      # python setup.py build_docs -v -v -v
+      # cd docs
+      # make html
+      conda install --yes --quiet --name cygrid-env -c conda-forge "sphinx$(sphinx.version)" sphinx-astropy
+      # sphinx-build docs docs/_build/html -W -b html
+      cd docs
+      sphinx-build . _build/html -b html
     displayName: Make docs
-    condition: succeeded()
+    # condition: and(succeeded(), startsWith(variables['Agent.OS'], 'Linux'), eq(variables['python.version'], 3.8))
+    condition: and(succeeded(), startsWith(variables['Agent.OS'], 'Linux'))
 
   - task: DownloadSecureFile@1
     inputs:
@@ -261,6 +279,7 @@ jobs:
       # mkdir -p ./$DOCS_TARGET
       # for some strange reason, the new package versions (astropy?) create
       # the _build/html in docs/docs and not in docs/
+      # rsync -av ../docs/docs/_build/html/ ${DOCS_TARGET}/
       rsync -av ../docs/_build/html/ ${DOCS_TARGET}/
       docs_version=$(python -c "import cygrid; print(cygrid.__version__)")
       git add -A && git commit -m "Update docs for $docs_version ***NO_CI***"
@@ -270,7 +289,7 @@ jobs:
 
   - task: TwineAuthenticate@1
     inputs:
-      pythonUploadServiceConnection: pypi
+      pythonUploadServiceConnection: pypi_cygrid
     displayName: 'Twine Authenticate'
 
   - bash: |
@@ -285,7 +304,8 @@ jobs:
 
   - script: |
       $(conda.activate) cygrid-env
-      python setup.py bdist_wheel
+      # python setup.py bdist_wheel
+      python -m build --wheel
     displayName: Build wheels, MacOS/Windows
     condition: and(succeeded(), not(startsWith(variables['Agent.OS'], 'Linux')))
 
@@ -294,32 +314,34 @@ jobs:
   # will use system python for upload
   - task: UsePythonVersion@0
     inputs:
-      versionSpec: '3.6'
+      versionSpec: '3.9'
 
   - script: |
       pip install twine
       ls dist/*.whl
-      python -m twine upload -r "pypi" --config-file $(PYPIRC_PATH) dist/*.whl
+      python -m twine upload -r "pypi_cygrid" --config-file $(PYPIRC_PATH) dist/*.whl
     displayName: Upload wheels, Linux/MacOS
     condition: and(succeeded(), eq(variables['publish.wheels'], true), not(startsWith(variables['Agent.OS'], 'Windows')))
 
   - script: |
       pip install twine
       ls dist/*.whl
-      python -m twine upload -r "pypi" --config-file %PYPIRC_PATH% dist/*.whl
+      python -m twine upload -r "pypi_cygrid" --config-file %PYPIRC_PATH% dist/*.whl
     displayName: Upload wheels, Windows
     condition: and(succeeded(), eq(variables['publish.wheels'], true), startsWith(variables['Agent.OS'], 'Windows'))
 
   - script: |
       $(conda.activate) cygrid-env
-      python setup.py sdist
+      # python setup.py sdist
+      sudo rm -rfv *.egg-info
+      python -m build --sdist
     displayName: Build tarball
     condition: and(succeeded(), eq(variables['build.tarball'], true))
 
   - script: |
       $(conda.activate) cygrid-env
       ls dist/*.tar.gz
-      python -m twine upload -r "pypi" --config-file $(PYPIRC_PATH) dist/*.tar.gz
+      python -m twine upload -r "pypi_cygrid" --config-file $(PYPIRC_PATH) dist/*.tar.gz
     displayName: Upload tarball
     condition: and(succeeded(), eq(variables['publish.tarball'], true))
 
