@@ -34,6 +34,7 @@ jobs:
     # for very old systems, the following would also be an alternative:
     # plat: manylinux1_x86_64
     # image: skhep/manylinuxgcc-x86_64
+    astropy.version: ''
     python.architecture: x64
     sphinx.version: '>=3.0'
     # sphinx.version: '<3.0'
@@ -56,14 +57,12 @@ jobs:
         py_whl: cp38-
         numpy.version: '1.18.1'
         astropy.version: '4'
-        pytest.version: '<6'
-        doctestplus.version: '<0.6.1'
-        extra.packages: 'sysroot_linux-64 "jinja2<3.1"'
+        extra.packages: 'sysroot_linux-64'
       linux39:
         imageName: 'ubuntu-latest'
         python.version: '3.9'
         py_whl: cp39-
-        numpy.version: '1.20.0'
+        numpy.version: '1.20.3'
         publish.docs: ${{ or(eq(variables['is.master'], true), eq(variables['is.tag'], true)) }}
         # publish.docs: ${{ true }}
         ${{ if eq(variables['is.tag'], true) }}:
@@ -78,36 +77,47 @@ jobs:
         imageName: 'ubuntu-latest'
         python.version: '3.10'
         py_whl: cp310-
-        numpy.version: '1.22.0'
+        numpy.version: '1.21.6'
+      linux311:
+        imageName: 'ubuntu-latest'
+        python.version: '3.11'
+        py_whl: cp311-
+        numpy.version: '1.23.4'
       mac38:
         imageName: 'macos-latest'
         python.version: '3.8'
         numpy.version: '1.18.1'
-        astropy.version: '5'
-        pyproj.version: '>=2.2,<3'
+        astropy.version: '4'
       mac39:
         imageName: 'macos-latest'
         python.version: '3.9'
-        numpy.version: '1.20.0'
+        numpy.version: '1.20.3'
       mac310:
         imageName: 'macos-latest'
         python.version: '3.10'
-        numpy.version: '1.22.0'
+        numpy.version: '1.21.6'
+      mac311:
+        imageName: 'macos-latest'
+        python.version: '3.11'
+        numpy.version: '1.23.4'
       win38:
         imageName: 'windows-latest'
         python.version: '3.8'
         # numpy.version: '1.17.4'
         numpy.version: '1.18.1'
         astropy.version: '4'
-        pyproj.version: '>=2.2,<3'
       win39:
         imageName: 'windows-latest'
         python.version: '3.9'
-        numpy.version: '1.20.0'
+        numpy.version: '1.20.3'
       win310:
         imageName: 'windows-latest'
         python.version: '3.10'
-        numpy.version: '1.22.0'
+        numpy.version: '1.21.6'
+      win311:
+        imageName: 'windows-latest'
+        python.version: '3.11'
+        numpy.version: '1.23.4'
 
   pool:
     vmImage: $(imageName)
@@ -194,7 +204,7 @@ jobs:
   # pip installation)
   - script: |
       $(conda.activate) cygrid-env
-      mamba install --yes --quiet -c conda-forge python=$(python.version) astropy=$(astropy.version) astroquery build cython matplotlib numpy==$(numpy.version) pip "pytest$(pytest.version)" pytest-astropy "pytest-doctestplus$(doctestplus.version)" reproject scipy "sphinx$(sphinx.version)" sphinx-astropy twine wheel $(extra.packages)
+      mamba install --yes --quiet -c conda-forge python=$(python.version) astropy=$(astropy.version) astroquery build cython extension-helpers matplotlib-base numpy==$(numpy.version) pip "pytest$(pytest.version)" pytest-astropy pytest-doctestplus reproject scipy setuptools-scm $(extra.packages)
     displayName: Install Anaconda packages
 
   # need to fix cctools and ld64 to slightly older version, otherwise an
@@ -207,8 +217,8 @@ jobs:
   #   condition: and(succeeded(), startsWith(variables['Agent.OS'], 'Darwin'))
 
   - script: |
-      $(conda.activate) pycraf-env
-      mamba install --yes --quiet --name pycraf-env -c conda-forge compilers llvm-openmp clang_osx-64 clangxx_osx-64
+      $(conda.activate) cygrid-env
+      mamba install --yes --quiet --name cygrid-env -c conda-forge compilers llvm-openmp clang_osx-64 clangxx_osx-64
     displayName: Prepare clang, MacOS
     # condition: and(succeeded(), eq(variables['is.macos'], true))
     condition: and(succeeded(), startsWith(variables['Agent.OS'], 'Darwin'))
@@ -234,7 +244,8 @@ jobs:
       # the following only works because of pip install -e
       pytest -rsx --doctest-plus --doctest-glob="*.rst" --doctest-ignore-import-errors docs
     displayName: Testing docs
-    condition: and(succeeded(), startsWith(variables['Agent.OS'], 'Linux'), eq(variables['python.version'], 3.9))
+    condition: succeeded()
+    # condition: and(succeeded(), startsWith(variables['Agent.OS'], 'Linux'), eq(variables['python.version'], 3.9))
 
   # sphinx-build docs docs/_build/html -W -b html
   # conda install --yes --quiet --name cygrid-env -c conda-forge sphinx-astropy
@@ -250,8 +261,7 @@ jobs:
       # make html
       conda install --yes --quiet --name cygrid-env -c conda-forge "sphinx$(sphinx.version)" sphinx-astropy
       # sphinx-build docs docs/_build/html -W -b html
-      cd docs
-      sphinx-build . _build/html -b html
+      sphinx-build docs docs/_build/html -b html
     displayName: Make docs
     # condition: and(succeeded(), startsWith(variables['Agent.OS'], 'Linux'), eq(variables['python.version'], 3.8))
     condition: and(succeeded(), startsWith(variables['Agent.OS'], 'Linux'))
