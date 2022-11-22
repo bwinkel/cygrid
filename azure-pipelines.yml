@@ -346,14 +346,14 @@ jobs:
       sudo rm -rfv *.egg-info
       python -m build --sdist
     displayName: Build tarball
-    condition: or(succeeded(), eq(variables['build.tarball'], true))
+    condition: and(succeeded(), eq(variables['build.tarball'], true))
 
   - script: |
       $(conda.activate) cygrid-env
       ls dist/*.tar.gz
       python -m twine upload -r "pypi_cygrid" --config-file $(PYPIRC_PATH) dist/*.tar.gz
     displayName: Upload tarball
-    condition: or(succeeded(), eq(variables['publish.tarball'], true))
+    condition: and(succeeded(), eq(variables['publish.tarball'], true))
 
   - script: rm ~/.ssh/id_rsa || true
     displayName: 'Cleanup docs deploy key'
