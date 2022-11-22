@@ -1,5 +1,6 @@
-2.0.3 (unreleased)
+2.0.3 (2022-11-22)
 =======================
+This is a pure maintenance release providing cygrid for newer Python versions.
 
 2.0.2 (2021-01-25)
 =======================
