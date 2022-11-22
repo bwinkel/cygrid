@@ -204,7 +204,7 @@ jobs:
   # pip installation)
   - script: |
       $(conda.activate) cygrid-env
-      mamba install --yes --quiet -c conda-forge python=$(python.version) astropy=$(astropy.version) astroquery build cython extension-helpers matplotlib-base numpy==$(numpy.version) pip "pytest$(pytest.version)" pytest-astropy pytest-doctestplus reproject scipy setuptools-scm $(extra.packages)
+      mamba install --yes --quiet -c conda-forge python=$(python.version) astropy=$(astropy.version) astroquery build cython extension-helpers matplotlib-base numpy==$(numpy.version) pip "pytest$(pytest.version)" pytest-astropy pytest-doctestplus reproject scipy setuptools-scm twine $(extra.packages)
     displayName: Install Anaconda packages
 
   # need to fix cctools and ld64 to slightly older version, otherwise an
@@ -319,22 +319,22 @@ jobs:
     displayName: Build wheels, MacOS/Windows
     condition: and(succeeded(), not(startsWith(variables['Agent.OS'], 'Linux')))
 
-  # twine upload with python 3.5 doesn't work?
-  # (pkg_resources.DistributionNotFound: The 'readme-renderer>=21.0' distribution was not found)
-  # will use system python for upload
-  - task: UsePythonVersion@0
-    inputs:
-      versionSpec: '3.9'
+  # # twine upload with python 3.5 doesn't work?
+  # # (pkg_resources.DistributionNotFound: The 'readme-renderer>=21.0' distribution was not found)
+  # # will use system python for upload
+  # - task: UsePythonVersion@0
+  #   inputs:
+  #     versionSpec: '3.9'
 
   - script: |
-      pip install twine
+      $(conda.activate) cygrid-env
       ls dist/*.whl
       python -m twine upload -r "pypi_cygrid" --config-file $(PYPIRC_PATH) dist/*.whl
     displayName: Upload wheels, Linux/MacOS
     condition: and(succeeded(), eq(variables['publish.wheels'], true), not(startsWith(variables['Agent.OS'], 'Windows')))
 
   - script: |
-      pip install twine
+      $(conda.activate) cygrid-env
       ls dist/*.whl
       python -m twine upload -r "pypi_cygrid" --config-file %PYPIRC_PATH% dist/*.whl
     displayName: Upload wheels, Windows
@@ -346,14 +346,14 @@ jobs:
       sudo rm -rfv *.egg-info
       python -m build --sdist
     displayName: Build tarball
-    condition: and(succeeded(), eq(variables['build.tarball'], true))
+    condition: or(succeeded(), eq(variables['build.tarball'], true))
 
   - script: |
       $(conda.activate) cygrid-env
       ls dist/*.tar.gz
       python -m twine upload -r "pypi_cygrid" --config-file $(PYPIRC_PATH) dist/*.tar.gz
     displayName: Upload tarball
-    condition: and(succeeded(), eq(variables['publish.tarball'], true))
+    condition: or(succeeded(), eq(variables['publish.tarball'], true))
 
   - script: rm ~/.ssh/id_rsa || true
     displayName: 'Cleanup docs deploy key'
