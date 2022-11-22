@@ -82,7 +82,7 @@ __import__(setup_cfg['package_name'])
 package = sys.modules[setup_cfg['package_name']]
 
 # The short X.Y version.
-version = package.__version__.split('-', 1)[0]
+version = package.__version__.split('+', 1)[0]
 # The full version, including alpha/beta/rc tags.
 release = package.__version__
 
@@ -159,18 +159,17 @@ man_pages = [('index', project.lower(), project + u' Documentation',
 if eval(setup_cfg.get('edit_on_github')):
     extensions += ['sphinx_astropy.ext.edit_on_github']
 
-    versionmod = __import__(setup_cfg['package_name'] + '.version')
     edit_on_github_project = setup_cfg['github_project']
-    if versionmod.version.release:
-        edit_on_github_branch = "v" + versionmod.version.version
-    else:
+    if '.dev' in package.__version__:
         edit_on_github_branch = "master"
+    else:
+        edit_on_github_branch = "v" + package.__version__
 
     edit_on_github_source_root = ""
     edit_on_github_doc_root = "docs"
 
 # -- Resolving issue number to links in changelog -----------------------------
-github_issues_url = 'https://github.com/{0}/issues/'.format(setup_cfg['github_project'])
+# github_issues_url = 'https://github.com/{0}/issues/'.format(setup_cfg['github_project'])
 
 # -- Turn on nitpicky mode for sphinx (to warn about references not found) ----
 #

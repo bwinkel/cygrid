@@ -18,44 +18,86 @@ PYXDIR = os.path.relpath(os.path.dirname(__file__))
 
 def get_extensions():
 
-    comp_args = {
-        'extra_compile_args': ['-fopenmp', '-O3', '-std=c++11'],
-        'extra_link_args': ['-fopenmp'],
-        'language': 'c++',
-        # 'libraries': ['m'],
-        'include_dirs': ['numpy'],
-        }
+    # comp_args = {
+    #     'extra_compile_args': ['-fopenmp', '-O3', '-std=c++11'],
+    #     'extra_link_args': ['-fopenmp'],
+    #     'language': 'c++',
+    #     # 'libraries': ['m'],
+    #     'include_dirs': ['numpy'],
+    #     }
 
-    if platform.system().lower() == 'windows':
+    # if platform.system().lower() == 'windows':
+    #     comp_args = {
+    #         'extra_compile_args': ['/openmp'],
+    #         'language': 'c++',
+    #         'include_dirs': ['numpy'],
+    #         }
+    # elif 'darwin' in platform.system().lower():
+    #     # os.environ["CC"] = "g++-6"
+    #     # os.environ["CPP"] = "cpp-6"
+    #     # os.environ["CXX"] = "g++-6"
+    #     # os.environ["LD"] = "gcc-6"
+    #     from subprocess import getoutput
+
+    #     extra_compile_args = [
+    #         '-fopenmp', '-O3', '-mmacosx-version-min=10.7', '-std=c++11',
+    #         ]
+    #     # if ('clang' in getoutput('gcc -v')) and all(
+    #     #         'command not found' in getoutput('gcc-{:d} -v'.format(d))
+    #     #         for d in [6, 7, 8, 9]
+    #     #         ):
+    #     if 'clang' in getoutput('gcc -v'):
+    #         extra_compile_args += ['-stdlib=libc++', ]
+    #     comp_args = {
+    #         'extra_compile_args': extra_compile_args,
+    #         'extra_link_args': [
+    #             '-fopenmp',  # '-lgomp'
+    #             ],
+    #         'language': 'c++',
+    #         'include_dirs': ['numpy'],
+    #         }
+
+
+    EX_COMP_ARGS = []
+    if 'mac' in platform.system().lower():
+        EX_COMP_ARGS += ['-stdlib=libc++', '-mmacosx-version-min=10.7']
+
+
+    def get_compile_args():
+
+        import numpy
+
         comp_args = {
-            'extra_compile_args': ['/openmp'],
+            'extra_compile_args': ['-fopenmp', '-O3', '-std=c++11'],
+            'extra_link_args': ['-fopenmp'],
             'language': 'c++',
-            'include_dirs': ['numpy'],
-            }
-    elif 'darwin' in platform.system().lower():
-        # os.environ["CC"] = "g++-6"
-        # os.environ["CPP"] = "cpp-6"
-        # os.environ["CXX"] = "g++-6"
-        # os.environ["LD"] = "gcc-6"
-        from subprocess import getoutput
-
-        extra_compile_args = [
-            '-fopenmp', '-O3', '-mmacosx-version-min=10.7', '-std=c++11',
-            ]
-        # if ('clang' in getoutput('gcc -v')) and all(
-        #         'command not found' in getoutput('gcc-{:d} -v'.format(d))
-        #         for d in [6, 7, 8, 9]
-        #         ):
-        if 'clang' in getoutput('gcc -v'):
-            extra_compile_args += ['-stdlib=libc++', ]
-        comp_args = {
-            'extra_compile_args': extra_compile_args,
-            'extra_link_args': [
-                '-fopenmp',  # '-lgomp'
+            # 'include_dirs': ['numpy'],
+            'include_dirs': [
+                numpy.get_include(),
                 ],
-            'language': 'c++',
-            'include_dirs': ['numpy'],
             }
+
+        if platform.system().lower() == 'windows':
+            comp_args['extra_compile_args'] = ['/openmp']
+            del comp_args['extra_link_args']
+
+        if 'darwin' in platform.system().lower():
+
+            from subprocess import getoutput
+
+            extra_compile_args = [
+                '-fopenmp', '-O3', '-std=c++11',
+                # '-mmacosx-version-min={:s}'.format(mac_version),
+                ]
+            if 'clang' in getoutput('gcc -v'):
+                extra_compile_args += ['-stdlib=libc++', ]
+
+            comp_args['extra_compile_args'] = extra_compile_args
+
+        return comp_args
+
+
+    comp_args = get_compile_args()
 
     ext_module_cygrid_cygrid = Extension(
         name='cygrid.cygrid',
