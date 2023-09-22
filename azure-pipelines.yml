@@ -194,8 +194,10 @@ jobs:
     condition: not(startsWith(variables['Agent.OS'], 'Windows'))
 
   - script: |
-      conda install --yes -c conda-forge mamba
-      conda create --yes --quiet --name cygrid-env -c conda-forge
+      # conda install --yes -c conda-forge mamba
+      conda install --yes -c conda-forge conda-libmamba-solver
+      # conda create --yes --quiet --name cygrid-env -c conda-forge
+      conda create --yes --quiet --solver=libmamba --name cygrid-env -c conda-forge
     displayName: Create Anaconda environment
 
   # note: with project.toml it should not be necessary to have cython
@@ -204,7 +206,7 @@ jobs:
   # pip installation)
   - script: |
       $(conda.activate) cygrid-env
-      mamba install --yes --quiet -c conda-forge python=$(python.version) astropy=$(astropy.version) astroquery build cython extension-helpers matplotlib-base numpy==$(numpy.version) pip "pytest$(pytest.version)" pytest-astropy pytest-doctestplus reproject scipy setuptools-scm twine $(extra.packages)
+      conda install --yes --quiet -c conda-forge python=$(python.version) astropy=$(astropy.version) astroquery build cython extension-helpers matplotlib-base numpy==$(numpy.version) pip "pytest$(pytest.version)" pytest-astropy pytest-doctestplus reproject scipy setuptools-scm twine $(extra.packages)
     displayName: Install Anaconda packages
 
   # need to fix cctools and ld64 to slightly older version, otherwise an
@@ -218,7 +220,7 @@ jobs:
 
   - script: |
       $(conda.activate) cygrid-env
-      mamba install --yes --quiet --name cygrid-env -c conda-forge compilers llvm-openmp clang_osx-64 clangxx_osx-64
+      conda install --yes --quiet --name cygrid-env -c conda-forge compilers llvm-openmp clang_osx-64 clangxx_osx-64
     displayName: Prepare clang, MacOS
     # condition: and(succeeded(), eq(variables['is.macos'], true))
     condition: and(succeeded(), startsWith(variables['Agent.OS'], 'Darwin'))
