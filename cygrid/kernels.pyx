@@ -145,3 +145,40 @@ cdef double tapered_sinc_1d_kernel(
     arg = PI * distance / kernel_params[0]
 
     return sinc(arg / kernel_params[2]) * exp(-(arg / kernel_params[1]) ** 2)
+
+
+cdef double gauss_bessel_kernel(
+        double distance, double bearing, double[::1] kernel_params
+        ) nogil:
+    '''
+    Gaussian tapered Bessel kernel following the definition
+    of Mangum et al. 2007 A&A 474 679M.
+
+    Parameters
+    ----------
+    distance : double
+        Radial distance/separation
+    bearing : double
+        unused - this is only in the call signature to allow function pointers
+    kernel_params : double[::1]
+        mem-view on kernel-parameters array
+        must contain:
+        kernel_params[0] : A third of the Half Power Beam Width
+        kernel_params[1] : 2.52
+        kernel_params[2] : 1.55
+
+    Returns
+    -------
+    Kernel weight : double
+    '''
+
+    cdef:
+        double arg, Earg, gauss, bessel
+
+    arg = PI * fabs(distance) / kernel_params[0] / kernel_params[2]
+    bessel = csc.j1(arg) / arg
+
+    Earg = distance * distance / kernel_params[0] / kernel_params[0] / kernel_params[1] / kernel_params[1] / 2.0
+    gauss = exp(-Earg)
+
+    return gauss * bessel
