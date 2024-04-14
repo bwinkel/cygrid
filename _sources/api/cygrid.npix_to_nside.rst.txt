@@ -1,0 +1,6 @@
+npix_to_nside
+=============
+
+.. currentmodule:: cygrid
+
+.. autofunction:: npix_to_nside

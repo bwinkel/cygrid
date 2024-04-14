@@ -1,0 +1,6 @@
+nside_to_order
+==============
+
+.. currentmodule:: cygrid
+
+.. autofunction:: nside_to_order

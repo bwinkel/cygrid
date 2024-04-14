@@ -1,0 +1,59 @@
+Healpix
+=======
+
+.. currentmodule:: cygrid
+
+.. autoclass:: Healpix
+   :show-inheritance:
+
+   .. rubric:: Attributes Summary
+
+   .. autosummary::
+
+      ~Healpix.ncap
+      ~Healpix.npface
+      ~Healpix.npix
+      ~Healpix.nrings
+      ~Healpix.nside
+      ~Healpix.omega
+      ~Healpix.order
+      ~Healpix.resolution
+      ~Healpix.scheme
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~Healpix.ang2pix
+      ~Healpix.ang2pix_many
+      ~Healpix.get_ring_info_small
+      ~Healpix.pix2ang
+      ~Healpix.pix2ang_many
+      ~Healpix.pix2ring
+      ~Healpix.pix2ring_many
+      ~Healpix.query_disc
+      ~Healpix.query_disc_phi180
+
+   .. rubric:: Attributes Documentation
+
+   .. autoattribute:: ncap
+   .. autoattribute:: npface
+   .. autoattribute:: npix
+   .. autoattribute:: nrings
+   .. autoattribute:: nside
+   .. autoattribute:: omega
+   .. autoattribute:: order
+   .. autoattribute:: resolution
+   .. autoattribute:: scheme
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: ang2pix
+   .. automethod:: ang2pix_many
+   .. automethod:: get_ring_info_small
+   .. automethod:: pix2ang
+   .. automethod:: pix2ang_many
+   .. automethod:: pix2ring
+   .. automethod:: pix2ring_many
+   .. automethod:: query_disc
+   .. automethod:: query_disc_phi180

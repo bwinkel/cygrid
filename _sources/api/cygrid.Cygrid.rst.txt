@@ -1,0 +1,31 @@
+Cygrid
+======
+
+.. currentmodule:: cygrid
+
+.. autoclass:: Cygrid
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~Cygrid.clear_cache
+      ~Cygrid.clear_data_and_weights
+      ~Cygrid.get_datacube
+      ~Cygrid.get_unweighted_datacube
+      ~Cygrid.get_weights
+      ~Cygrid.grid
+      ~Cygrid.set_kernel
+      ~Cygrid.set_num_threads
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: clear_cache
+   .. automethod:: clear_data_and_weights
+   .. automethod:: get_datacube
+   .. automethod:: get_unweighted_datacube
+   .. automethod:: get_weights
+   .. automethod:: grid
+   .. automethod:: set_kernel
+   .. automethod:: set_num_threads

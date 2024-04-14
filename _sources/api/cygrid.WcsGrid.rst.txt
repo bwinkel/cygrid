@@ -1,0 +1,39 @@
+WcsGrid
+=======
+
+.. currentmodule:: cygrid
+
+.. autoclass:: WcsGrid
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~WcsGrid.clear_cache
+      ~WcsGrid.clear_data_and_weights
+      ~WcsGrid.get_datacube
+      ~WcsGrid.get_header
+      ~WcsGrid.get_pixel_coords
+      ~WcsGrid.get_unweighted_datacube
+      ~WcsGrid.get_wcs
+      ~WcsGrid.get_weights
+      ~WcsGrid.get_world_coords
+      ~WcsGrid.grid
+      ~WcsGrid.set_kernel
+      ~WcsGrid.set_num_threads
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: clear_cache
+   .. automethod:: clear_data_and_weights
+   .. automethod:: get_datacube
+   .. automethod:: get_header
+   .. automethod:: get_pixel_coords
+   .. automethod:: get_unweighted_datacube
+   .. automethod:: get_wcs
+   .. automethod:: get_weights
+   .. automethod:: get_world_coords
+   .. automethod:: grid
+   .. automethod:: set_kernel
+   .. automethod:: set_num_threads

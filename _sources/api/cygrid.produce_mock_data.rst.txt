@@ -1,0 +1,6 @@
+produce_mock_data
+=================
+
+.. currentmodule:: cygrid
+
+.. autofunction:: produce_mock_data

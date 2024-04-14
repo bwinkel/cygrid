@@ -1,0 +1,6 @@
+test
+====
+
+.. currentmodule:: cygrid
+
+.. autofunction:: test

@@ -1,0 +1,6 @@
+ShapeError
+==========
+
+.. currentmodule:: cygrid
+
+.. autoexception:: ShapeError

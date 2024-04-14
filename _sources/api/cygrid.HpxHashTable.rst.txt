@@ -1,0 +1,63 @@
+HpxHashTable
+============
+
+.. currentmodule:: cygrid
+
+.. autoclass:: HpxHashTable
+   :show-inheritance:
+
+   .. rubric:: Attributes Summary
+
+   .. autosummary::
+
+      ~HpxHashTable.ncap
+      ~HpxHashTable.npface
+      ~HpxHashTable.npix
+      ~HpxHashTable.nrings
+      ~HpxHashTable.nside
+      ~HpxHashTable.omega
+      ~HpxHashTable.order
+      ~HpxHashTable.resolution
+      ~HpxHashTable.scheme
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~HpxHashTable.ang2pix
+      ~HpxHashTable.ang2pix_many
+      ~HpxHashTable.clear_hashes
+      ~HpxHashTable.get_ring_info_small
+      ~HpxHashTable.pix2ang
+      ~HpxHashTable.pix2ang_many
+      ~HpxHashTable.pix2ring
+      ~HpxHashTable.pix2ring_many
+      ~HpxHashTable.query_disc
+      ~HpxHashTable.query_disc_phi180
+      ~HpxHashTable.set_optimal_nside
+
+   .. rubric:: Attributes Documentation
+
+   .. autoattribute:: ncap
+   .. autoattribute:: npface
+   .. autoattribute:: npix
+   .. autoattribute:: nrings
+   .. autoattribute:: nside
+   .. autoattribute:: omega
+   .. autoattribute:: order
+   .. autoattribute:: resolution
+   .. autoattribute:: scheme
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: ang2pix
+   .. automethod:: ang2pix_many
+   .. automethod:: clear_hashes
+   .. automethod:: get_ring_info_small
+   .. automethod:: pix2ang
+   .. automethod:: pix2ang_many
+   .. automethod:: pix2ring
+   .. automethod:: pix2ring_many
+   .. automethod:: query_disc
+   .. automethod:: query_disc_phi180
+   .. automethod:: set_optimal_nside

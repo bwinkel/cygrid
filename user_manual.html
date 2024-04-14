@@ -1,0 +1,1519 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" data-theme="light">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Cygrid user manual &#8212; cygrid v2.0.4</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="_static/_static/cygrid.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="_static/jquery.js?v=5d32c60e"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="_static/documentation_options.js?v=adc66a14"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=30646c52"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'user_manual';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="npix_to_nside" href="api/cygrid.npix_to_nside.html" />
+    <link rel="prev" title="Cygrid quick tour" href="quick_tour.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+    <meta name="docbuild:last-update" content="14 Apr 2024"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="light">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">cygrid v2.0.4</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="install.html">
+                        Installation
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="importing_cygrid.html">
+                        Importing cygrid
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="quick_tour.html">
+                        Cygrid quick tour
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="#">
+                        Cygrid user manual
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-external" href="http://nbviewer.jupyter.org/github/bwinkel/cygrid/blob/master/notebooks/">
+                        Tutorials (Jupyter notebooks)
+                      </a>
+                    </li>
+                
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="license.html">
+                        Licenses
+                      </a>
+                    </li>
+                
+
+                <li class="nav-item">
+                  <a class="nav-link dropdown-item nav-external" href="https://github.com/bwinkel/cygrid/tree/master/notebooks">
+                    Tutorials
+                  </a>
+                </li>
+                
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/bwinkel/cygrid" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item">
+<nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="install.html">
+                        Installation
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="importing_cygrid.html">
+                        Importing cygrid
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="quick_tour.html">
+                        Cygrid quick tour
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="#">
+                        Cygrid user manual
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-external" href="http://nbviewer.jupyter.org/github/bwinkel/cygrid/blob/master/notebooks/">
+                        Tutorials (Jupyter notebooks)
+                      </a>
+                    </li>
+                
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links-2">
+                    More
+                </button>
+                <ul id="pst-nav-more-links-2" class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="license.html">
+                        Licenses
+                      </a>
+                    </li>
+                
+
+                <li class="nav-item">
+                  <a class="nav-link dropdown-item nav-external" href="https://github.com/bwinkel/cygrid/tree/master/notebooks">
+                    Tutorials
+                  </a>
+                </li>
+                
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/bwinkel/cygrid" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="api/cygrid.npix_to_nside.html">npix_to_nside</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/cygrid.nside_to_order.html">nside_to_order</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/cygrid.produce_mock_data.html">produce_mock_data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/cygrid.test.html">test</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="api/cygrid.Cygrid.html">Cygrid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/cygrid.Healpix.html">Healpix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/cygrid.HpxHashTable.html">HpxHashTable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/cygrid.ShapeError.html">ShapeError</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/cygrid.SlGrid.html">SlGrid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/cygrid.WcsGrid.html">WcsGrid</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item"><nav class="sidebar-indices-items" aria-labelledby="pst-indices-navigation-heading-2">
+  <p id="pst-indices-navigation-heading-2" class="sidebar-indices-items__title" role="heading" aria-level="1">Indices</p>
+  <ul class="indices-link">
+        <li class="toctree-l1">
+          <a class="reference internal"
+             href="genindex.html"
+             accesskey="I">General Index</a>
+        </li>
+  </ul>
+</nav></div>
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">Cygrid user manual</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="cygrid-user-manual">
+<h1>Cygrid user manual<a class="headerlink" href="#cygrid-user-manual" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p><a class="reference internal" href="api/cygrid.Cygrid.html#cygrid.Cygrid" title="cygrid.Cygrid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Cygrid</span></code></a> allows to resample a number of spectra (or data points) to a regular
+grid - a data cube - using any valid astronomical FITS/WCS projection (see
+<a class="reference external" href="https://docs.astropy.org/en/latest/wcs/reference_api.html#module-astropy.wcs" title="(in Astropy v7.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wcs</span></code></a>). The method is a based on serialized convolution with finite
+gridding kernels. Currently, only Gaussian (radial-symmetric or elliptical)
+kernels are provided (which has the drawback of slight degradation of the
+effective resolution). The algorithm has very small memory footprint, allows
+easy parallelization, and is very fast.</p>
+<p>Cygrid is already used in several “production” systems, for example it was
+utilized for two major 21-cm HI surveys, EBHIS and HI4PI. Nevertheless,
+we cannot guarantee that it’s completely bug-free. We kindly invite you to
+use the library and we are grateful for feedback. Note, that work on the
+documentation is still ongoing.</p>
+<p>The <code class="xref py py-obj docutils literal notranslate"><span class="pre">cygrid</span></code> package is available for Linux, Windows, and MacOS operating
+systems. To improve computation speed, the <a class="reference external" href="https://www.openmp.org/">OpenMP technology</a> is used. Therefore, a suitable C++ compiler must
+be installed on your system, if you build from source. For convenience, we
+also provide packages for the <a class="reference external" href="https://www.anaconda.com/">Anaconda Python distribution</a>.</p>
+<section id="data-gridding">
+<h3>Data gridding<a class="headerlink" href="#data-gridding" title="Link to this heading">#</a></h3>
+<p>Gridding data is a ubiquitous task in many scientific applications, for
+example to make maps from measured raw data sets in astronomy or geographic
+information systems (GIS). Therefore, it is not surprising that also the
+popular <a class="reference external" href="https://docs.scipy.org/doc/scipy/index.html#module-scipy" title="(in SciPy v1.13.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy</span></code></a> library provides a function, <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html#scipy.interpolate.griddata" title="(in SciPy v1.13.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">griddata</span></code></a>,
+which can be used for this purpose:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example adapted from &quot;scipy.interpolate.griddata&quot; docs</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">griddata</span>
+
+
+<span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="n">x</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span> <span class="o">*</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span> <span class="o">*</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">y</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+        <span class="p">)</span>
+
+<span class="n">grid_x</span><span class="p">,</span> <span class="n">grid_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mgrid</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="mi">100</span><span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span><span class="mi">200</span><span class="n">j</span><span class="p">]</span>
+
+<span class="c1"># generate some data</span>
+<span class="n">points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">values</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">points</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">points</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="n">gridded</span> <span class="o">=</span> <span class="n">griddata</span><span class="p">(</span>
+    <span class="n">points</span><span class="p">,</span>
+    <span class="n">values</span><span class="p">,</span>
+    <span class="p">(</span><span class="n">grid_x</span><span class="p">,</span> <span class="n">grid_y</span><span class="p">),</span>
+    <span class="n">method</span><span class="o">=</span><span class="s1">&#39;cubic&#39;</span>
+    <span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span>
+    <span class="n">func</span><span class="p">(</span><span class="n">grid_x</span><span class="p">,</span> <span class="n">grid_y</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
+    <span class="n">extent</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span>
+    <span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">points</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">points</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;k.&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Original&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">gridded</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Cubic interpolation&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href=".//user_manual-1.png">png</a>, <a class="reference external" href=".//user_manual-1.svg">svg</a>, <a class="reference external" href=".//user_manual-1.pdf">pdf</a>)</p>
+<figure class="align-default">
+<img alt="_images/user_manual-1.png" class="plot-directive" src="_images/user_manual-1.png" />
+</figure>
+<p>The points in the left panel show the positions, where the underlying
+function was sampled. As can be seen in the right panel,
+<a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html#scipy.interpolate.griddata" title="(in SciPy v1.13.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">griddata</span></code></a> does a good job in estimating the function
+values (on a regular grid) from these irregularly sampled points.</p>
+<p>But what happens, if we add noise to the sampled data? Obviously, the gridded
+data will somehow be affected by the decreased signal-to-noise ratio and may
+not be a good description of the original (noise-free) function anymore. One
+possible counter could be to sample (aka observe) the function at more
+positions, because this should increase the signal-to-noise ratio in the
+gridded map. Unfortunately, the <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html#scipy.interpolate.griddata" title="(in SciPy v1.13.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">griddata</span></code></a> algorithm
+doesn’t work this way:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># generate some data</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="mf">0.01</span>  <span class="c1"># or 0.1</span>
+<span class="n">nsize</span> <span class="o">=</span> <span class="mi">1000</span>  <span class="c1"># or 100000</span>
+<span class="n">points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">nsize</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">noise</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">nsize</span><span class="p">)</span>
+
+<span class="n">values</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">points</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">points</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="n">noise</span>
+
+<span class="n">grid_and_plot</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href=".//user_manual-2.png">png</a>, <a class="reference external" href=".//user_manual-2.svg">svg</a>, <a class="reference external" href=".//user_manual-2.pdf">pdf</a>)</p>
+<figure class="align-default">
+<img alt="_images/user_manual-2.png" class="plot-directive" src="_images/user_manual-2.png" />
+</figure>
+<p>With a significantly small number of samples or too much noise (e.g., lower
+left panel), the gridded data is a very bad representation of the underlying
+function. But even with a large input sample size, the
+<a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html#scipy.interpolate.griddata" title="(in SciPy v1.13.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">griddata</span></code></a> algorithm produces strange outliers in the
+gridded map (bottom right panel), but at least one can still see traces of the
+original function.</p>
+</section>
+<section id="convolution-based-gridding">
+<h3>Convolution based gridding<a class="headerlink" href="#convolution-based-gridding" title="Link to this heading">#</a></h3>
+<p>One gridding algorithm, which does a better job at this, is so-called
+convolutional gridding. The idea behind this method is relatively simple. The
+raw data samples (which are located at irregular coordinates) are convolved
+with a kernel function, and then the result is computed at the position of the
+pixel centers of the desired regular grid cells. If a Gaussian is used as
+kernel, one can safe a lot of computing time, because each raw data sample
+will only influence the output grid cells in within a certain sphere around
+the raw-sample position.</p>
+<p>Mathematically, this approach can be described by the following formula:</p>
+<div class="math notranslate nohighlight">
+\[R_{i,j}[s]=\frac{1}{W_{i,j}}\sum_n R_n[s](\alpha_n,\delta_n)w(\alpha_{i,j},\delta_{i,j};\alpha_n,\delta_n)\,.\]</div>
+<p>where:</p>
+<div class="math notranslate nohighlight">
+\[W_{i,j}\equiv\sum_n w(\alpha_{i,j},\delta_{i,j};\alpha_n,\delta_n)\,,\]</div>
+<p>is called the weight map.</p>
+<p>Here, <span class="math notranslate nohighlight">\(R_n [s]\)</span> and <span class="math notranslate nohighlight">\(R_{i,j}[s]\)</span> are two different representations
+of the true signal <span class="math notranslate nohighlight">\(s\)</span>. The index <span class="math notranslate nohighlight">\(n\)</span> runs over the list of all
+input samples, with respective coordinates <span class="math notranslate nohighlight">\((\alpha_n,\delta_n)\)</span>, while
+the regular output grid can be parametrized via pixel coordinates
+<span class="math notranslate nohighlight">\((i,j)\)</span> with associated world coordinates <span class="math notranslate nohighlight">\((\alpha_{i,j},
+\delta_{i,j})\)</span>. The value of the weighting kernel <span class="math notranslate nohighlight">\(w\)</span> depends only on
+the input and output coordinates. In most cases a radially symmetric kernel is
+applied, such that:</p>
+<div class="math notranslate nohighlight">
+\[w(\alpha_{i,j},\delta_{i,j};\alpha_n,\delta_n)=w\left(\mathcal{D}(\alpha_{i,j},\delta_{i,j};\alpha_n,\delta_n)\right)\]</div>
+<p>with the distance <span class="math notranslate nohighlight">\(\mathcal{D}\)</span> between a pixel center world coordinate,
+<span class="math notranslate nohighlight">\((\alpha_{i,j}, \delta_{i,j})\)</span>, and the <span class="math notranslate nohighlight">\(n\)</span>-th input coordinate,
+<span class="math notranslate nohighlight">\((\alpha_n,\delta_n)\)</span>.</p>
+<p>Since once usually doesn’t want to keep all raw data samples in memory, we use
+two helper maps. While we iterate over the samples (sum over <span class="math notranslate nohighlight">\(n\)</span>), we
+compute the products <span class="math notranslate nohighlight">\(R_n[s](\alpha_n,\delta_n)w(\alpha_{i,j},\delta_{i,
+j};\alpha_n,\delta_n)\)</span> for all pixels <span class="math notranslate nohighlight">\((i, j)\)</span> within a sphere around
+the <span class="math notranslate nohighlight">\((\alpha_n,\delta_n)\)</span> position, and add them to an empty array
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">A[i,j]</span></code>, which can be identified with <span class="math notranslate nohighlight">\(R_{i,j}[s]\cdot W_{i,j}\)</span>.
+Simultaneously, we do the same for the weighting factors and add these to
+another array <code class="xref py py-obj docutils literal notranslate"><span class="pre">B[i,j]</span></code> aka the weight map, <span class="math notranslate nohighlight">\(W_{i,j}\)</span>. When all raw data
+samples have been processed, the two resulting arrays are divided (<code class="xref py py-obj docutils literal notranslate"><span class="pre">A[i,j]</span> <span class="pre">/</span>
+<span class="pre">B[i,j]</span></code>), which gives <span class="math notranslate nohighlight">\(R_{i,j}\)</span>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In fact, <code class="xref py py-obj docutils literal notranslate"><span class="pre">cygrid</span></code> follows a slightly different approach internally,
+caching some intermediary values, to allow multi-threaded processing. For
+details, please see the <a class="reference external" href="http://adsabs.harvard.edu/abs/2016A%26A...591A..12W">Cygrid paper</a>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In one of our <a class="reference external" href="https://github.com/bwinkel/cygrid/blob/master/notebooks/A01_convolutional_gridding.ipynb">Jupyter tutorial notebooks</a>
+we made an animation that demonstrates how the algorithm works
+step-by-step.</p>
+</div>
+</section>
+</section>
+<section id="the-cygrid-algorithm">
+<h2>The cygrid algorithm<a class="headerlink" href="#the-cygrid-algorithm" title="Link to this heading">#</a></h2>
+<p>The great advantage of the approach described above, is, that it can be
+straightforwardly applied to spherical geometry, which is necessary for map
+making in geographic information systems and astronomy. The sampled
+coordinates are often the longitude and latitude on a sphere, while one wants
+to display the map in rectangular coordinates. Therefore, a certain map
+projections has to be specified, as well.</p>
+<p>However, there are libraries to easily convert between the world coordinates
+(longitude and latitude) and pixel coordinates (<span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(j\)</span>), such
+as <a class="reference external" href="https://docs.astropy.org/en/latest/wcs/reference_api.html#module-astropy.wcs" title="(in Astropy v7.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wcs</span></code></a>. Then one only needs to use the true-angular distance
+function instead instead of the simple Cartesian distance and the above
+formulas can be applied.</p>
+<p>Of course, in practice there is a little bit more to it. One has to deal with
+edge effects and the double-sum over all <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\((i, j)\)</span> is a
+deal breaker for non-trivial map sizes. One can use a kernel function with
+finite support, though, and restrict the summation to those input samples
+<span class="math notranslate nohighlight">\(n\)</span> that contribute significantly to <span class="math notranslate nohighlight">\((i, j)\)</span> (in spherical
+coordinates, it is not an easy task to identify pixels within a certain
+sphere!). On top of that, cygrid uses some clever cashing techniques and can
+profit from multi-core CPUs to further increase the computational speed of the
+gridding process. For details, we refer to the <a class="reference external" href="http://adsabs.harvard.edu/abs/2016A%26A...591A..12W">Cygrid paper</a>.</p>
+<section id="comparison-with-scipy-griddata">
+<h3>Comparison with scipy.griddata<a class="headerlink" href="#comparison-with-scipy-griddata" title="Link to this heading">#</a></h3>
+<p>After reading all of the above, you’re now probably curious, how <code class="xref py py-obj docutils literal notranslate"><span class="pre">cygrid</span></code>
+compares to <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html#scipy.interpolate.griddata" title="(in SciPy v1.13.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">griddata</span></code></a>. Here is the result:</p>
+<p>(<a class="reference external" href=".//user_manual-3.png">png</a>, <a class="reference external" href=".//user_manual-3.svg">svg</a>, <a class="reference external" href=".//user_manual-3.pdf">pdf</a>)</p>
+<figure class="align-default">
+<img alt="_images/user_manual-3.png" class="plot-directive" src="_images/user_manual-3.png" />
+</figure>
+<p>We think, it is fair to say that <code class="xref py py-obj docutils literal notranslate"><span class="pre">cygrid</span></code> produces much better result
+for these complicated situations.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Here we have made the approximation, that the input coordinates (ranging
+from 0 to 1 are in angles on the sphere (in degrees), and not the linear
+Cartesian coordinates. However, for small angles the distortion is
+negligible.)</p>
+</div>
+</section>
+<section id="angular-resolution">
+<span id="angular-resolution-label"></span><h3>Angular resolution<a class="headerlink" href="#angular-resolution" title="Link to this heading">#</a></h3>
+<p>Because <code class="xref py py-obj docutils literal notranslate"><span class="pre">cygrid</span></code> is based on convolution with a (typically) Gaussian kernel,
+the effective angular resolution of the data is degraded:</p>
+<div class="math notranslate nohighlight">
+\[\sigma_\mathrm{out}^2 = \sigma_\mathrm{in}^2 + \sigma_k^2\]</div>
+<p>where <span class="math notranslate nohighlight">\(\sigma_\mathrm{out}\)</span> is the standard deviation of the resulting
+effective beam width (given it’s Gaussian), <span class="math notranslate nohighlight">\(\sigma_\mathrm{in}\)</span> is the
+width of the input beam, and <span class="math notranslate nohighlight">\(\sigma_{k}\)</span> is the width of the kernel.
+Therefore, <code class="xref py py-obj docutils literal notranslate"><span class="pre">cygrid</span></code> may not be the first choice if it comes to the task of
+re-projecting data (see <a class="reference internal" href="#reprojection-label"><span class="std std-ref">How does cygrid compare to re-projection?</span></a>).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>One can convert between the standard-deviation width and the FWHM via
+<span class="math notranslate nohighlight">\(\sigma = \mathrm{FWHM} / \sqrt{8\ln2}\)</span>.</p>
+</div>
+<p>A good practical compromise is often to let the kernel be about half the
+size of the input resolution, because then the resulting resolution is
+only degraded by about 10%.</p>
+<p>There are several additional considerations, which play a role. The kernel
+must not be too narrow, especially if the input data are not sufficiently
+densely sampled. Each raw data sample can only “reach” output grid pixels
+that are well within an angular distance of <span class="math notranslate nohighlight">\(&lt;3\sigma_k\)</span>. Furthermore,
+the output pixel grid must be fine enough to warrant full sampling of the
+output signal: <span class="math notranslate nohighlight">\(\Delta p\lesssim\mathrm{FWHM}_\mathrm{out}/2\sqrt{2}=\sigma_\mathrm{out}/\sqrt{\ln2}\)</span>.
+We’d even recommend to chose the output grid such that
+<span class="math notranslate nohighlight">\(\Delta p\lesssim\mathrm{FWHM}_k/2\sqrt{2}=\sigma_k/\sqrt{\ln2}\)</span>.
+This is because for performance reasons <code class="xref py py-obj docutils literal notranslate"><span class="pre">cygrid</span></code> does compute the kernel
+function values only for the pixel centers, and doesn’t perform numerical
+integration over the pixel area. Of course, this leads to a certain numerical
+inaccuracy, but if the output pixel grid supports full sampling of the kernel,
+the errors are on an acceptable level. For further details we refer to
+the <a class="reference external" href="http://adsabs.harvard.edu/abs/2016A%26A...591A..12W">Cygrid paper</a>.</p>
+<p>Under some circumstances, the decrease in angular resolution is even
+desirable. If one wants to compare two data sets with different angular
+resolution, it is possible to smooth the higher-resolution data to
+the lower-resolution map by choosing <span class="math notranslate nohighlight">\(\sigma_k^2=\sigma_\mathrm{low}^2 - \sigma_\mathrm{high}^2\)</span>.</p>
+</section>
+<section id="kernel-parameters">
+<span id="kernel-parameters-label"></span><h3>Kernel parameters<a class="headerlink" href="#kernel-parameters" title="Link to this heading">#</a></h3>
+<p>Apart from choosing a proper kernel size (see
+<a class="reference internal" href="#angular-resolution-label"><span class="std std-ref">Angular resolution</span></a>), one can use three different weighting
+functions, <code class="xref py py-obj docutils literal notranslate"><span class="pre">gauss1d</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">gauss2d</span></code>, and <code class="xref py py-obj docutils literal notranslate"><span class="pre">tapered_sinc</span></code>. Despite its name,
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">gauss1d</span></code> refers to a two-dimensional radial-symmetric Gaussian - in
+contrast to <code class="xref py py-obj docutils literal notranslate"><span class="pre">gauss2d</span></code>, which is for an elliptical 2D Gaussian. More
+information, e.g., which parameters are required for each of the three
+functions, can be found in the <a class="reference internal" href="api/cygrid.WcsGrid.html#cygrid.WcsGrid.set_kernel" title="cygrid.WcsGrid.set_kernel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_kernel</span></code></a> method
+documentation.</p>
+<p>There are two other necessary parameters, to be provided to the
+<a class="reference internal" href="api/cygrid.WcsGrid.html#cygrid.WcsGrid.set_kernel" title="cygrid.WcsGrid.set_kernel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_kernel</span></code></a> method: the kernel sphere radius (or support
+radius) and the resolution of the internally used <a class="reference external" href="https://healpix.jpl.nasa.gov/">HEALPix</a> grid. The sphere radius should be
+<span class="math notranslate nohighlight">\(3\ldots5\sigma_k\)</span> depending on the desired accuracy. As the area of a
+sphere goes with radius squared, using <span class="math notranslate nohighlight">\(5\sigma_k\)</span> will take roughly
+three times longer. The internally HPX resolution defines only some details
+of the used caches. A good value for this is <span class="math notranslate nohighlight">\(\sigma_k/2\)</span>.</p>
+</section>
+</section>
+<section id="simple-gridding-tasks">
+<span id="simple-gridding-label"></span><h2>Simple gridding tasks<a class="headerlink" href="#simple-gridding-tasks" title="Link to this heading">#</a></h2>
+<p>Using <code class="xref py py-obj docutils literal notranslate"><span class="pre">cygrid</span></code> consists of four main steps:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Reading the raw data,</p></li>
+<li><p>Defining the output coordinate system and frame (by means of
+<a class="reference external" href="https://docs.astropy.org/en/latest/wcs/reference_api.html#module-astropy.wcs" title="(in Astropy v7.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wcs</span></code></a>),</p></li>
+<li><p>Setting up the gridder, i.e., the kernel parameters with
+<a class="reference internal" href="api/cygrid.WcsGrid.html#cygrid.WcsGrid.set_kernel" title="cygrid.WcsGrid.set_kernel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_kernel</span></code></a>,</p></li>
+<li><p>Feed the raw data into the gridder with the <a class="reference internal" href="api/cygrid.WcsGrid.html#cygrid.WcsGrid.grid" title="cygrid.WcsGrid.grid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">grid</span></code></a>
+method.</p></li>
+</ol>
+</div></blockquote>
+<p>In the following, we will explain in more detail, how each of the steps works.
+As <code class="xref py py-obj docutils literal notranslate"><span class="pre">cygrid</span></code> doesn’t ship with a large raw data set that could be read-in,
+we will simply create a mock data set, with the help of a utility function,
+<a class="reference internal" href="api/cygrid.produce_mock_data.html#cygrid.produce_mock_data" title="cygrid.produce_mock_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">produce_mock_data</span></code></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">cygrid</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">astropy.utils.misc</span> <span class="kn">import</span> <span class="n">NumpyRNGContext</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mapcenter</span> <span class="o">=</span> <span class="mf">60.</span><span class="p">,</span> <span class="mf">30.</span>  <span class="c1"># all in degrees</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mapsize</span> <span class="o">=</span> <span class="mf">5.</span><span class="p">,</span> <span class="mf">5.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">beamsize_fwhm</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">num_samples</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">**</span> <span class="mi">6</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">num_sources</span> <span class="o">=</span> <span class="mi">20</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># see cygrid&#39;s manual for a description of the produce_mock_data function</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">NumpyRNGContext</span><span class="p">(</span><span class="mi">1</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">lons</span><span class="p">,</span> <span class="n">lats</span><span class="p">,</span> <span class="n">signal</span> <span class="o">=</span> <span class="n">cygrid</span><span class="o">.</span><span class="n">produce_mock_data</span><span class="p">(</span>
+<span class="gp">... </span>        <span class="n">mapcenter</span><span class="p">,</span> <span class="n">mapsize</span><span class="p">,</span> <span class="n">beamsize_fwhm</span><span class="p">,</span> <span class="n">num_samples</span><span class="p">,</span> <span class="n">num_sources</span>
+<span class="gp">... </span>        <span class="p">)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">__version__</span> <span class="o">&gt;=</span> <span class="s1">&#39;1.14&#39;</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">legacy</span><span class="o">=</span><span class="s1">&#39;1.13&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">lons</span><span class="p">)</span>  
+<span class="go">[59.473  61.3992 56.8253 ..., 59.957  57.5156 59.176 ]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">lats</span><span class="p">)</span>  
+<span class="go">[28.0106 31.0641 30.3142 ..., 28.5785 32.1307 28.8626]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">signal</span><span class="p">)</span>  
+<span class="go">[ 0.0856  1.1899 -0.3375 ...,  1.7997 -0.5739  0.0358]</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>With the <a class="reference external" href="https://docs.astropy.org/en/latest/api/astropy.utils.misc.NumpyRNGContext.html#astropy.utils.misc.NumpyRNGContext" title="(in Astropy v7.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NumpyRNGContext</span></code></a> context, it is possible
+to specify the seed for all NumPy random numbers.</p>
+</div>
+<p>The next step is to define a FITS/<a class="reference external" href="https://docs.astropy.org/en/latest/api/astropy.wcs.WCS.html#astropy.wcs.WCS" title="(in Astropy v7.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WCS</span></code></a> compatible header that
+defines the image into which we want to grid the data:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># define target grid (via FITS header according to WCS convention)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># a good pixel size is a third of the FWHM of the PSF (avoids aliasing)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pixsize</span> <span class="o">=</span> <span class="n">beamsize_fwhm</span> <span class="o">/</span> <span class="mf">3.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dnaxis1</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">mapsize</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">pixsize</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dnaxis2</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">mapsize</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">pixsize</span><span class="p">)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">target_header</span> <span class="o">=</span> <span class="p">{</span>
+<span class="gp">... </span>    <span class="s1">&#39;NAXIS&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="s1">&#39;NAXIS1&#39;</span><span class="p">:</span> <span class="n">dnaxis1</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="s1">&#39;NAXIS2&#39;</span><span class="p">:</span> <span class="n">dnaxis2</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="s1">&#39;CTYPE1&#39;</span><span class="p">:</span> <span class="s1">&#39;RA---SIN&#39;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="s1">&#39;CTYPE2&#39;</span><span class="p">:</span> <span class="s1">&#39;DEC--SIN&#39;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="s1">&#39;CUNIT1&#39;</span><span class="p">:</span> <span class="s1">&#39;deg&#39;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="s1">&#39;CUNIT2&#39;</span><span class="p">:</span> <span class="s1">&#39;deg&#39;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="s1">&#39;CDELT1&#39;</span><span class="p">:</span> <span class="o">-</span><span class="n">pixsize</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="s1">&#39;CDELT2&#39;</span><span class="p">:</span> <span class="n">pixsize</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="s1">&#39;CRPIX1&#39;</span><span class="p">:</span> <span class="n">dnaxis1</span> <span class="o">/</span> <span class="mf">2.</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="s1">&#39;CRPIX2&#39;</span><span class="p">:</span> <span class="n">dnaxis2</span> <span class="o">/</span> <span class="mf">2.</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="s1">&#39;CRVAL1&#39;</span><span class="p">:</span> <span class="n">mapcenter</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="s1">&#39;CRVAL2&#39;</span><span class="p">:</span> <span class="n">mapcenter</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="p">}</span>
+</pre></div>
+</div>
+<p>This header can be put into the <a class="reference internal" href="api/cygrid.WcsGrid.html#cygrid.WcsGrid" title="cygrid.WcsGrid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WcsGrid</span></code></a> constructor, which is
+the Class that has to be used for this kind of image gridding:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">gridder</span> <span class="o">=</span> <span class="n">cygrid</span><span class="o">.</span><span class="n">WcsGrid</span><span class="p">(</span><span class="n">target_header</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Before the gridder is ready to use, one needs to setup the kernel parameters
+(see also <a class="reference internal" href="#kernel-parameters-label"><span class="std std-ref">Kernel parameters</span></a>):</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">kernelsize_fwhm</span> <span class="o">=</span> <span class="mf">0.05</span>  <span class="c1"># degrees; beam / 2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">kernelsize_sigma</span> <span class="o">=</span> <span class="n">kernelsize_fwhm</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">8</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sphere_radius</span> <span class="o">=</span> <span class="mf">3.</span> <span class="o">*</span> <span class="n">kernelsize_sigma</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">kernel_args</span> <span class="o">=</span> <span class="p">(</span>
+<span class="gp">... </span>    <span class="s1">&#39;gauss1d&#39;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="p">(</span><span class="n">kernelsize_sigma</span><span class="p">,),</span>
+<span class="gp">... </span>    <span class="n">sphere_radius</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">kernelsize_sigma</span> <span class="o">/</span> <span class="mf">2.</span>
+<span class="gp">... </span>    <span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gridder</span><span class="o">.</span><span class="n">set_kernel</span><span class="p">(</span><span class="o">*</span><span class="n">kernel_args</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Finally, we call the <a class="reference internal" href="api/cygrid.WcsGrid.html#cygrid.WcsGrid.grid" title="cygrid.WcsGrid.grid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">grid</span></code></a> method, into which the raw data
+is fed:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">gridder</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">lons</span><span class="p">,</span> <span class="n">lats</span><span class="p">,</span> <span class="n">signal</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The result can be queried using the <a class="reference internal" href="api/cygrid.WcsGrid.html#cygrid.WcsGrid.get_datacube" title="cygrid.WcsGrid.get_datacube"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_datacube</span></code></a> method:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">gridded_data</span> <span class="o">=</span> <span class="n">gridder</span><span class="o">.</span><span class="n">get_datacube</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">gridded_data</span><span class="p">)</span>  
+<span class="go">[[ 0.046  -0.0528  0.0258 ...,  0.0111  0.0489  0.1099]</span>
+<span class="go"> [ 0.0432 -0.0907 -0.0964 ..., -0.0131 -0.0469 -0.0357]</span>
+<span class="go"> [ 0.0287 -0.0611 -0.0609 ..., -0.0082 -0.0261 -0.0367]</span>
+<span class="go"> ...,</span>
+<span class="go"> [-0.0321 -0.0177 -0.0347 ..., -0.007   0.1138  0.0903]</span>
+<span class="go"> [-0.1197 -0.0649 -0.0861 ..., -0.0276  0.0781  0.0664]</span>
+<span class="go"> [-0.0828 -0.0677 -0.0645 ...,  0.1029  0.1179  0.0946]]</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">gridded_data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="go">(150, 150)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We follow the standard convention, that the data cube axes are ordered
+as: <code class="xref py py-obj docutils literal notranslate"><span class="pre">(z,</span> <span class="pre">y,</span> <span class="pre">x)</span></code> (for 3D) or <code class="xref py py-obj docutils literal notranslate"><span class="pre">(y,</span> <span class="pre">x)</span></code> (for 2D), etc.</p>
+</div>
+<p>For many use cases, you will want to save your image to FITS:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">astropy.io</span> <span class="kn">import</span> <span class="n">fits</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fits</span><span class="o">.</span><span class="n">writeto</span><span class="p">(</span><span class="s1">&#39;example.fits&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="n">target_header</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">gridded_data</span><span class="p">)</span>  
+</pre></div>
+</div>
+<p>We can also plot the result, using the <a class="reference external" href="https://docs.astropy.org/en/latest/visualization/wcsaxes/index.html#module-astropy.visualization.wcsaxes" title="(in Astropy v7.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wcsaxes</span></code></a>
+package (for convenience, we provide the full script):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">astropy.wcs</span> <span class="kn">import</span> <span class="n">WCS</span>
+<span class="kn">from</span> <span class="nn">astropy.utils.misc</span> <span class="kn">import</span> <span class="n">NumpyRNGContext</span>
+<span class="kn">import</span> <span class="nn">cygrid</span>
+
+<span class="n">mapcenter</span> <span class="o">=</span> <span class="mf">60.</span><span class="p">,</span> <span class="mf">30.</span>  <span class="c1"># all in degrees</span>
+<span class="n">mapsize</span> <span class="o">=</span> <span class="mf">5.</span><span class="p">,</span> <span class="mf">5.</span>
+<span class="n">beamsize_fwhm</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">num_samples</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">**</span> <span class="mi">6</span>
+<span class="n">num_sources</span> <span class="o">=</span> <span class="mi">20</span>
+
+<span class="k">with</span> <span class="n">NumpyRNGContext</span><span class="p">(</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">lons</span><span class="p">,</span> <span class="n">lats</span><span class="p">,</span> <span class="n">signal</span> <span class="o">=</span> <span class="n">cygrid</span><span class="o">.</span><span class="n">produce_mock_data</span><span class="p">(</span>
+        <span class="n">mapcenter</span><span class="p">,</span> <span class="n">mapsize</span><span class="p">,</span> <span class="n">beamsize_fwhm</span><span class="p">,</span> <span class="n">num_samples</span><span class="p">,</span> <span class="n">num_sources</span>
+        <span class="p">)</span>
+
+<span class="n">pixsize</span> <span class="o">=</span> <span class="n">beamsize_fwhm</span> <span class="o">/</span> <span class="mf">3.</span>
+<span class="n">dnaxis1</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">mapsize</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">pixsize</span><span class="p">)</span>
+<span class="n">dnaxis2</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">mapsize</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">pixsize</span><span class="p">)</span>
+
+<span class="n">target_header</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;NAXIS&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s1">&#39;NAXIS1&#39;</span><span class="p">:</span> <span class="n">dnaxis1</span><span class="p">,</span>
+    <span class="s1">&#39;NAXIS2&#39;</span><span class="p">:</span> <span class="n">dnaxis2</span><span class="p">,</span>
+    <span class="s1">&#39;CTYPE1&#39;</span><span class="p">:</span> <span class="s1">&#39;RA---SIN&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;CTYPE2&#39;</span><span class="p">:</span> <span class="s1">&#39;DEC--SIN&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;CUNIT1&#39;</span><span class="p">:</span> <span class="s1">&#39;deg&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;CUNIT2&#39;</span><span class="p">:</span> <span class="s1">&#39;deg&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;CDELT1&#39;</span><span class="p">:</span> <span class="o">-</span><span class="n">pixsize</span><span class="p">,</span>
+    <span class="s1">&#39;CDELT2&#39;</span><span class="p">:</span> <span class="n">pixsize</span><span class="p">,</span>
+    <span class="s1">&#39;CRPIX1&#39;</span><span class="p">:</span> <span class="n">dnaxis1</span> <span class="o">/</span> <span class="mf">2.</span><span class="p">,</span>
+    <span class="s1">&#39;CRPIX2&#39;</span><span class="p">:</span> <span class="n">dnaxis2</span> <span class="o">/</span> <span class="mf">2.</span><span class="p">,</span>
+    <span class="s1">&#39;CRVAL1&#39;</span><span class="p">:</span> <span class="n">mapcenter</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+    <span class="s1">&#39;CRVAL2&#39;</span><span class="p">:</span> <span class="n">mapcenter</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+    <span class="p">}</span>
+
+<span class="n">gridder</span> <span class="o">=</span> <span class="n">cygrid</span><span class="o">.</span><span class="n">WcsGrid</span><span class="p">(</span><span class="n">target_header</span><span class="p">)</span>
+
+<span class="n">kernelsize_fwhm</span> <span class="o">=</span> <span class="mf">2.5</span> <span class="o">/</span> <span class="mf">60.</span>  <span class="c1"># degrees</span>
+<span class="n">kernelsize_sigma</span> <span class="o">=</span> <span class="n">kernelsize_fwhm</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">8</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">sphere_radius</span> <span class="o">=</span> <span class="mf">3.</span> <span class="o">*</span> <span class="n">kernelsize_sigma</span>
+
+<span class="n">gridder</span><span class="o">.</span><span class="n">set_kernel</span><span class="p">(</span>
+    <span class="s1">&#39;gauss1d&#39;</span><span class="p">,</span>
+    <span class="p">(</span><span class="n">kernelsize_sigma</span><span class="p">,),</span>
+    <span class="n">sphere_radius</span><span class="p">,</span>
+    <span class="n">kernelsize_sigma</span> <span class="o">/</span> <span class="mf">2.</span>
+    <span class="p">)</span>
+<span class="n">gridder</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">lons</span><span class="p">,</span> <span class="n">lats</span><span class="p">,</span> <span class="n">signal</span><span class="p">)</span>
+<span class="n">gridded_map</span> <span class="o">=</span> <span class="n">gridder</span><span class="o">.</span><span class="n">get_datacube</span><span class="p">()</span>
+
+<span class="n">target_wcs</span> <span class="o">=</span> <span class="n">gridder</span><span class="o">.</span><span class="n">get_wcs</span><span class="p">()</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="n">target_wcs</span><span class="o">.</span><span class="n">celestial</span><span class="p">)</span>
+<span class="n">im</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span>
+    <span class="n">gridded_map</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">8.0</span><span class="p">,</span>
+    <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span>
+    <span class="p">)</span>
+<span class="n">lon</span><span class="p">,</span> <span class="n">lat</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">coords</span>
+<span class="n">lon</span><span class="o">.</span><span class="n">set_axislabel</span><span class="p">(</span><span class="s1">&#39;R.A. [deg]&#39;</span><span class="p">)</span>
+<span class="n">lat</span><span class="o">.</span><span class="n">set_axislabel</span><span class="p">(</span><span class="s1">&#39;Dec [deg]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href=".//user_manual-4.png">png</a>, <a class="reference external" href=".//user_manual-4.svg">svg</a>, <a class="reference external" href=".//user_manual-4.pdf">pdf</a>)</p>
+<figure class="align-default">
+<img alt="_images/user_manual-4.png" class="plot-directive" src="_images/user_manual-4.png" />
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you use <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.imshow.html#matplotlib.pyplot.imshow" title="(in Matplotlib v3.8.4)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">imshow</span></code></a> for plotting, you need the
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">origin='lower'</span></code> option to ensure that the result is not vertically
+flipped. Also we recommend to use <code class="xref py py-obj docutils literal notranslate"><span class="pre">interpolation='nearest'</span></code> to avoid
+additional interpolation of the result by <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.imshow.html#matplotlib.pyplot.imshow" title="(in Matplotlib v3.8.4)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">imshow</span></code></a>.</p>
+</div>
+<section id="gridding-spectral-data">
+<span id="d-label"></span><h3>Gridding spectral data<a class="headerlink" href="#gridding-spectral-data" title="Link to this heading">#</a></h3>
+<p>Originally, <code class="xref py py-obj docutils literal notranslate"><span class="pre">cygrid</span></code> was developed to grid spectral data. This is also the
+reason, why internally, everything is treated as if a spectral axis was
+present. As shown in the simple example above, the user interface
+works for pure 2D maps in the same way, but under the hood <code class="xref py py-obj docutils literal notranslate"><span class="pre">cygrid</span></code>
+adds a redundant spectral axis of length One. In fact, if the data to be
+gridded has even more dimensions, <code class="xref py py-obj docutils literal notranslate"><span class="pre">cygrid</span></code> will internally reshape the
+work arrays to 3D and after the gridding has finished restore the desired
+higher-dimensional shape, to make it easy for the user.</p>
+<p>To handle spectral data, one can still use a 2D FITS image header, or any
+FITS header, as long as it contains an appropriate spatial description of the target map/cube.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">gridder</span> <span class="o">=</span> <span class="n">cygrid</span><span class="o">.</span><span class="n">WcsGrid</span><span class="p">(</span><span class="n">target_header</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gridder</span><span class="o">.</span><span class="n">set_kernel</span><span class="p">(</span><span class="o">*</span><span class="n">kernel_args</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We can test this, by concatenating the signal and negative copy of it:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">gridder</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">lons</span><span class="p">,</span> <span class="n">lats</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">([</span><span class="n">signal</span><span class="p">,</span> <span class="o">-</span><span class="n">signal</span><span class="p">]))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">gridder</span><span class="o">.</span><span class="n">get_datacube</span><span class="p">()</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="go">(2, 150, 150)</span>
+</pre></div>
+</div>
+<p>Likewise, any other dimension is possible, as long as the first axis is
+compatible with the length of the coordinate arrays:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">gridder</span> <span class="o">=</span> <span class="n">cygrid</span><span class="o">.</span><span class="n">WcsGrid</span><span class="p">(</span><span class="n">target_header</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gridder</span><span class="o">.</span><span class="n">set_kernel</span><span class="p">(</span><span class="o">*</span><span class="n">kernel_args</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">signal_3d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">([</span>
+<span class="gp">... </span>    <span class="n">signal</span> <span class="o">**</span> <span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gridder</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">lons</span><span class="p">,</span> <span class="n">lats</span><span class="p">,</span> <span class="n">signal_3d</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">gridder</span><span class="o">.</span><span class="n">get_datacube</span><span class="p">()</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="go">(3, 2, 150, 150)</span>
+</pre></div>
+</div>
+<p>As can be seen, the datacube shape is constructed from the shape of the
+input raw data (signal) and the target map size in the following manner:
+the first axes are defined by the shape of the input signal (excluding the
+first dimension), while the last axes are given by the target pixel array (
+i.e. map) shape.</p>
+</section>
+<section id="how-does-cygrid-compare-to-re-projection">
+<span id="reprojection-label"></span><h3>How does cygrid compare to re-projection?<a class="headerlink" href="#how-does-cygrid-compare-to-re-projection" title="Link to this heading">#</a></h3>
+<p>Sometimes one already has a set of gridded data but wants to convert it to
+another coordinate system or frame/projection. For this, the <a class="reference external" href="https://pypi.org/project/reproject/">reproject
+package</a> is probably better suited, as
+it allows to do it without the loss of angular resolution discussed in :ref
+:angular-resolution-label. However, that doesn’t mean that <code class="xref py py-obj docutils literal notranslate"><span class="pre">cygrid</span></code> isn’t
+able to do it. Suppose you have some Planck satellite data of M31 in
+equatorial coordinates and want to over-plot an image of the HI as observed by
+<a class="reference external" href="https://www.aanda.org/component/article?access=doi&amp;doi=10.1051/0004-6361/201527007">EBHIS</a>,
+which perhaps you have in galactic coordinates, only. To show how this
+works, we’ll query some example data from <a class="reference external" href="https://skyview.gsfc.nasa.gov/current/cgi/titlepage.pl">NASA SkyView</a> with the help of
+the awesome <a class="reference external" href="http://www.astropy.org/astroquery/">astroquery</a> package.:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">astropy</span> <span class="kn">import</span> <span class="n">units</span> <span class="k">as</span> <span class="n">u</span>
+<span class="kn">from</span> <span class="nn">astropy.utils.data</span> <span class="kn">import</span> <span class="n">conf</span>
+<span class="kn">from</span> <span class="nn">astroquery.skyview</span> <span class="kn">import</span> <span class="n">SkyView</span>
+
+
+<span class="c1"># Loading data from SkyView can take a while, hence the longer timeout</span>
+<span class="n">conf</span><span class="o">.</span><span class="n">remote_timeout</span> <span class="o">=</span> <span class="mf">60.</span>
+
+<span class="n">kwargs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">radius</span><span class="o">=</span><span class="mi">3</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">,</span>
+    <span class="n">pixels</span><span class="o">=</span><span class="s1">&#39;500&#39;</span><span class="p">,</span>
+    <span class="n">scaling</span><span class="o">=</span><span class="s1">&#39;Linear&#39;</span><span class="p">,</span>
+    <span class="p">)</span>
+<span class="n">paths</span> <span class="o">=</span> <span class="n">SkyView</span><span class="p">()</span><span class="o">.</span><span class="n">get_images</span><span class="p">(</span>
+    <span class="n">position</span><span class="o">=</span><span class="s1">&#39;10.68471 +41.26875&#39;</span><span class="p">,</span>
+    <span class="n">coordinates</span><span class="o">=</span><span class="s1">&#39;J2000&#39;</span><span class="p">,</span> <span class="n">survey</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Planck 857 I&#39;</span><span class="p">],</span> <span class="o">**</span><span class="n">kwargs</span>
+    <span class="p">)</span>  <span class="c1"># doctest: +ELLIPSIS</span>
+<span class="n">planck_header</span><span class="p">,</span> <span class="n">planck_data</span> <span class="o">=</span> <span class="n">paths</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">header</span><span class="p">,</span> <span class="n">paths</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+
+<span class="n">paths</span> <span class="o">=</span> <span class="n">SkyView</span><span class="p">()</span><span class="o">.</span><span class="n">get_images</span><span class="p">(</span>
+    <span class="n">position</span><span class="o">=</span><span class="s1">&#39;121.174322 -21.573311&#39;</span><span class="p">,</span>
+    <span class="n">coordinates</span><span class="o">=</span><span class="s1">&#39;Galactic&#39;</span><span class="p">,</span> <span class="n">survey</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;EBHIS&#39;</span><span class="p">],</span> <span class="o">**</span><span class="n">kwargs</span>
+    <span class="p">)</span>  <span class="c1"># doctest: +ELLIPSIS</span>
+<span class="n">ebhis_header</span><span class="p">,</span> <span class="n">ebhis_data</span> <span class="o">=</span> <span class="n">paths</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">header</span><span class="p">,</span> <span class="n">paths</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+</pre></div>
+</div>
+<p>Let’s plot the two maps:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">astropy.wcs</span> <span class="kn">import</span> <span class="n">WCS</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+
+<span class="n">planck_wcs</span><span class="p">,</span> <span class="n">ebhis_wcs</span> <span class="o">=</span> <span class="n">WCS</span><span class="p">(</span><span class="n">planck_header</span><span class="p">),</span> <span class="n">WCS</span><span class="p">(</span><span class="n">ebhis_header</span><span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">ax1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="n">planck_wcs</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">planck_data</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Planck 857 GHz&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="s1">&#39;ra&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_axislabel</span><span class="p">(</span><span class="s1">&#39;Right Ascension&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="s1">&#39;dec&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_axislabel</span><span class="p">(</span><span class="s1">&#39;Declination&#39;</span><span class="p">)</span>
+
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="n">ebhis_wcs</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">ebhis_data</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;EBHIS 21-cm HI line&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="s1">&#39;glon&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_axislabel</span><span class="p">(</span><span class="s1">&#39;Galactic Longitude&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="s1">&#39;glat&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_axislabel</span><span class="p">(</span><span class="s1">&#39;Galactic Latitude&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="s1">&#39;glat&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_axislabel_position</span><span class="p">(</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="s1">&#39;glat&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_ticklabel_position</span><span class="p">(</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href=".//user_manual-6.png">png</a>, <a class="reference external" href=".//user_manual-6.svg">svg</a>, <a class="reference external" href=".//user_manual-6.pdf">pdf</a>)</p>
+<figure class="align-center">
+<img alt="_images/user_manual-6.png" class="plot-directive" src="_images/user_manual-6.png" />
+</figure>
+<p>Before the data can be re-gridded, we need to extract the world coordinates
+of the EBHIS FITS header and convert them to the equatorial system:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">astropy.coordinates</span> <span class="kn">import</span> <span class="n">SkyCoord</span>
+
+
+<span class="n">ebhis_glon_pix</span><span class="p">,</span> <span class="n">ebhis_glat_pix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">ebhis_header</span><span class="p">[</span><span class="s1">&#39;NAXIS1&#39;</span><span class="p">]),</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">ebhis_header</span><span class="p">[</span><span class="s1">&#39;NAXIS2&#39;</span><span class="p">])</span>
+    <span class="p">)</span>
+<span class="n">ebhis_lon_world</span><span class="p">,</span> <span class="n">ebhis_lat_world</span> <span class="o">=</span> <span class="n">ebhis_wcs</span><span class="o">.</span><span class="n">all_pix2world</span><span class="p">(</span>
+    <span class="n">ebhis_glon_pix</span><span class="p">,</span> <span class="n">ebhis_glat_pix</span><span class="p">,</span> <span class="mi">0</span>
+    <span class="p">)</span>
+<span class="n">ebhis_coords_gal</span> <span class="o">=</span> <span class="n">SkyCoord</span><span class="p">(</span>
+    <span class="n">ebhis_lon_world</span><span class="p">,</span> <span class="n">ebhis_lat_world</span><span class="p">,</span> <span class="n">frame</span><span class="o">=</span><span class="s1">&#39;galactic&#39;</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;deg&#39;</span>
+    <span class="p">)</span>
+<span class="n">ebhis_coords_eq</span> <span class="o">=</span> <span class="n">ebhis_coords_gal</span><span class="o">.</span><span class="n">icrs</span>
+</pre></div>
+</div>
+<p>This seems a bit messy, but if you need this often, just put it into a
+function. We can now set-up <a class="reference internal" href="api/cygrid.WcsGrid.html#cygrid.WcsGrid" title="cygrid.WcsGrid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WcsGrid</span></code></a> and put the EBHIS data
+into the <a class="reference internal" href="api/cygrid.WcsGrid.html#cygrid.WcsGrid.grid" title="cygrid.WcsGrid.grid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">grid</span></code></a> method, as usual:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">cygrid</span>
+
+
+<span class="n">gridder</span> <span class="o">=</span> <span class="n">cygrid</span><span class="o">.</span><span class="n">WcsGrid</span><span class="p">(</span><span class="n">planck_header</span><span class="p">)</span>
+
+<span class="c1"># EBHIS resolution is 10.8&#39;, but image is strongly oversampled, so we use</span>
+<span class="c1"># a kernel of 0.012 (twice the pixel size)</span>
+<span class="n">kernelsize_fwhm</span> <span class="o">=</span> <span class="mf">0.012</span>
+<span class="n">kernelsize_sigma</span> <span class="o">=</span> <span class="n">kernelsize_fwhm</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">8</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">sphere_radius</span> <span class="o">=</span> <span class="mf">4.</span> <span class="o">*</span> <span class="n">kernelsize_sigma</span>
+
+<span class="n">gridder</span><span class="o">.</span><span class="n">set_kernel</span><span class="p">(</span>
+    <span class="s1">&#39;gauss1d&#39;</span><span class="p">,</span>
+    <span class="p">(</span><span class="n">kernelsize_sigma</span><span class="p">,),</span>
+    <span class="n">sphere_radius</span><span class="p">,</span>
+    <span class="n">kernelsize_sigma</span> <span class="o">/</span> <span class="mf">2.</span>
+    <span class="p">)</span>
+
+<span class="n">gridder</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span>
+    <span class="n">ebhis_coords_eq</span><span class="o">.</span><span class="n">ra</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span>
+    <span class="n">ebhis_coords_eq</span><span class="o">.</span><span class="n">dec</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span>
+    <span class="n">ebhis_data</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+    <span class="p">)</span>
+<span class="n">ebhis_data_regridded</span> <span class="o">=</span> <span class="n">gridder</span><span class="o">.</span><span class="n">get_datacube</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href=".//user_manual-9.png">png</a>, <a class="reference external" href=".//user_manual-9.svg">svg</a>, <a class="reference external" href=".//user_manual-9.pdf">pdf</a>)</p>
+<figure class="align-center">
+<img alt="_images/user_manual-9.png" class="plot-directive" src="_images/user_manual-9.png" />
+</figure>
+<p>By coincidence, only a slight rotation was necessary, which is why only few
+blank pixels are visible at the edges. For convenience, we also show,
+how to do the same with the <a class="reference external" href="https://pypi.org/project/reproject/">reproject</a> package:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">reproject</span> <span class="kn">import</span> <span class="n">reproject_interp</span>
+
+
+<span class="n">ebhis_data_reprojected</span><span class="p">,</span> <span class="n">footprint</span> <span class="o">=</span> <span class="n">reproject_interp</span><span class="p">(</span>
+    <span class="p">(</span><span class="n">ebhis_data</span><span class="p">,</span> <span class="n">ebhis_header</span><span class="p">),</span> <span class="n">planck_header</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<p>This seems much easier than the <code class="xref py py-obj docutils literal notranslate"><span class="pre">cygrid</span></code> approach, though very similar steps
+are necessary (they are just encapsulated in the function). The <code class="xref py py-obj docutils literal notranslate"><span class="pre">cygrid</span></code>
+interface is more low-level in that sense, but this allows much more
+customization. One common use case would be to smooth the Planck satellite
+map to the EBHIS angular resolution, for example, which would all certain
+kinds of analyses, e.g., to compare the flux density per pixel of the two data
+sets. For the sake of completeness, here are the resulting plots:</p>
+<p>(<a class="reference external" href=".//user_manual-11.png">png</a>, <a class="reference external" href=".//user_manual-11.svg">svg</a>, <a class="reference external" href=".//user_manual-11.pdf">pdf</a>)</p>
+<figure class="align-center">
+<img alt="_images/user_manual-11.png" class="plot-directive" src="_images/user_manual-11.png" />
+</figure>
+</section>
+</section>
+<section id="advanced-gridding-tasks">
+<h2>Advanced gridding tasks<a class="headerlink" href="#advanced-gridding-tasks" title="Link to this heading">#</a></h2>
+<section id="sight-line-gridding">
+<h3>Sight-line gridding<a class="headerlink" href="#sight-line-gridding" title="Link to this heading">#</a></h3>
+<p>Certainly a less common use case is to employ <code class="xref py py-obj docutils literal notranslate"><span class="pre">cygrid</span></code> to grid a data set to
+a list of (irregular) coordinates - which makes only sense for true data
+gridding (and not re-projecting data) or if one needs to change the angular
+resolution (down-sampling). Another use case would be to create a HEALPix map
+from a large raw data set. The <code class="xref py py-obj docutils literal notranslate"><span class="pre">cygrid</span></code> sight-line gridder can do all of
+that, which is demonstrated in <a class="reference external" href="https://github.com/bwinkel/cygrid/blob/apt/notebooks/04_sightline_gridding.ipynb">this notebook</a>.</p>
+<p>Here, we explain the interface of the <a class="reference internal" href="api/cygrid.SlGrid.html#cygrid.SlGrid" title="cygrid.SlGrid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SlGrid</span></code></a> class. Gridding
+consists of the same four steps explained in <a class="reference internal" href="#simple-gridding-label"><span class="std std-ref">Simple gridding tasks</span></a>, but
+instead of providing a FITS header, one feeds a list of target coordinate
+pairs to the constructor:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">cygrid</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">astropy.utils.misc</span> <span class="kn">import</span> <span class="n">NumpyRNGContext</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mapcenter</span> <span class="o">=</span> <span class="mf">60.</span><span class="p">,</span> <span class="mf">30.</span>  <span class="c1"># all in degrees</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mapsize</span> <span class="o">=</span> <span class="mf">5.</span><span class="p">,</span> <span class="mf">5.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">beamsize_fwhm</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">num_samples</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">**</span> <span class="mi">6</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">num_sources</span> <span class="o">=</span> <span class="mi">20</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># see cygrid&#39;s manual for a description of the produce_mock_data function</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">NumpyRNGContext</span><span class="p">(</span><span class="mi">1</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="n">lons</span><span class="p">,</span> <span class="n">lats</span><span class="p">,</span> <span class="n">signal</span> <span class="o">=</span> <span class="n">cygrid</span><span class="o">.</span><span class="n">produce_mock_data</span><span class="p">(</span>
+<span class="gp">... </span>        <span class="n">mapcenter</span><span class="p">,</span> <span class="n">mapsize</span><span class="p">,</span> <span class="n">beamsize_fwhm</span><span class="p">,</span> <span class="n">num_samples</span><span class="p">,</span> <span class="n">num_sources</span>
+<span class="gp">... </span>        <span class="p">)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">target_lons</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">61.</span><span class="p">,</span> <span class="mf">59.1</span><span class="p">,</span> <span class="mf">62.7</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">target_lats</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">28.</span><span class="p">,</span> <span class="mf">30.6</span><span class="p">,</span> <span class="mf">29.5</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gridder</span> <span class="o">=</span> <span class="n">cygrid</span><span class="o">.</span><span class="n">SlGrid</span><span class="p">(</span><span class="n">target_lons</span><span class="p">,</span> <span class="n">target_lats</span><span class="p">)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">kernelsize_fwhm</span> <span class="o">=</span> <span class="mf">0.05</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">kernelsize_sigma</span> <span class="o">=</span> <span class="n">kernelsize_fwhm</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">8</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sphere_radius</span> <span class="o">=</span> <span class="mf">3.</span> <span class="o">*</span> <span class="n">kernelsize_sigma</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gridder</span><span class="o">.</span><span class="n">set_kernel</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="s1">&#39;gauss1d&#39;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="p">(</span><span class="n">kernelsize_sigma</span><span class="p">,),</span>
+<span class="gp">... </span>    <span class="n">sphere_radius</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">kernelsize_sigma</span> <span class="o">/</span> <span class="mf">2.</span>
+<span class="gp">... </span>    <span class="p">)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gridder</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">lons</span><span class="p">,</span> <span class="n">lats</span><span class="p">,</span> <span class="n">signal</span><span class="p">)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gridded_sightlines</span> <span class="o">=</span> <span class="n">gridder</span><span class="o">.</span><span class="n">get_datacube</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="s1">&#39;lon  lat  sightline-value</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+<span class="gp">... </span>        <span class="s1">&#39;</span><span class="si">{:4.1f}</span><span class="s1"> </span><span class="si">{:4.1f}</span><span class="s1"> </span><span class="si">{:6.3f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+<span class="gp">... </span>        <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">target_lons</span><span class="p">,</span> <span class="n">target_lats</span><span class="p">,</span> <span class="n">gridded_sightlines</span><span class="p">)</span>
+<span class="gp">... </span>        <span class="p">))</span>
+<span class="go">lon  lat  sightline-value</span>
+<span class="go">61.0 28.0 -0.117</span>
+<span class="go">59.1 30.6  0.159</span>
+<span class="go">62.7 29.5 -0.099</span>
+</pre></div>
+</div>
+</section>
+<section id="decrease-memory-footprint">
+<span id="serialization-label"></span><h3>Decrease memory footprint<a class="headerlink" href="#decrease-memory-footprint" title="Link to this heading">#</a></h3>
+<p>If you have very large raw data sets (e.g., spectral data), chances are high
+that you can’t load them all to your computer’s memory and feed them into the
+<a class="reference internal" href="api/cygrid.WcsGrid.html#cygrid.WcsGrid.grid" title="cygrid.WcsGrid.grid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">grid</span></code></a> method in one call. However, <code class="xref py py-obj docutils literal notranslate"><span class="pre">cygrid</span></code> was designed to
+allow serial data processing, which means one can repeatedly call
+<a class="reference internal" href="api/cygrid.WcsGrid.html#cygrid.WcsGrid.grid" title="cygrid.WcsGrid.grid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">grid</span></code></a> with different chunks of data and they all get gridded
+to the output datacube:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># set-up target map/datacube</span>
+<span class="n">mygridder</span> <span class="o">=</span> <span class="n">cygrid</span><span class="o">.</span><span class="n">WcsGrid</span><span class="p">(</span><span class="n">header</span><span class="p">)</span>
+<span class="n">mygridder</span><span class="o">.</span><span class="n">set_kernel</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">chunks</span><span class="p">:</span>
+    <span class="c1"># user needs to handle reading the data per chunk</span>
+    <span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">rawdata</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
+    <span class="n">mygridder</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">rawdata</span><span class="p">)</span>
+
+<span class="n">data_cube</span> <span class="o">=</span> <span class="n">mygridder</span><span class="o">.</span><span class="n">get_datacube</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>With this approach, we were able to process the <a class="reference external" href="http://adsabs.harvard.edu/abs/2016A%26A...594A.116H">HI4PI</a> survey, which is
+several tens of Tbytes of raw data and grid that into a full-sky data cube
+(about 30 GBytes) in few hours. For this task one still needs a potent
+workstation (128 GB RAM), but this is due to the large output data cube size.</p>
+<p>To speed-up processing, <code class="xref py py-obj docutils literal notranslate"><span class="pre">cygrid</span></code> uses internal caches (see <a class="reference external" href="http://adsabs.harvard.edu/abs/2016A%26A...591A..12W">Cygrid paper</a>
+for details). This is usually a minor contribution to the total memory usage,
+but there could be scenarios, e.g., when one grids into very large maps having
+very small pixel sizes, that the internal cache grows too much. In this case,
+we recommend to sort the input data by latitude, grid the data in chunks, and
+call <a class="reference internal" href="api/cygrid.Cygrid.html#cygrid.Cygrid.clear_cache" title="cygrid.Cygrid.clear_cache"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear_cache</span></code></a> every now and then. (Please follow this
+recipe only, if you’re sure that the internal cache is your problem.)
+The same approach can also help, if you have rather large gridding kernels,
+which have sizes of several hundreds or more pixels in the target map (e.g.,
+when you aim for relatively strong smoothing of the data).</p>
+</section>
+<section id="elliptical-gridding-kernels">
+<h3>Elliptical gridding kernels<a class="headerlink" href="#elliptical-gridding-kernels" title="Link to this heading">#</a></h3>
+<p>It is also possible to use an elliptical 2D Gaussian kernel, which can be
+useful, if one wants to smooth interferometric data (often having elliptical
+beams) to a spherical effective angular resolution. One simply has to
+choose an appropriate option in the <a class="reference internal" href="api/cygrid.WcsGrid.html#cygrid.WcsGrid.set_kernel" title="cygrid.WcsGrid.set_kernel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_kernel</span></code></a> method,
+e.g.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">beam_maj</span><span class="p">,</span> <span class="n">beam_min</span><span class="p">,</span> <span class="n">beam_PA</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">30.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">desired_resolution</span> <span class="o">=</span> <span class="mf">0.25</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">k_fwhm_maj</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">desired_resolution</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">beam_maj</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">k_fwhm_min</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">desired_resolution</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">beam_min</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:.3f}</span><span class="s1"> </span><span class="si">{:.3f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">k_fwhm_maj</span><span class="p">,</span> <span class="n">k_fwhm_min</span><span class="p">))</span>
+<span class="go">0.150 0.229</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fwhm_to_sigma</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">8</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">k_maj</span><span class="p">,</span> <span class="n">k_min</span> <span class="o">=</span> <span class="n">k_fwhm_maj</span> <span class="o">*</span> <span class="n">fwhm_to_sigma</span><span class="p">,</span> <span class="n">k_fwhm_min</span> <span class="o">*</span> <span class="n">fwhm_to_sigma</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sphere_radius</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">k_maj</span>  <span class="c1"># choose major kernel size</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">internal_hpx_res</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">k_min</span>  <span class="c1"># choose minor kernel size</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gridder</span><span class="o">.</span><span class="n">set_kernel</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="s1">&#39;gauss2d&#39;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="p">(</span><span class="n">k_maj</span><span class="p">,</span> <span class="n">k_min</span><span class="p">,</span> <span class="n">beam_PA</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="n">sphere_radius</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">internal_hpx_res</span>
+<span class="gp">... </span>    <span class="p">)</span>
+</pre></div>
+</div>
+<p>The <code class="xref py py-obj docutils literal notranslate"><span class="pre">beam_PA</span></code> is the parallactic angle of the beam. It is non-trivial, to
+treat this properly, especially on the sphere. For the <a class="reference external" href="http://adsabs.harvard.edu/abs/2016A%26A...591A..12W">Cygrid paper</a> we made
+a nice example plot, which demonstrates this:</p>
+<a class="reference internal image-reference" href="_images/cygrid_demo_zea_elliptical.png"><img alt="cygrid elliptical demo" src="_images/cygrid_demo_zea_elliptical.png" style="width: 85%;" /></a>
+</section>
+</section>
+<section id="benchmarking">
+<h2>Benchmarking<a class="headerlink" href="#benchmarking" title="Link to this heading">#</a></h2>
+<p>From the beginning, <code class="xref py py-obj docutils literal notranslate"><span class="pre">cygrid</span></code> was designed with performance in mind. The
+algorithm can be run on parallel threads, which allows us to profit from
+multi-core CPUs. However, much of the speed comes from applying clever methods
+to avoid unnecessary computations. One example is a fast cached approach to
+find the relevant map pixels around each raw-data sample position.</p>
+<p>We did several tests to benchmark <code class="xref py py-obj docutils literal notranslate"><span class="pre">cygrid</span></code>, in which we vary the number of
+raw data samples or the target map size, and repeat for different numbers of
+CPU cores. The resulting processing speed is compared vs. the
+<a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html#scipy.interpolate.griddata" title="(in SciPy v1.13.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">griddata</span></code></a> function, which serves as a baseline
+(although, the <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html#scipy.interpolate.griddata" title="(in SciPy v1.13.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">griddata</span></code></a> function is not really useful
+for many potential tasks that <code class="xref py py-obj docutils literal notranslate"><span class="pre">cygrid</span></code> can solve, it can be assumed that it
+is optimized for speed).</p>
+<p>The following figure shows the processing times for a
+<span class="math notranslate nohighlight">\(5^\circ\times5^\circ\)</span> target map. For spectral data (with many spectral
+channels), running the gridder is mostly limited by the IO speed with which
+the data can be read from disk. To estimate the influence of the convolution
+with the kernel, a single-valued signal is gridded (aka a continuum map). The
+test was repeated for different number of input samples (uniformly distributed
+over the map), ranging from 1000 to 400 billion(!). The width of the gridding
+kernel was <span class="math notranslate nohighlight">\(\vartheta_\mathrm{fwhm} = 300''\)</span>, the map pixel size was
+<span class="math notranslate nohighlight">\(200''\)</span>. Below about 200 thousand samples, <code class="xref py py-obj docutils literal notranslate"><span class="pre">cygrid</span></code> was considerably
+slower than <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html#scipy.interpolate.griddata" title="(in SciPy v1.13.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">griddata</span></code></a> (with “linear” or “cubic”
+interpolation method), because there is overhead involved with the
+construction of the internal caches. Beyond this point, and especially, when
+running <code class="xref py py-obj docutils literal notranslate"><span class="pre">cygrid</span></code> on a multi-core CPU, way faster (more than an order of
+magnitude with 16 cores). Furthermore, with “linear” and “cubic”
+interpolation, <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html#scipy.interpolate.griddata" title="(in SciPy v1.13.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">griddata</span></code></a> is limited to 16.7 million
+samples. The “nearest neighbor” method is faster than <code class="xref py py-obj docutils literal notranslate"><span class="pre">cygrid</span></code> (single-core),
+but on a dual-core <code class="xref py py-obj docutils literal notranslate"><span class="pre">cygrid</span></code> is competitive, and much faster on quad-cores
+(once 10+ million samples are gridded).</p>
+<a class="reference internal image-reference" href="_images/cygrid_speed_testdensity_scipy.png"><img alt="cygrid vs. scipy speed test - fixed field size, increasing density" src="_images/cygrid_speed_testdensity_scipy.png" style="width: 85%;" /></a>
+<p>The speed gain for multi-core CPUs is only kicking in once a certain number of
+samples is involved, but unfortunately it is not linear with the number of
+cores:</p>
+<a class="reference internal image-reference" href="_images/cygrid_speed_testdensity_scipy_perfgain.png"><img alt="CPU cores performance gain - fixed field size, increasing density" src="_images/cygrid_speed_testdensity_scipy_perfgain.png" style="width: 85%;" /></a>
+<p>As can be seen, for a 16-core CPU, the speed gain is only about 8-fold (still,
+for this example, 400 billion samples were finished after only 300 seconds).</p>
+<p>In a second, more challenging test, we changed the target field size (from
+<span class="math notranslate nohighlight">\(0.1^\circ\times0.1^\circ\)</span> to <span class="math notranslate nohighlight">\(60^\circ\times60^\circ\)</span>). At the
+same time we increased the number of input samples, such that a constant
+density of 100 thousand samples per square degrees was maintained:</p>
+<a class="reference internal image-reference" href="_images/cygrid_speed_testfieldsize_scipy.png"><img alt="cygrid vs. scipy speed test - increasing field size, fixed density" src="_images/cygrid_speed_testfieldsize_scipy.png" style="width: 85%;" /></a>
+<a class="reference internal image-reference" href="_images/cygrid_speed_testfieldsize_scipy_perfgain.png"><img alt="CPU cores performance gain - increasing field size, fixed density" src="_images/cygrid_speed_testfieldsize_scipy_perfgain.png" style="width: 85%;" /></a>
+</section>
+<section id="see-also">
+<h2>See Also<a class="headerlink" href="#see-also" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="http://adsabs.harvard.edu/abs/2016A%26A...591A..12W">Cygrid paper</a>: B. Winkel, D. Lenz &amp; L. Flöer: <em>Cygrid: A fast Cython-powered convolution-based gridding module for Python</em>, Astronomy &amp; Astrophysics, Volume 591, A 12, 2016.</p></li>
+<li><p><a class="reference external" href="http://adsabs.harvard.edu/abs/2005ApJ...622..759G">HEALPix paper</a>: K. M. Górski, E. Hivon, A. J. Banday, B. D. Wandelt, F. K. Hansen, M. Reinecke, M. Bartelmann: <em>HEALPix: A Framework for High-Resolution Discretization and Fast Analysis of Data Distributed on the Sphere</em>, The Astrophysical Journal, Volume 622, Issue 2, 2005.</p></li>
+<li><p><a class="reference external" href="http://adsabs.harvard.edu/abs/2002A%26A...395.1061G">WCSlib paper I</a>: E. W. Greisen &amp; M. R. Calabretta: <em>Representations of world coordinates in FITS</em>, Astronomy &amp; Astrophysics, Volume 395, p.1061, 2002.</p></li>
+<li><p><a class="reference external" href="http://adsabs.harvard.edu/abs/2002A%26A...395.1061G">WCSlib paper II</a>: M. R. Calabretta &amp; E. W. Greisen: <em>Representations of celestial coordinates in FITS</em>, Astronomy &amp; Astrophysics, Volume 395, p.1077, 2002.</p></li>
+<li><p><a class="reference external" href="http://docs.astropy.org/en/stable/wcs/index.html">Astropy World Coodinate System package</a>, which is used extensively in cygrid.</p></li>
+</ul>
+</section>
+<section id="reference-api">
+<h2>Reference/API<a class="headerlink" href="#reference-api" title="Link to this heading">#</a></h2>
+<section id="cygrid-package">
+<h3>cygrid Package<a class="headerlink" href="#cygrid-package" title="Link to this heading">#</a></h3>
+<section id="functions">
+<h4>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h4>
+<table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/cygrid.npix_to_nside.html#cygrid.npix_to_nside" title="cygrid.npix_to_nside"><code class="xref py py-obj docutils literal notranslate"><span class="pre">npix_to_nside</span></code></a>(uint64_t npix)</p></td>
+<td><p>Compute HEALPix <code class="xref py py-obj docutils literal notranslate"><span class="pre">nside</span></code> from <code class="xref py py-obj docutils literal notranslate"><span class="pre">npix</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/cygrid.nside_to_order.html#cygrid.nside_to_order" title="cygrid.nside_to_order"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nside_to_order</span></code></a>(uint64_t nside)</p></td>
+<td><p>Compute HEALPix <code class="xref py py-obj docutils literal notranslate"><span class="pre">order</span></code> from <code class="xref py py-obj docutils literal notranslate"><span class="pre">nside</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/cygrid.produce_mock_data.html#cygrid.produce_mock_data" title="cygrid.produce_mock_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">produce_mock_data</span></code></a>(mapcenter, mapsize, ...)</p></td>
+<td><p>Produce mock raw data (including coordinate pairs) for testing.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/cygrid.test.html#cygrid.test" title="cygrid.test"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test</span></code></a>(**kwargs)</p></td>
+<td><p>Run the tests for the package.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="classes">
+<h4>Classes<a class="headerlink" href="#classes" title="Link to this heading">#</a></h4>
+<table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/cygrid.Cygrid.html#cygrid.Cygrid" title="cygrid.Cygrid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Cygrid</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Fast Cython-powered gridding software, base class.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/cygrid.Healpix.html#cygrid.Healpix" title="cygrid.Healpix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Healpix</span></code></a>(uint64_t nside=1, uint32_t scheme=RING)</p></td>
+<td><p>Helper class for HEALPix operations.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/cygrid.HpxHashTable.html#cygrid.HpxHashTable" title="cygrid.HpxHashTable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HpxHashTable</span></code></a>(uint64_t nside=1, ...)</p></td>
+<td><p>Helper class for creating cygrid's lookup tables (HEALPix).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/cygrid.ShapeError.html#cygrid.ShapeError" title="cygrid.ShapeError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ShapeError</span></code></a></p></td>
+<td><p>This exception is for mismatches of WCS header and actual data cube sizes or input data sizes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="api/cygrid.SlGrid.html#cygrid.SlGrid" title="cygrid.SlGrid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SlGrid</span></code></a></p></td>
+<td><p>Sight line version of <a class="reference internal" href="api/cygrid.Cygrid.html#cygrid.Cygrid" title="cygrid.Cygrid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Cygrid</span></code></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="api/cygrid.WcsGrid.html#cygrid.WcsGrid" title="cygrid.WcsGrid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WcsGrid</span></code></a></p></td>
+<td><p>WCS version of <a class="reference internal" href="api/cygrid.Cygrid.html#cygrid.Cygrid" title="cygrid.Cygrid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Cygrid</span></code></a>.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="quick_tour.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Cygrid quick tour</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="api/cygrid.npix_to_nside.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">npix_to_nside</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-gridding">Data gridding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convolution-based-gridding">Convolution based gridding</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-cygrid-algorithm">The cygrid algorithm</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-with-scipy-griddata">Comparison with scipy.griddata</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#angular-resolution">Angular resolution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-parameters">Kernel parameters</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-gridding-tasks">Simple gridding tasks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gridding-spectral-data">Gridding spectral data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-cygrid-compare-to-re-projection">How does cygrid compare to re-projection?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-gridding-tasks">Advanced gridding tasks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sight-line-gridding">Sight-line gridding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decrease-memory-footprint">Decrease memory footprint</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#elliptical-gridding-kernels">Elliptical gridding kernels</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#benchmarking">Benchmarking</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#see-also">See Also</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference-api">Reference/API</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cygrid-package">cygrid Package</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#classes">Classes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/bwinkel/cygrid/edit/master/docs/user_manual.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="_sources/user_manual.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2009–2024, Benjamin Winkel.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.2.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
