@@ -1,3 +1,8 @@
+2.0.4 (2024-04-15)
+=======================
+This is a pure maintenance release providing cygrid for newer Python versions
+and migrating to new Python packaging mechanisms.
+
 2.0.3 (2022-11-22)
 =======================
 This is a pure maintenance release providing cygrid for newer Python versions.

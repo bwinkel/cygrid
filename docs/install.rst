@@ -9,16 +9,11 @@ cygrid has the following strict requirements:
 
 - `Python <http://www.python.org/>`__ 3.8 or later
 
-- `setuptools <https://setuptools.readthedocs.io/en/latest/>`__: Used for the package
-  installation.
-
-- `Cython <http://cython.org/>`__ 0.29 or later
+- `Cython <http://cython.org/>`__ 3.0 or later (only for builds from source)
 
 - `NumPy <http://www.numpy.org/>`__ 1.18.1 or later
 
 - `astropy <http://www.astropy.org/>`__: 4.0
-
-- `pytest <https://pypi.python.org/pypi/pytest>`__ 6.0 or later
 
 
 Installing cygrid
@@ -42,7 +37,7 @@ To install cygrid with `pip <http://www.pip-installer.org/en/latest/>`__, simply
 
 .. code-block:: bash
 
-    pip install cygrid
+    python -m pip install cygrid
 
 .. note::
 
@@ -63,9 +58,8 @@ To install cygrid with `pip <http://www.pip-installer.org/en/latest/>`__, simply
     If you get a ``PermissionError`` this means that you do not have the
     required administrative access to install new packages to your Python
     installation.  In this case you may consider using the ``--user`` option
-    to install the package into your home directory.  You can read more
-    about how to do this in the `pip documentation
-    <https://pip.pypa.io/en/stable/user_guide/#user-installs>`__.
+    to install the package into your home directory, or even better work
+    with virtual environments!
 
     We recommend to use a Python distribution, such as `Anaconda
     <https://www.continuum.io/downloads>`_, especially, if you are on
@@ -95,9 +89,9 @@ Then go into the cygrid source directory and run:
 
     python -m pip install .
 
-Again, consider the ``--user`` option or even better use a python distribution
-such as `Anaconda <https://www.continuum.io/downloads>`_ to avoid messing up
-the system-wide Python installation.
+Again, consider using virtual environments or even better use a python
+distribution such as `Anaconda <https://www.continuum.io/downloads>`_ to
+avoid messing up the system-wide Python installation.
 
 
 .. _windows_install:
@@ -109,15 +103,13 @@ Note that for Windows machines we provide binary wheels via `PyPI`_ and installa
 
 .. code-block:: bash
 
-    pip install cygrid
+    python -m pip install cygrid
 
 .. note::
 
     If you are desperate, you can install cygrid from source even on Windows.
     You'll need to install a suitable C-compiler; `see here
-    <https://wiki.python.org/moin/WindowsCompilers>`__. The cygrid
-    package needs Python 3.8 or later, which means VC++ Version 14 is
-    mandatory.
+    <https://wiki.python.org/moin/WindowsCompilers>`__.
 
 
 .. _macos_install:
@@ -130,7 +122,7 @@ does not support OpenMP. We provide wheels on PyPI, such that you can
 
 .. code-block:: bash
 
-    pip install cygrid
+    python -m pip install cygrid
 
 however, depending on the C++ compiler used on your system you may still
 get into trouble. We can't provide support for this.
@@ -156,8 +148,8 @@ the `cygrid issue tracker <http://github.com/bwinkel/cygrid/issues>`__.
 
 
 If you prefer testing on the command line and usually work with the source
-code, you can also do
+code, you can also do (outside of project directory)
 
 .. code-block:: bash
 
-    python setup.py test
+    python -m pytest --pyargs cygrid

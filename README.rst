@@ -78,13 +78,13 @@ case installiation is as easy as ::
 
 Otherwise, you should install cygrid via `pip`::
 
-    pip install cygrid
+    python -m pip install cygrid
 
 The installation is also possible from source, but you'll need a C++
 compiler. Download the tar.gz-file, extract (or clone from GitHub) and
-execute::
+execute (in project directory)::
 
-    python setup.py install
+    python -m pip install .
 
 Dependencies
 ------------
@@ -92,10 +92,10 @@ Dependencies
 We kept the dependencies as minimal as possible. The following packages are
 required:
 
-- `Python 3.6` or later (`cygrid` versions prior to v1.0 support `Python 2.7`)
+- `Python 3.8` or later (`cygrid` versions prior to v1.0 support `Python 2.7`)
 - `NumPy 1.13` or later
-- `Cython 0.27` or later (if you want to build `cygrid` yourself)
-- `Astropy 3.0` or later
+- `Cython 3` or later (if you want to build `cygrid` yourself)
+- `Astropy 4.0` or later
 
 (Older versions of these libraries may work, but we didn't test this!)
 
@@ -104,14 +104,9 @@ server, matplotlib and wcsaxes packages. To run the tests, you'll need HealPy.
 
 Note, for compiling the C-extension, openmp is used for parallelization and
 some C++11 language features are necessary. If you use gcc, for example, you
-need at least version 4.8 otherwise the setup-script will fail. (If you have
-absolutely no possibility to upgrade gcc, older version may work if you
-replace `-std=c++11` with `-std=c++0x` in `setup.py`. Thanks to bs538 for
-pointing this out.)
-
-For Mac OS, it is required to use gcc-6 in order to install cygrid. We
-recommend to simply use the `homebrew <http://brew.sh>`_ package manager and
-then use `brew install gcc`.
+need at least version 4.8 otherwise the setup-script will fail. It is highly
+recommended to use Anaconda, which offers the proper compilers for many
+platforms.
 
 Usage
 =====

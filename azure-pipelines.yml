@@ -29,8 +29,8 @@ jobs:
 
   variables:
     arch: x86_64
-    plat: manylinux2010_x86_64
-    image: quay.io/pypa/manylinux2010_x86_64
+    plat: manylinux_2_28_x86_64
+    image: quay.io/pypa/manylinux_2_28_x86_64
     # for very old systems, the following would also be an alternative:
     # plat: manylinux1_x86_64
     # image: skhep/manylinuxgcc-x86_64
@@ -309,14 +309,14 @@ jobs:
   - script: |
       $(conda.activate) cygrid-env
       ls dist/*.whl
-      python -m twine upload -r "pypi_cygrid" --config-file $(PYPIRC_PATH) dist/*.whl
+      python -m twine upload -r "pypi_cygrid" --skip-existing --config-file $(PYPIRC_PATH) dist/*.whl
     displayName: Upload wheels, Linux/MacOS
     condition: and(succeeded(), eq(variables['publish.wheels'], true), not(startsWith(variables['Agent.OS'], 'Windows')))
 
   - script: |
       $(conda.activate) cygrid-env
       ls dist/*.whl
-      python -m twine upload -r "pypi_cygrid" --config-file %PYPIRC_PATH% dist/*.whl
+      python -m twine upload -r "pypi_cygrid" --skip-existing --config-file %PYPIRC_PATH% dist/*.whl
     displayName: Upload wheels, Windows
     condition: and(succeeded(), eq(variables['publish.wheels'], true), startsWith(variables['Agent.OS'], 'Windows'))
 
