@@ -1,87 +1,488 @@
 
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="../" data-theme="light">
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Cygrid &#8212; cygrid v2.0.3.dev128</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-astropy.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
-    
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
+    <title>Cygrid &#8212; cygrid v2.0.4.dev4</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/_static/cygrid.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=5c51ac33"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=30646c52"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script type="text/javascript" src="../_static/sidebar.js"></script>
-    <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <link rel="shortcut icon" href="../_static/astropy_logo.ico"/>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/cygrid.Cygrid';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Healpix" href="cygrid.Healpix.html" />
     <link rel="prev" title="test" href="cygrid.test.html" />
-    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,600' rel='stylesheet' type='text/css'/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+    <meta name="docbuild:last-update" content="14 Apr 2024"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="light">
 
-  </head><body>
-<div class="topbar">
-  <a class="brand" title="Documentation Home" href="../index.html"><span id="logotext1">cygrid</span><span id="logotext2"></span><span id="logotext3">:docs</span></a>
-  <ul>
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
     
-    <li><a class="homelink" title="Astropy Homepage" href="http://www.astropy.org"></a></li>
-    <li><a title="General Index" href="../genindex.html">Index</a></li>
-    <li><a title="Module Index" href="../py-modindex.html">Modules</a></li>
-    <li>
-      
-      
-<form action="../search.html" method="get">
-  <input type="text" name="q" placeholder="Search" />
-  <input type="hidden" name="check_keywords" value="yes" />
-  <input type="hidden" name="area" value="default" />
-</form>
-      
-    </li>
-  </ul>
-</div>
+      <div class="navbar-item">
 
-<div class="related">
-    <h3>Navigation</h3>
-    <ul>
-      <li class="right">
-	<a href="cygrid.Healpix.html" title="Healpix">
-	  next &raquo;
-	</a>
-      </li>
-      <li class="right">
-	<a href="cygrid.test.html" title="test">
-	  &laquo; previous
-	</a>
-	 |
-      </li>
-      <li>
-	<a href="../index.html">cygrid v2.0.3.dev128</a>
-	 &#187;
-      </li>
-      <li><a href="../user_manual.html" accesskey="U">Cygrid user manual</a> &#187;</li>
-      
-      <li>Cygrid</li> 
-    </ul>
-</div>
   
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">cygrid v2.0.4.dev4</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../install.html">
+                        Installation
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../importing_cygrid.html">
+                        Importing cygrid
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../quick_tour.html">
+                        Cygrid quick tour
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../user_manual.html">
+                        Cygrid user manual
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-external" href="http://nbviewer.jupyter.org/github/bwinkel/cygrid/blob/master/notebooks/">
+                        Tutorials (Jupyter notebooks)
+                      </a>
+                    </li>
+                
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="../license.html">
+                        Licenses
+                      </a>
+                    </li>
+                
+
+                <li class="nav-item">
+                  <a class="nav-link dropdown-item nav-external" href="https://github.com/bwinkel/cygrid/tree/master/notebooks">
+                    Tutorials
+                  </a>
+                </li>
+                
+                </ul>
+            </li>
             
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/bwinkel/cygrid" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item">
+<nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../install.html">
+                        Installation
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../importing_cygrid.html">
+                        Importing cygrid
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../quick_tour.html">
+                        Cygrid quick tour
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../user_manual.html">
+                        Cygrid user manual
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-external" href="http://nbviewer.jupyter.org/github/bwinkel/cygrid/blob/master/notebooks/">
+                        Tutorials (Jupyter notebooks)
+                      </a>
+                    </li>
+                
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links-2">
+                    More
+                </button>
+                <ul id="pst-nav-more-links-2" class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="../license.html">
+                        Licenses
+                      </a>
+                    </li>
+                
+
+                <li class="nav-item">
+                  <a class="nav-link dropdown-item nav-external" href="https://github.com/bwinkel/cygrid/tree/master/notebooks">
+                    Tutorials
+                  </a>
+                </li>
+                
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/bwinkel/cygrid" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="cygrid.npix_to_nside.html">npix_to_nside</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cygrid.nside_to_order.html">nside_to_order</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cygrid.produce_mock_data.html">produce_mock_data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cygrid.test.html">test</a></li>
+</ul>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Cygrid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cygrid.Healpix.html">Healpix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cygrid.HpxHashTable.html">HpxHashTable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cygrid.ShapeError.html">ShapeError</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cygrid.SlGrid.html">SlGrid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cygrid.WcsGrid.html">WcsGrid</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item"><nav class="sidebar-indices-items" aria-labelledby="pst-indices-navigation-heading-2">
+  <p id="pst-indices-navigation-heading-2" class="sidebar-indices-items__title" role="heading" aria-level="1">Indices</p>
+  <ul class="indices-link">
+        <li class="toctree-l1">
+          <a class="reference internal"
+             href="../genindex.html"
+             accesskey="I">General Index</a>
+        </li>
+  </ul>
+</nav></div>
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../user_manual.html" class="nav-link">Cygrid user manual</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">Cygrid</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
   <section id="cygrid">
-<h1>Cygrid<a class="headerlink" href="#cygrid" title="Permalink to this headline">¶</a></h1>
+<h1>Cygrid<a class="headerlink" href="#cygrid" title="Link to this heading">#</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="cygrid.Cygrid">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">cygrid.</span></span><span class="sig-name descname"><span class="pre">Cygrid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cygrid.Cygrid" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cygrid.</span></span><span class="sig-name descname"><span class="pre">Cygrid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cygrid.Cygrid" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Fast Cython-powered gridding software, base class.</p>
 <p>DO NOT USE DIRECTLY, BUT THE DERIVED CLASSES <a class="reference internal" href="cygrid.WcsGrid.html#cygrid.WcsGrid" title="cygrid.WcsGrid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WcsGrid</span></code></a> OR
 <a class="reference internal" href="cygrid.SlGrid.html#cygrid.SlGrid" title="cygrid.SlGrid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SlGrid</span></code></a>.</p>
@@ -102,7 +503,7 @@ pixels contribute to which output pixels. In practice it is a little more
 complicated, because world pixels could share the same HEALPix index. We
 use lists (or rather C++ vectors) to account for this.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>Optional keyword arguments:</strong></dt><dd><dl class="simple">
 <dt>dbg_messages<span class="classifier">Boolean (default: False)</span></dt><dd><p>Do debugging output</p>
@@ -113,11 +514,7 @@ use lists (or rather C++ vectors) to account for this.</p>
 </dd>
 </dl>
 <p class="rubric">Methods Summary</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+<table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#cygrid.Cygrid.clear_cache" title="cygrid.Cygrid.clear_cache"><code class="xref py py-obj docutils literal notranslate"><span class="pre">clear_cache</span></code></a>(self)</p></td>
 <td><p>Clear all internal caches/dictionaries.</p></td>
@@ -134,10 +531,10 @@ use lists (or rather C++ vectors) to account for this.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="#cygrid.Cygrid.get_weights" title="cygrid.Cygrid.get_weights"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_weights</span></code></a>(self)</p></td>
 <td><p>Return final weights.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#cygrid.Cygrid.grid" title="cygrid.Cygrid.grid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">grid</span></code></a>(self, ndarray lons, ndarray lats, …)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#cygrid.Cygrid.grid" title="cygrid.Cygrid.grid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">grid</span></code></a>(self, ndarray lons, ndarray lats, ...)</p></td>
 <td><p>Grid irregularly positioned data points (spectra) into the data cube.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#cygrid.Cygrid.set_kernel" title="cygrid.Cygrid.set_kernel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_kernel</span></code></a>(self, kernel_type, kernel_params, …)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cygrid.Cygrid.set_kernel" title="cygrid.Cygrid.set_kernel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_kernel</span></code></a>(self, kernel_type, kernel_params, ...)</p></td>
 <td><p>Set the gridding kernel type and parameters.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#cygrid.Cygrid.set_num_threads" title="cygrid.Cygrid.set_num_threads"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_num_threads</span></code></a>(self, int nthreads)</p></td>
@@ -148,7 +545,7 @@ use lists (or rather C++ vectors) to account for this.</p>
 <p class="rubric">Methods Documentation</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="cygrid.Cygrid.clear_cache">
-<span class="sig-name descname"><span class="pre">clear_cache</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cygrid.Cygrid.clear_cache" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">clear_cache</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cygrid.Cygrid.clear_cache" title="Link to this definition">#</a></dt>
 <dd><p>Clear all internal caches/dictionaries.</p>
 <p class="rubric">Notes</p>
 <p>To speed-up processing, <code class="xref py py-obj docutils literal notranslate"><span class="pre">cygrid</span></code> uses internal caches (see <a class="reference external" href="http://adsabs.harvard.edu/abs/2016A%26A...591A..12W">Cygrid
@@ -163,18 +560,18 @@ and then.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="cygrid.Cygrid.clear_data_and_weights">
-<span class="sig-name descname"><span class="pre">clear_data_and_weights</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cygrid.Cygrid.clear_data_and_weights" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">clear_data_and_weights</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cygrid.Cygrid.clear_data_and_weights" title="Link to this definition">#</a></dt>
 <dd><p>Reset data and weights arrays. (Caches stay filled!)</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="cygrid.Cygrid.get_datacube">
-<span class="sig-name descname"><span class="pre">get_datacube</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cygrid.Cygrid.get_datacube" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_datacube</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cygrid.Cygrid.get_datacube" title="Link to this definition">#</a></dt>
 <dd><p>Return final data.</p>
 <dl class="field-list">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>data</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.20)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array</span></code></a> [nD] of float32 or float64</span></dt><dd><p>The gridded spectral data.</p>
+<dt><strong>data</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.26)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array</span></code></a> [<code class="xref py py-obj docutils literal notranslate"><span class="pre">nD</span></code>] of <code class="xref py py-obj docutils literal notranslate"><span class="pre">float32</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">float64</span></code></span></dt><dd><p>The gridded spectral data.</p>
 </dd>
 </dl>
 </dd>
@@ -188,12 +585,12 @@ data signal shape and the target pixel array size.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="cygrid.Cygrid.get_unweighted_datacube">
-<span class="sig-name descname"><span class="pre">get_unweighted_datacube</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cygrid.Cygrid.get_unweighted_datacube" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_unweighted_datacube</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cygrid.Cygrid.get_unweighted_datacube" title="Link to this definition">#</a></dt>
 <dd><p>Return final unweighted data. (For debugging only.)</p>
 <dl class="field-list">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>unweighted_data</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.20)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array</span></code></a> [nD] of float32 or float64</span></dt><dd><p>The gridded spectral unweighted data. The gridded data is
+<dt><strong>unweighted_data</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.26)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array</span></code></a> [<code class="xref py py-obj docutils literal notranslate"><span class="pre">nD</span></code>] of <code class="xref py py-obj docutils literal notranslate"><span class="pre">float32</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">float64</span></code></span></dt><dd><p>The gridded spectral unweighted data. The gridded data is
 the quotient of the unweighted data and the weights.</p>
 </dd>
 </dl>
@@ -208,12 +605,12 @@ data signal shape and the target pixel array size.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="cygrid.Cygrid.get_weights">
-<span class="sig-name descname"><span class="pre">get_weights</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cygrid.Cygrid.get_weights" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_weights</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cygrid.Cygrid.get_weights" title="Link to this definition">#</a></dt>
 <dd><p>Return final weights.</p>
 <dl class="field-list">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>weights</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.20)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array</span></code></a> [nD] of float32 or float64</span></dt><dd><p>The gridded spectral weights.</p>
+<dt><strong>weights</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.26)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array</span></code></a> [<code class="xref py py-obj docutils literal notranslate"><span class="pre">nD</span></code>] of <code class="xref py py-obj docutils literal notranslate"><span class="pre">float32</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">float64</span></code></span></dt><dd><p>The gridded spectral weights.</p>
 </dd>
 </dl>
 </dd>
@@ -227,17 +624,17 @@ data signal shape and the target pixel array size.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="cygrid.Cygrid.grid">
-<span class="sig-name descname"><span class="pre">grid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">ndarray</span> <span class="pre">lons</span></em>, <em class="sig-param"><span class="pre">ndarray</span> <span class="pre">lats</span></em>, <em class="sig-param"><span class="pre">ndarray</span> <span class="pre">data</span></em>, <em class="sig-param"><span class="pre">ndarray</span> <span class="pre">weights=None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cygrid.Cygrid.grid" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">grid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ndarray</span> <span class="pre">lons</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ndarray</span> <span class="pre">lats</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ndarray</span> <span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ndarray</span> <span class="pre">weights=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cygrid.Cygrid.grid" title="Link to this definition">#</a></dt>
 <dd><p>Grid irregularly positioned data points (spectra) into the data cube.</p>
 <p>After successful gridding, you can obtain the resulting datacube with
 the <a class="reference internal" href="#cygrid.Cygrid.get_datacube" title="cygrid.Cygrid.get_datacube"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_datacube</span></code></a> method. The associated weight cube
 is accessible with <a class="reference internal" href="#cygrid.Cygrid.get_weights" title="cygrid.Cygrid.get_weights"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_weights</span></code></a>.</p>
 <dl class="field-list">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>lons, lats</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.20)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array</span></code></a> [1D] of float64</span></dt><dd><p>Flat lists/arrays of input coordinates <span class="math notranslate nohighlight">\((l, b)\)</span>.</p>
+<dt><strong>lons, lats</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.26)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array</span></code></a> [1D] of <code class="xref py py-obj docutils literal notranslate"><span class="pre">float64</span></code></span></dt><dd><p>Flat lists/arrays of input coordinates <span class="math notranslate nohighlight">\((l, b)\)</span>.</p>
 </dd>
-<dt><strong>data/weights</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.20)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array</span></code></a> [nD] of float32 or float64</span></dt><dd><p>The spectra and their weights (optional) for each of the given
+<dt><strong>data/weights</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.26)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array</span></code></a> [<code class="xref py py-obj docutils literal notranslate"><span class="pre">nD</span></code>] of <code class="xref py py-obj docutils literal notranslate"><span class="pre">float32</span></code> or <code class="xref py py-obj docutils literal notranslate"><span class="pre">float64</span></code></span></dt><dd><p>The spectra and their weights (optional) for each of the given
 coordinate pairs, <span class="math notranslate nohighlight">\((l, b)\)</span>. First axis must match lons/lats
 size. The shape of the input data will determine the output
 datacube shape: the first axes of the datacube will match the (
@@ -248,9 +645,9 @@ array (e.g., the shape of the target map).</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Raises</dt>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt>ShapeError</dt><dd><p>Input coordinates/data points length mismatch.
+<dt><a class="reference internal" href="cygrid.ShapeError.html#cygrid.ShapeError" title="cygrid.ShapeError"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ShapeError</span></code></a></dt><dd><p>Input coordinates/data points length mismatch.
 Number of spectral channels mismatch.</p>
 </dd>
 </dl>
@@ -270,24 +667,24 @@ re-cast if necessary).</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="cygrid.Cygrid.set_kernel">
-<span class="sig-name descname"><span class="pre">set_kernel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">kernel_type</span></em>, <em class="sig-param"><span class="pre">kernel_params</span></em>, <em class="sig-param"><span class="pre">double</span> <span class="pre">sphere_radius</span></em>, <em class="sig-param"><span class="pre">double</span> <span class="pre">hpx_max_resolution</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cygrid.Cygrid.set_kernel" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">set_kernel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kernel_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kernel_params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">double</span> <span class="pre">sphere_radius</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">double</span> <span class="pre">hpx_max_resolution</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cygrid.Cygrid.set_kernel" title="Link to this definition">#</a></dt>
 <dd><p>Set the gridding kernel type and parameters.</p>
 <dl class="field-list">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>kernel_type</strong><span class="classifier">str</span></dt><dd><p>Set the kernel type.</p>
+<dt><strong>kernel_type</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>Set the kernel type.</p>
 <p>The following names/types are available:
 ‘gauss1d’, ‘gauss2d’, ‘tapered_sinc’ (see Notes for details)</p>
 </dd>
-<dt><strong>kernel_params</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.20)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array</span></code></a></span></dt><dd><p>Set the kernel parameters for the chosen type (see Notes for
+<dt><strong>kernel_params</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.26)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array</span></code></a></span></dt><dd><p>Set the kernel parameters for the chosen type (see Notes for
 details)</p>
 </dd>
-<dt><strong>sphere_radius</strong><span class="classifier">double</span></dt><dd><p>Kernel sphere radius.</p>
+<dt><strong>sphere_radius</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">double</span></code></span></dt><dd><p>Kernel sphere radius.</p>
 <p>This is controls out to which distance the kernel
 is computed for. For Gaussian kernels, values much larger
 than <span class="math notranslate nohighlight">\(3\ldots4 \sigma_\mathrm{k}\)</span> do not make much sense.</p>
 </dd>
-<dt><strong>hpx_max_resolution</strong><span class="classifier">double</span></dt><dd><p>Maximum acceptable HPX resolution
+<dt><strong>hpx_max_resolution</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">double</span></code></span></dt><dd><p>Maximum acceptable HPX resolution
 (<span class="math notranslate nohighlight">\(\sigma_\mathrm{k}^{[\mathrm{maj}]} / 2\)</span> is a
 reasonable value).</p>
 </dd>
@@ -296,7 +693,7 @@ reasonable value).</p>
 </dl>
 <p class="rubric">Notes</p>
 <p>Below you find a list of kernel-names and required parameters:</p>
-<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;gauss1d&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">kernel_sigma</span><span class="p">,)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;gauss1d&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">kernel_sigma</span><span class="p">,)</span>
 <span class="s1">&#39;gauss2d&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">kernel_sigma_maj</span><span class="p">,</span> <span class="n">kernel_sigma_min</span><span class="p">,</span> <span class="n">PA</span><span class="p">)</span>
 <span class="s1">&#39;tapered_sinc&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">kernel_sigma</span><span class="p">,</span> <span class="n">param_a</span><span class="p">,</span> <span class="n">param_b</span><span class="p">)</span>
 </pre></div>
@@ -313,7 +710,7 @@ in about 10% degradation of the final angular resolution.)</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="cygrid.Cygrid.set_num_threads">
-<span class="sig-name descname"><span class="pre">set_num_threads</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">int</span> <span class="pre">nthreads</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cygrid.Cygrid.set_num_threads" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">set_num_threads</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">int</span> <span class="pre">nthreads</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cygrid.Cygrid.set_num_threads" title="Link to this definition">#</a></dt>
 <dd><p>Change maximum number of threads to use.</p>
 <p>This is a convenience function, to call <code class="xref py py-obj docutils literal notranslate"><span class="pre">omp_set_num_threads()</span></code>,
 which is otherwise not possible during runtime from Python.</p>
@@ -324,32 +721,122 @@ which is otherwise not possible during runtime from Python.</p>
 </section>
 
 
-            <div class="clearer"></div>
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="cygrid.test.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">test</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="cygrid.Healpix.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Healpix</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/bwinkel/cygrid/edit/master/docs/api/cygrid.Cygrid.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/api/cygrid.Cygrid.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
           </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper"><h3>Page Contents</h3>
-<ul>
-<li><a class="reference internal" href="#">Cygrid</a></li>
-</ul>
-
-
-        </div>
-      </div>
-      <div class="clearer"></div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
     </div>
-<footer class="footer">
-  <p class="pull-right">
-    <a href="https://github.com/bwinkel/cygrid/tree/master/docs/api/cygrid.Cygrid.rst">Edit This Page on Github</a> &nbsp;
-    <a href="../_sources/api/cygrid.Cygrid.rst.txt"
-       rel="nofollow">Page Source</a> &nbsp;
-    <a href="#">Back to Top</a></p>
-  <p>
-    &copy; Copyright 2021, Benjamin Winkel, Lars Flöer, Daniel Lenz.<br/>
-    Created using <a href="http://www.sphinx-doc.org/en/stable/">Sphinx</a> 4.0.1. &nbsp;
-    Last built 18 May 2021. <br/>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2009–2024, Benjamin Winkel.
+      <br/>
+    
   </p>
-</footer>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.2.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
   </body>
 </html>

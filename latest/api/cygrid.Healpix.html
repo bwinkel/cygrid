@@ -1,97 +1,498 @@
 
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="../" data-theme="light">
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Healpix &#8212; cygrid v2.0.3.dev128</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/bootstrap-astropy.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
-    
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
+    <title>Healpix &#8212; cygrid v2.0.4.dev4</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/_static/cygrid.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=5c51ac33"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=30646c52"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script type="text/javascript" src="../_static/sidebar.js"></script>
-    <script type="text/javascript" src="../_static/copybutton.js"></script>
-    <link rel="shortcut icon" href="../_static/astropy_logo.ico"/>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/cygrid.Healpix';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="HpxHashTable" href="cygrid.HpxHashTable.html" />
     <link rel="prev" title="Cygrid" href="cygrid.Cygrid.html" />
-    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,600' rel='stylesheet' type='text/css'/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+    <meta name="docbuild:last-update" content="14 Apr 2024"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="light">
 
-  </head><body>
-<div class="topbar">
-  <a class="brand" title="Documentation Home" href="../index.html"><span id="logotext1">cygrid</span><span id="logotext2"></span><span id="logotext3">:docs</span></a>
-  <ul>
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
     
-    <li><a class="homelink" title="Astropy Homepage" href="http://www.astropy.org"></a></li>
-    <li><a title="General Index" href="../genindex.html">Index</a></li>
-    <li><a title="Module Index" href="../py-modindex.html">Modules</a></li>
-    <li>
-      
-      
-<form action="../search.html" method="get">
-  <input type="text" name="q" placeholder="Search" />
-  <input type="hidden" name="check_keywords" value="yes" />
-  <input type="hidden" name="area" value="default" />
-</form>
-      
-    </li>
-  </ul>
-</div>
+      <div class="navbar-item">
 
-<div class="related">
-    <h3>Navigation</h3>
-    <ul>
-      <li class="right">
-	<a href="cygrid.HpxHashTable.html" title="HpxHashTable">
-	  next &raquo;
-	</a>
-      </li>
-      <li class="right">
-	<a href="cygrid.Cygrid.html" title="Cygrid">
-	  &laquo; previous
-	</a>
-	 |
-      </li>
-      <li>
-	<a href="../index.html">cygrid v2.0.3.dev128</a>
-	 &#187;
-      </li>
-      <li><a href="../user_manual.html" accesskey="U">Cygrid user manual</a> &#187;</li>
-      
-      <li>Healpix</li> 
-    </ul>
-</div>
   
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">cygrid v2.0.4.dev4</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../install.html">
+                        Installation
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../importing_cygrid.html">
+                        Importing cygrid
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../quick_tour.html">
+                        Cygrid quick tour
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../user_manual.html">
+                        Cygrid user manual
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-external" href="http://nbviewer.jupyter.org/github/bwinkel/cygrid/blob/master/notebooks/">
+                        Tutorials (Jupyter notebooks)
+                      </a>
+                    </li>
+                
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="../license.html">
+                        Licenses
+                      </a>
+                    </li>
+                
+
+                <li class="nav-item">
+                  <a class="nav-link dropdown-item nav-external" href="https://github.com/bwinkel/cygrid/tree/master/notebooks">
+                    Tutorials
+                  </a>
+                </li>
+                
+                </ul>
+            </li>
             
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/bwinkel/cygrid" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item">
+<nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../install.html">
+                        Installation
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../importing_cygrid.html">
+                        Importing cygrid
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../quick_tour.html">
+                        Cygrid quick tour
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../user_manual.html">
+                        Cygrid user manual
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-external" href="http://nbviewer.jupyter.org/github/bwinkel/cygrid/blob/master/notebooks/">
+                        Tutorials (Jupyter notebooks)
+                      </a>
+                    </li>
+                
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links-2">
+                    More
+                </button>
+                <ul id="pst-nav-more-links-2" class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="../license.html">
+                        Licenses
+                      </a>
+                    </li>
+                
+
+                <li class="nav-item">
+                  <a class="nav-link dropdown-item nav-external" href="https://github.com/bwinkel/cygrid/tree/master/notebooks">
+                    Tutorials
+                  </a>
+                </li>
+                
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/bwinkel/cygrid" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="cygrid.npix_to_nside.html">npix_to_nside</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cygrid.nside_to_order.html">nside_to_order</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cygrid.produce_mock_data.html">produce_mock_data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cygrid.test.html">test</a></li>
+</ul>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="cygrid.Cygrid.html">Cygrid</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Healpix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cygrid.HpxHashTable.html">HpxHashTable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cygrid.ShapeError.html">ShapeError</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cygrid.SlGrid.html">SlGrid</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cygrid.WcsGrid.html">WcsGrid</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item"><nav class="sidebar-indices-items" aria-labelledby="pst-indices-navigation-heading-2">
+  <p id="pst-indices-navigation-heading-2" class="sidebar-indices-items__title" role="heading" aria-level="1">Indices</p>
+  <ul class="indices-link">
+        <li class="toctree-l1">
+          <a class="reference internal"
+             href="../genindex.html"
+             accesskey="I">General Index</a>
+        </li>
+  </ul>
+</nav></div>
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../user_manual.html" class="nav-link">Cygrid user manual</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">Healpix</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
   <section id="healpix">
-<h1>Healpix<a class="headerlink" href="#healpix" title="Permalink to this headline">¶</a></h1>
+<h1>Healpix<a class="headerlink" href="#healpix" title="Link to this heading">#</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="cygrid.Healpix">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">cygrid.</span></span><span class="sig-name descname"><span class="pre">Healpix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">uint64_t</span> <span class="pre">nside=1</span></em>, <em class="sig-param"><span class="pre">uint32_t</span> <span class="pre">scheme=RING</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cygrid.Healpix" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">cygrid.</span></span><span class="sig-name descname"><span class="pre">Healpix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uint64_t</span> <span class="pre">nside=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uint32_t</span> <span class="pre">scheme=RING</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cygrid.Healpix" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Helper class for HEALPix operations.</p>
 <p>Implements conversion between HEALPix world and pixel coordinates (‘RING’
 representation only). Also provides a <a class="reference internal" href="#cygrid.Healpix.query_disc" title="cygrid.Healpix.query_disc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">query_disc</span></code></a> method that returns
 a disc footprint for <span class="math notranslate nohighlight">\(\varphi = 180^\circ\)</span> for a given ring.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>nside</strong><span class="classifier">unsigned 64-bit int</span></dt><dd><p>The HEALPix <a class="reference internal" href="#cygrid.Healpix.nside" title="cygrid.Healpix.nside"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nside</span></code></a> parameter.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>nside</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unsigned</span></code> 64-bit <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>The HEALPix <a class="reference internal" href="#cygrid.Healpix.nside" title="cygrid.Healpix.nside"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nside</span></code></a> parameter.</p>
 </dd>
-<dt><strong>scheme</strong><span class="classifier">enum</span></dt><dd><p>The HEALPix <a class="reference internal" href="#cygrid.Healpix.scheme" title="cygrid.Healpix.scheme"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scheme</span></code></a>. Currently, only ‘RING’ is supported.</p>
+<dt><strong>scheme</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/enum.html#module-enum" title="(in Python v3.12)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">enum</span></code></a></span></dt><dd><p>The HEALPix <a class="reference internal" href="#cygrid.Healpix.scheme" title="cygrid.Healpix.scheme"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scheme</span></code></a>. Currently, only ‘RING’ is supported.</p>
 </dd>
 </dl>
 </dd>
@@ -101,11 +502,7 @@ a disc footprint for <span class="math notranslate nohighlight">\(\varphi = 180^
 (Copyright (C) 2003-2012 Max-Planck-Society; author Martin Reinecke;
 see <a class="reference external" href="http://healpix.sourceforge.net">http://healpix.sourceforge.net</a>)</p>
 <p class="rubric">Attributes Summary</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+<table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#cygrid.Healpix.ncap" title="cygrid.Healpix.ncap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ncap</span></code></a></p></td>
 <td><p>property ncap : unsigned 64-bit int</p></td>
@@ -137,11 +534,7 @@ see <a class="reference external" href="http://healpix.sourceforge.net">http://h
 </tbody>
 </table>
 <p class="rubric">Methods Summary</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+<table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#cygrid.Healpix.ang2pix" title="cygrid.Healpix.ang2pix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ang2pix</span></code></a>(self, double theta, double phi)</p></td>
 <td><p>Return the pixel index containing the angular coordinates <span class="math notranslate nohighlight">\((\varphi, \vartheta)\)</span>.</p></td>
@@ -159,23 +552,23 @@ see <a class="reference external" href="http://healpix.sourceforge.net">http://h
 <td><p>Convert HEALPix indices to angular coordinates of <span class="math notranslate nohighlight">\((\varphi, \vartheta)\)</span> arrays.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#cygrid.Healpix.pix2ring" title="cygrid.Healpix.pix2ring"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pix2ring</span></code></a>(self, uint64_t pix)</p></td>
-<td><p>Return ‘ring’ number that contains the HEALPix pixel, ‘pix’.</p></td>
+<td><p>Return 'ring' number that contains the HEALPix pixel, 'pix'.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#cygrid.Healpix.pix2ring_many" title="cygrid.Healpix.pix2ring_many"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pix2ring_many</span></code></a>(self, long[)</p></td>
-<td><p>Return ‘ring’ numbers containing HEALPix pixels given in array, ‘pix’.</p></td>
+<td><p>Return 'ring' numbers containing HEALPix pixels given in array, 'pix'.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#cygrid.Healpix.query_disc" title="cygrid.Healpix.query_disc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">query_disc</span></code></a>(self, double theta, double phi, …)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#cygrid.Healpix.query_disc" title="cygrid.Healpix.query_disc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">query_disc</span></code></a>(self, double theta, double phi, ...)</p></td>
 <td><p>Return hpx indices of a disc around <span class="math notranslate nohighlight">\((\vartheta, \varphi)\)</span>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#cygrid.Healpix.query_disc_phi180" title="cygrid.Healpix.query_disc_phi180"><code class="xref py py-obj docutils literal notranslate"><span class="pre">query_disc_phi180</span></code></a>(self, …)</p></td>
-<td><p>Return HEALPix indices of a disc around <span class="math notranslate nohighlight">\(\varphi=180^\circ\)</span> for ‘disc_ring’.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#cygrid.Healpix.query_disc_phi180" title="cygrid.Healpix.query_disc_phi180"><code class="xref py py-obj docutils literal notranslate"><span class="pre">query_disc_phi180</span></code></a>(self, ...)</p></td>
+<td><p>Return HEALPix indices of a disc around <span class="math notranslate nohighlight">\(\varphi=180^\circ\)</span> for 'disc_ring'.</p></td>
 </tr>
 </tbody>
 </table>
 <p class="rubric">Attributes Documentation</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cygrid.Healpix.ncap">
-<span class="sig-name descname"><span class="pre">ncap</span></span><a class="headerlink" href="#cygrid.Healpix.ncap" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">ncap</span></span><a class="headerlink" href="#cygrid.Healpix.ncap" title="Link to this definition">#</a></dt>
 <dd><dl class="simple">
 <dt>property ncap<span class="classifier">unsigned 64-bit int</span></dt><dd><p>Return the HEALPix ‘ncap’ parameter.</p>
 </dd>
@@ -184,7 +577,7 @@ see <a class="reference external" href="http://healpix.sourceforge.net">http://h
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cygrid.Healpix.npface">
-<span class="sig-name descname"><span class="pre">npface</span></span><a class="headerlink" href="#cygrid.Healpix.npface" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">npface</span></span><a class="headerlink" href="#cygrid.Healpix.npface" title="Link to this definition">#</a></dt>
 <dd><dl class="simple">
 <dt>property nface<span class="classifier">unsigned 64-bit int</span></dt><dd><p>Return the HEALPix ‘nface’ parameter.</p>
 </dd>
@@ -193,7 +586,7 @@ see <a class="reference external" href="http://healpix.sourceforge.net">http://h
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cygrid.Healpix.npix">
-<span class="sig-name descname"><span class="pre">npix</span></span><a class="headerlink" href="#cygrid.Healpix.npix" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">npix</span></span><a class="headerlink" href="#cygrid.Healpix.npix" title="Link to this definition">#</a></dt>
 <dd><dl class="simple">
 <dt>property npix<span class="classifier">unsigned 64-bit int</span></dt><dd><p>Return the HEALPix ‘npix’ parameter.</p>
 </dd>
@@ -202,7 +595,7 @@ see <a class="reference external" href="http://healpix.sourceforge.net">http://h
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cygrid.Healpix.nrings">
-<span class="sig-name descname"><span class="pre">nrings</span></span><a class="headerlink" href="#cygrid.Healpix.nrings" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">nrings</span></span><a class="headerlink" href="#cygrid.Healpix.nrings" title="Link to this definition">#</a></dt>
 <dd><dl class="simple">
 <dt>property nrings<span class="classifier">unsigned 64-bit int</span></dt><dd><p>Return the HEALPix ‘nrings’ parameter.</p>
 </dd>
@@ -211,7 +604,7 @@ see <a class="reference external" href="http://healpix.sourceforge.net">http://h
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cygrid.Healpix.nside">
-<span class="sig-name descname"><span class="pre">nside</span></span><a class="headerlink" href="#cygrid.Healpix.nside" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">nside</span></span><a class="headerlink" href="#cygrid.Healpix.nside" title="Link to this definition">#</a></dt>
 <dd><dl class="simple">
 <dt>property nside<span class="classifier">unsigned 64-bit int</span></dt><dd><p>The HEALPix ‘nside’ parameter. (Re-)setting ‘nside’ updates other
 properties.</p>
@@ -221,7 +614,7 @@ properties.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cygrid.Healpix.omega">
-<span class="sig-name descname"><span class="pre">omega</span></span><a class="headerlink" href="#cygrid.Healpix.omega" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">omega</span></span><a class="headerlink" href="#cygrid.Healpix.omega" title="Link to this definition">#</a></dt>
 <dd><dl class="simple">
 <dt>property omega<span class="classifier">double</span></dt><dd><p>Return the solid angle, ‘omega’ of the HEALPix pixels
 for current <a class="reference internal" href="#cygrid.Healpix.nside" title="cygrid.Healpix.nside"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nside</span></code></a>.</p>
@@ -231,7 +624,7 @@ for current <a class="reference internal" href="#cygrid.Healpix.nside" title="cy
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cygrid.Healpix.order">
-<span class="sig-name descname"><span class="pre">order</span></span><a class="headerlink" href="#cygrid.Healpix.order" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">order</span></span><a class="headerlink" href="#cygrid.Healpix.order" title="Link to this definition">#</a></dt>
 <dd><dl class="simple">
 <dt>property order<span class="classifier">unsigned 64-bit int</span></dt><dd><p>Return the HEALPix ‘order’ parameter.</p>
 </dd>
@@ -240,7 +633,7 @@ for current <a class="reference internal" href="#cygrid.Healpix.nside" title="cy
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cygrid.Healpix.resolution">
-<span class="sig-name descname"><span class="pre">resolution</span></span><a class="headerlink" href="#cygrid.Healpix.resolution" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">resolution</span></span><a class="headerlink" href="#cygrid.Healpix.resolution" title="Link to this definition">#</a></dt>
 <dd><dl class="simple">
 <dt>property resolution<span class="classifier">double</span></dt><dd><p>Return the angular size of the HEALPix pixels for current <a class="reference internal" href="#cygrid.Healpix.nside" title="cygrid.Healpix.nside"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nside</span></code></a>.</p>
 </dd>
@@ -249,7 +642,7 @@ for current <a class="reference internal" href="#cygrid.Healpix.nside" title="cy
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cygrid.Healpix.scheme">
-<span class="sig-name descname"><span class="pre">scheme</span></span><a class="headerlink" href="#cygrid.Healpix.scheme" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">scheme</span></span><a class="headerlink" href="#cygrid.Healpix.scheme" title="Link to this definition">#</a></dt>
 <dd><dl class="simple">
 <dt>property scheme<span class="classifier">enum</span></dt><dd><p>The HEALPix ‘scheme’. Currently only ‘RING’ is supported.</p>
 </dd>
@@ -259,27 +652,27 @@ for current <a class="reference internal" href="#cygrid.Healpix.nside" title="cy
 <p class="rubric">Methods Documentation</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="cygrid.Healpix.ang2pix">
-<span class="sig-name descname"><span class="pre">ang2pix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">double</span> <span class="pre">theta</span></em>, <em class="sig-param"><span class="pre">double</span> <span class="pre">phi</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cygrid.Healpix.ang2pix" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">ang2pix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">double</span> <span class="pre">theta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">double</span> <span class="pre">phi</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cygrid.Healpix.ang2pix" title="Link to this definition">#</a></dt>
 <dd><p>Return the pixel index containing the angular coordinates <span class="math notranslate nohighlight">\((\varphi, \vartheta)\)</span>.</p>
 <p>Wrapper around the Cython-only (private) method _ang2pix.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>theta</strong><span class="classifier">double</span></dt><dd><p><span class="math notranslate nohighlight">\(\vartheta\)</span> coordinate (<span class="math notranslate nohighlight">\(\vartheta = \pi/2 - \mathrm{latitude}\)</span>).</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>theta</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">double</span></code></span></dt><dd><p><span class="math notranslate nohighlight">\(\vartheta\)</span> coordinate (<span class="math notranslate nohighlight">\(\vartheta = \pi/2 - \mathrm{latitude}\)</span>).</p>
 </dd>
-<dt><strong>phi</strong><span class="classifier">double</span></dt><dd><p><span class="math notranslate nohighlight">\(\varphi\)</span> coordinate (longitude).</p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>pix</strong><span class="classifier">unsigned 64-bit int</span></dt><dd><p>The HEALPix pixel index.</p>
+<dt><strong>phi</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">double</span></code></span></dt><dd><p><span class="math notranslate nohighlight">\(\varphi\)</span> coordinate (longitude).</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-odd">Raises</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl>
+<dt><strong>pix</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unsigned</span></code> 64-bit <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>The HEALPix pixel index.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt>ValueError</dt><dd><p>Invalid theta value.</p>
+<dt><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.12)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ValueError</span></code></a></dt><dd><p>Invalid theta value.</p>
 </dd>
 </dl>
 </dd>
@@ -288,21 +681,21 @@ for current <a class="reference internal" href="#cygrid.Healpix.nside" title="cy
 
 <dl class="py method">
 <dt class="sig sig-object py" id="cygrid.Healpix.ang2pix_many">
-<span class="sig-name descname"><span class="pre">ang2pix_many</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">double[::1]</span> <span class="pre">theta</span></em>, <em class="sig-param"><span class="pre">double[::1]</span> <span class="pre">phi</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cygrid.Healpix.ang2pix_many" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">ang2pix_many</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">double[::1]</span> <span class="pre">theta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">double[::1]</span> <span class="pre">phi</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cygrid.Healpix.ang2pix_many" title="Link to this definition">#</a></dt>
 <dd><p>Return the pixel indices containing the angular coordinates of <span class="math notranslate nohighlight">\((\varphi, \vartheta)\)</span> arrays.</p>
 <p>Wrapper around the Cython-only (private) method _ang2pix.</p>
 <dl class="field-list">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>theta</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.20)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array</span></code></a> of doubles</span></dt><dd><p><span class="math notranslate nohighlight">\(\vartheta\)</span> coordinate (<span class="math notranslate nohighlight">\(\vartheta = \pi/2 - \mathrm{latitude}\)</span>).</p>
+<dt><strong>theta</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.26)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array</span></code></a> of <code class="xref py py-obj docutils literal notranslate"><span class="pre">doubles</span></code></span></dt><dd><p><span class="math notranslate nohighlight">\(\vartheta\)</span> coordinate (<span class="math notranslate nohighlight">\(\vartheta = \pi/2 - \mathrm{latitude}\)</span>).</p>
 </dd>
-<dt><strong>phi</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.20)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array</span></code></a> of doubles</span></dt><dd><p><span class="math notranslate nohighlight">\(\varphi\)</span> coordinate (longitude).</p>
+<dt><strong>phi</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.26)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array</span></code></a> of <code class="xref py py-obj docutils literal notranslate"><span class="pre">doubles</span></code></span></dt><dd><p><span class="math notranslate nohighlight">\(\varphi\)</span> coordinate (longitude).</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl>
-<dt><strong>pix</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.20)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array</span></code></a> of unsigned 64-bit ints</span></dt><dd><p>The HEALPix pixel index.</p>
+<dt><strong>pix</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.26)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array</span></code></a> of <code class="xref py py-obj docutils literal notranslate"><span class="pre">unsigned</span></code> 64-bit <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>The HEALPix pixel index.</p>
 </dd>
 </dl>
 </dd>
@@ -311,31 +704,31 @@ for current <a class="reference internal" href="#cygrid.Healpix.nside" title="cy
 
 <dl class="py method">
 <dt class="sig sig-object py" id="cygrid.Healpix.get_ring_info_small">
-<span class="sig-name descname"><span class="pre">get_ring_info_small</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">uint64_t</span> <span class="pre">ring</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cygrid.Healpix.get_ring_info_small" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_ring_info_small</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uint64_t</span> <span class="pre">ring</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cygrid.Healpix.get_ring_info_small" title="Link to this definition">#</a></dt>
 <dd><p>Return start index and number of pixels per healpix ring.</p>
 <p>Wrapper around the Cython-only (private) method
 <code class="xref py py-obj docutils literal notranslate"><span class="pre">_get_ring_info_small</span></code>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>ring</strong><span class="classifier">unsigned 64-bit int</span></dt><dd><p>The HEALPix ring parameter to get information on.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>ring</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unsigned</span></code> 64-bit <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>The HEALPix ring parameter to get information on.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>startpix</strong><span class="classifier">unsigned 64-bit int</span></dt><dd><p>The HEALPix index of the first pixel in ring.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl>
+<dt><strong>startpix</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unsigned</span></code> 64-bit <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>The HEALPix index of the first pixel in ring.</p>
 </dd>
-<dt><strong>num_pix_in_ring</strong><span class="classifier">unsigned 64-bit int</span></dt><dd><p>The number of HEALPix pixels in ring.</p>
+<dt><strong>num_pix_in_ring</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unsigned</span></code> 64-bit <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>The number of HEALPix pixels in ring.</p>
 </dd>
-<dt><strong>shifted</strong><span class="classifier">bool</span></dt><dd><p>Whether the central HEALPix pixel in that ring is shifted from
+<dt><strong>shifted</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.12)"><span class="xref std std-ref">bool</span></a></span></dt><dd><p>Whether the central HEALPix pixel in that ring is shifted from
 <span class="math notranslate nohighlight">\(\varphi=180^\circ\)</span>.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-odd">Raises</dt>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt>ValueError</dt><dd><p>Ring index not in valid range.</p>
+<dt><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.12)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ValueError</span></code></a></dt><dd><p>Ring index not in valid range.</p>
 </dd>
 </dl>
 </dd>
@@ -344,27 +737,27 @@ for current <a class="reference internal" href="#cygrid.Healpix.nside" title="cy
 
 <dl class="py method">
 <dt class="sig sig-object py" id="cygrid.Healpix.pix2ang">
-<span class="sig-name descname"><span class="pre">pix2ang</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">uint64_t</span> <span class="pre">pix</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cygrid.Healpix.pix2ang" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">pix2ang</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uint64_t</span> <span class="pre">pix</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cygrid.Healpix.pix2ang" title="Link to this definition">#</a></dt>
 <dd><p>Convert HEALPix index to angular coordinates <span class="math notranslate nohighlight">\((\varphi, \vartheta)\)</span>.</p>
 <p>Wrapper around the Cython-only (private) method <code class="xref py py-obj docutils literal notranslate"><span class="pre">_pix2ang</span></code>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>pix</strong><span class="classifier">unsigned 64-bit int</span></dt><dd><p>The HEALPix pixel index.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>pix</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unsigned</span></code> 64-bit <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>The HEALPix pixel index.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>theta</strong><span class="classifier">double</span></dt><dd><p><span class="math notranslate nohighlight">\(\vartheta\)</span> coordinate (<span class="math notranslate nohighlight">\(\vartheta = \pi/2 - \mathrm{latitude}\)</span>).</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl>
+<dt><strong>theta</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">double</span></code></span></dt><dd><p><span class="math notranslate nohighlight">\(\vartheta\)</span> coordinate (<span class="math notranslate nohighlight">\(\vartheta = \pi/2 - \mathrm{latitude}\)</span>).</p>
 </dd>
-<dt><strong>phi</strong><span class="classifier">double</span></dt><dd><p><span class="math notranslate nohighlight">\(\varphi\)</span> coordinate (longitude).</p>
+<dt><strong>phi</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">double</span></code></span></dt><dd><p><span class="math notranslate nohighlight">\(\varphi\)</span> coordinate (longitude).</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-odd">Raises</dt>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt>ValueError</dt><dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">pix</span></code> not in valid range.</p>
+<dt><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.12)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ValueError</span></code></a></dt><dd><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">pix</span></code> not in valid range.</p>
 </dd>
 </dl>
 </dd>
@@ -373,21 +766,21 @@ for current <a class="reference internal" href="#cygrid.Healpix.nside" title="cy
 
 <dl class="py method">
 <dt class="sig sig-object py" id="cygrid.Healpix.pix2ang_many">
-<span class="sig-name descname"><span class="pre">pix2ang_many</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">long[::1]</span> <span class="pre">pix</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cygrid.Healpix.pix2ang_many" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">pix2ang_many</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">long[::1]</span> <span class="pre">pix</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cygrid.Healpix.pix2ang_many" title="Link to this definition">#</a></dt>
 <dd><p>Convert HEALPix indices to angular coordinates of <span class="math notranslate nohighlight">\((\varphi, \vartheta)\)</span> arrays.</p>
 <p>Wrapper around the Cython-only (private) method <code class="xref py py-obj docutils literal notranslate"><span class="pre">_pix2ang</span></code>.</p>
 <dl class="field-list">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>pix</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.20)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array</span></code></a> of unsigned 64-bit ints</span></dt><dd><p>The HEALPix pixel index.</p>
+<dt><strong>pix</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.26)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array</span></code></a> of <code class="xref py py-obj docutils literal notranslate"><span class="pre">unsigned</span></code> 64-bit <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>The HEALPix pixel index.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl>
-<dt><strong>theta</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.20)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array</span></code></a> of doubles</span></dt><dd><p><span class="math notranslate nohighlight">\(\vartheta\)</span> coordinate (<span class="math notranslate nohighlight">\(\vartheta = \pi/2 - \mathrm{latitude}\)</span>).</p>
+<dt><strong>theta</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.26)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array</span></code></a> of <code class="xref py py-obj docutils literal notranslate"><span class="pre">doubles</span></code></span></dt><dd><p><span class="math notranslate nohighlight">\(\vartheta\)</span> coordinate (<span class="math notranslate nohighlight">\(\vartheta = \pi/2 - \mathrm{latitude}\)</span>).</p>
 </dd>
-<dt><strong>phi</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.20)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array</span></code></a> of doubles</span></dt><dd><p><span class="math notranslate nohighlight">\(\varphi\)</span> coordinate (longitude).</p>
+<dt><strong>phi</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.26)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array</span></code></a> of <code class="xref py py-obj docutils literal notranslate"><span class="pre">doubles</span></code></span></dt><dd><p><span class="math notranslate nohighlight">\(\varphi\)</span> coordinate (longitude).</p>
 </dd>
 </dl>
 </dd>
@@ -396,25 +789,25 @@ for current <a class="reference internal" href="#cygrid.Healpix.nside" title="cy
 
 <dl class="py method">
 <dt class="sig sig-object py" id="cygrid.Healpix.pix2ring">
-<span class="sig-name descname"><span class="pre">pix2ring</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">uint64_t</span> <span class="pre">pix</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cygrid.Healpix.pix2ring" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">pix2ring</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uint64_t</span> <span class="pre">pix</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cygrid.Healpix.pix2ring" title="Link to this definition">#</a></dt>
 <dd><p>Return ‘ring’ number that contains the HEALPix pixel, ‘pix’.</p>
 <p>Wrapper around the Cython-only (private) method _pix2ring.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>pix</strong><span class="classifier">unsigned 64-bit int</span></dt><dd><p>The HEALPix index.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>pix</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unsigned</span></code> 64-bit <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>The HEALPix index.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>ring</strong><span class="classifier">unsigned 64-bit int</span></dt><dd><p>The HEALPix ring.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl>
+<dt><strong>ring</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unsigned</span></code> 64-bit <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>The HEALPix ring.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-odd">Raises</dt>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt>ValueError</dt><dd><p>Pixel index not in valid range.</p>
+<dt><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ValueError" title="(in Python v3.12)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ValueError</span></code></a></dt><dd><p>Pixel index not in valid range.</p>
 </dd>
 </dl>
 </dd>
@@ -423,19 +816,19 @@ for current <a class="reference internal" href="#cygrid.Healpix.nside" title="cy
 
 <dl class="py method">
 <dt class="sig sig-object py" id="cygrid.Healpix.pix2ring_many">
-<span class="sig-name descname"><span class="pre">pix2ring_many</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">long[::1]</span> <span class="pre">pix</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cygrid.Healpix.pix2ring_many" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">pix2ring_many</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">long[::1]</span> <span class="pre">pix</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cygrid.Healpix.pix2ring_many" title="Link to this definition">#</a></dt>
 <dd><p>Return ‘ring’ numbers containing HEALPix pixels given in array, ‘pix’.</p>
 <p>Wrapper around the Cython-only (private) method _pix2ring.</p>
 <dl class="field-list">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>pix</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.20)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array</span></code></a> of unsigned 64-bit ints</span></dt><dd><p>The HEALPix indices.</p>
+<dt><strong>pix</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.26)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array</span></code></a> of <code class="xref py py-obj docutils literal notranslate"><span class="pre">unsigned</span></code> 64-bit <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>The HEALPix indices.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl>
-<dt><strong>ring</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.20)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array</span></code></a> of unsigned 64-bit ints</span></dt><dd><p>The HEALPix rings.</p>
+<dt><strong>ring</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.26)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array</span></code></a> of <code class="xref py py-obj docutils literal notranslate"><span class="pre">unsigned</span></code> 64-bit <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>The HEALPix rings.</p>
 </dd>
 </dl>
 </dd>
@@ -444,22 +837,22 @@ for current <a class="reference internal" href="#cygrid.Healpix.nside" title="cy
 
 <dl class="py method">
 <dt class="sig sig-object py" id="cygrid.Healpix.query_disc">
-<span class="sig-name descname"><span class="pre">query_disc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">double</span> <span class="pre">theta</span></em>, <em class="sig-param"><span class="pre">double</span> <span class="pre">phi</span></em>, <em class="sig-param"><span class="pre">double</span> <span class="pre">disc_size_rad</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cygrid.Healpix.query_disc" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">query_disc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">double</span> <span class="pre">theta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">double</span> <span class="pre">phi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">double</span> <span class="pre">disc_size_rad</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cygrid.Healpix.query_disc" title="Link to this definition">#</a></dt>
 <dd><p>Return hpx indices of a disc around <span class="math notranslate nohighlight">\((\vartheta, \varphi)\)</span>.</p>
 <p>This uses <a class="reference internal" href="#cygrid.Healpix.query_disc_phi180" title="cygrid.Healpix.query_disc_phi180"><code class="xref py py-obj docutils literal notranslate"><span class="pre">query_disc_phi180</span></code></a> and shifts the pixels along ring.</p>
 <p>Wrapper around the cython-only (private) method _query_disc.</p>
 <dl class="field-list">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>theta/phi</strong><span class="classifier">double</span></dt><dd><p>Coordinates <span class="math notranslate nohighlight">\((\vartheta, \varphi)\)</span> in radians.</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>theta/phi</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">double</span></code></span></dt><dd><p>Coordinates <span class="math notranslate nohighlight">\((\vartheta, \varphi)\)</span> in radians.</p>
 </dd>
-<dt><strong>disc_size_rad</strong><span class="classifier">double</span></dt><dd><p>Size of the disc in radians.</p>
+<dt><strong>disc_size_rad</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">double</span></code></span></dt><dd><p>Size of the disc in radians.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl>
-<dt><strong>disc_indices</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.20)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array</span></code></a> of unsigned 64-bit ints</span></dt><dd><p>The HEALPix indices of the disc.</p>
+<dt><strong>disc_indices</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.26)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array</span></code></a> of <code class="xref py py-obj docutils literal notranslate"><span class="pre">unsigned</span></code> 64-bit <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>The HEALPix indices of the disc.</p>
 </dd>
 </dl>
 </dd>
@@ -468,7 +861,7 @@ for current <a class="reference internal" href="#cygrid.Healpix.nside" title="cy
 
 <dl class="py method">
 <dt class="sig sig-object py" id="cygrid.Healpix.query_disc_phi180">
-<span class="sig-name descname"><span class="pre">query_disc_phi180</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">self</span></em>, <em class="sig-param"><span class="pre">double</span> <span class="pre">disc_size_rad</span></em>, <em class="sig-param"><span class="pre">uint64_t</span> <span class="pre">disc_ring</span></em><span class="sig-paren">)</span><a class="headerlink" href="#cygrid.Healpix.query_disc_phi180" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">query_disc_phi180</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">double</span> <span class="pre">disc_size_rad</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uint64_t</span> <span class="pre">disc_ring</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cygrid.Healpix.query_disc_phi180" title="Link to this definition">#</a></dt>
 <dd><p>Return HEALPix indices of a disc around <span class="math notranslate nohighlight">\(\varphi=180^\circ\)</span> for ‘disc_ring’.</p>
 <p>This is a modified version of the HEALPix library <code class="xref py py-obj docutils literal notranslate"><span class="pre">query_disc</span></code>
 routine that returns the HEALPix indices of a disc around arbitrary
@@ -479,17 +872,17 @@ with the latitude of a HEALPix ring. These discs can be shifted along
 if one cashes the <span class="math notranslate nohighlight">\(\varphi=180^\circ\)</span> discs.</p>
 <p>Wrapper around the Cython-only (private) method <code class="xref py py-obj docutils literal notranslate"><span class="pre">_query_disc_phi180</span></code>.</p>
 <dl class="field-list">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>disc_size_rad</strong><span class="classifier">double</span></dt><dd><p>Size of the disc in radians.</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>disc_size_rad</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">double</span></code></span></dt><dd><p>Size of the disc in radians.</p>
 </dd>
-<dt><strong>disc_ring</strong><span class="classifier">unsigned 64-bit int</span></dt><dd><p>HEALPix ring index of the requested disc center.</p>
+<dt><strong>disc_ring</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">unsigned</span></code> 64-bit <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>HEALPix ring index of the requested disc center.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl>
-<dt><strong>disc_indices</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.20)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array</span></code></a> of unsigned 64-bit ints</span></dt><dd><p>The HEALPix indices of the disc.</p>
+<dt><strong>disc_indices</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="(in NumPy v1.26)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array</span></code></a> of <code class="xref py py-obj docutils literal notranslate"><span class="pre">unsigned</span></code> 64-bit <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>The HEALPix indices of the disc.</p>
 </dd>
 </dl>
 </dd>
@@ -501,32 +894,122 @@ if one cashes the <span class="math notranslate nohighlight">\(\varphi=180^\circ
 </section>
 
 
-            <div class="clearer"></div>
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="cygrid.Cygrid.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Cygrid</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="cygrid.HpxHashTable.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">HpxHashTable</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/bwinkel/cygrid/edit/master/docs/api/cygrid.Healpix.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/api/cygrid.Healpix.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
           </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper"><h3>Page Contents</h3>
-<ul>
-<li><a class="reference internal" href="#">Healpix</a></li>
-</ul>
-
-
-        </div>
-      </div>
-      <div class="clearer"></div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
     </div>
-<footer class="footer">
-  <p class="pull-right">
-    <a href="https://github.com/bwinkel/cygrid/tree/master/docs/api/cygrid.Healpix.rst">Edit This Page on Github</a> &nbsp;
-    <a href="../_sources/api/cygrid.Healpix.rst.txt"
-       rel="nofollow">Page Source</a> &nbsp;
-    <a href="#">Back to Top</a></p>
-  <p>
-    &copy; Copyright 2021, Benjamin Winkel, Lars Flöer, Daniel Lenz.<br/>
-    Created using <a href="http://www.sphinx-doc.org/en/stable/">Sphinx</a> 4.0.1. &nbsp;
-    Last built 18 May 2021. <br/>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2009–2024, Benjamin Winkel.
+      <br/>
+    
   </p>
-</footer>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.2.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
   </body>
 </html>

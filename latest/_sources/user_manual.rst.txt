@@ -667,7 +667,7 @@ the awesome `astroquery <http://www.astropy.org/astroquery/>`_ package.:
         )
     paths = SkyView().get_images(
         position='10.68471 +41.26875',
-        coordinates='J2000', survey=['Planck 857'], **kwargs
+        coordinates='J2000', survey=['Planck 857 I'], **kwargs
         )  # doctest: +ELLIPSIS
     planck_header, planck_data = paths[0][0].header, paths[0][0].data
 
