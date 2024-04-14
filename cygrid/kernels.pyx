@@ -36,7 +36,7 @@ from .constants cimport PI
 __all__ = []
 
 
-cdef double sinc(double x) nogil:
+cdef double sinc(double x) noexcept nogil:
     '''
     Sinc function with simple singularity check.
     '''
@@ -49,7 +49,7 @@ cdef double sinc(double x) nogil:
 
 cdef double gaussian_1d_kernel(
         double distance, double bearing, double[::1] kernel_params
-        ) nogil:
+        ) noexcept nogil:
     '''
     Gaussian-1D kernel function.
 
@@ -74,7 +74,7 @@ cdef double gaussian_1d_kernel(
 
 cdef double gaussian_2d_kernel(
         double distance, double bearing, double[::1] kernel_params
-        ) nogil:
+        ) noexcept nogil:
     '''
     Gaussian-2D kernel function.
 
@@ -111,7 +111,7 @@ cdef double gaussian_2d_kernel(
 
 cdef double tapered_sinc_1d_kernel(
         double distance, double bearing, double[::1] kernel_params
-        ) nogil:
+        ) noexcept nogil:
     '''
     Kaiser-Bessel-1D kernel function (Gaussian-tapered sinc).
 

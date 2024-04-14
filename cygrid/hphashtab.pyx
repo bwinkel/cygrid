@@ -423,7 +423,7 @@ cdef class HpxHashTable(Healpix):
         timing_info.clear()
         return
 
-    cdef void _fill_ring_info_hashes(self) nogil:
+    cdef void _fill_ring_info_hashes(self) noexcept nogil:
         '''
         Fill the ring info dictionaries.
 
@@ -470,7 +470,7 @@ cdef class HpxHashTable(Healpix):
             uint64_t[::1] ypix_fs,
             double[::1] xwcs_fs,
             double[::1] ywcs_fs,
-            ) nogil:
+            ) noexcept nogil:
         '''
         Helper to create a lookup for target pixels in HEALPix representation.
 
@@ -526,7 +526,7 @@ cdef class HpxHashTable(Healpix):
             self,
             vector[uint64_t] urings,
             double disc_size_rad,
-            ) nogil:
+            ) noexcept nogil:
         '''
         Helper to create a lookup for :math:`\\varphi=180^\\circ` discs (per
         ring).
@@ -600,7 +600,7 @@ cdef class HpxHashTable(Healpix):
             vector[uint64_t] &intermediary_hpidxs_vec,
             unordered_map[uint64_t, vector[uint64_t]] &hpxidx_output_map,
             vector[TimingInfo] &timing_info,
-            ) nogil:
+            ) noexcept nogil:
         '''
         Helper to create the `input_output_mapping`.
 
@@ -803,7 +803,7 @@ cdef class HpxHashTable(Healpix):
             unordered_map[uint64_t, vector[uint64_t]] & hpxidx_output_map,
             unordered_map[uint64_t, vector[uint64_t]] & output_input_map,
             vector[TimingInfo] &timing_info,
-            ) nogil:
+            ) noexcept nogil:
         '''
         Helper to invert the `hpxidx_output_map`.
 
@@ -932,7 +932,7 @@ cdef class HpxHashTable(Healpix):
             self,
             unordered_map[uint64_t, vector[uint64_t]] & output_input_mapping,
             vector[uint64_t] & output_pixels,
-            ) nogil:
+            ) noexcept nogil:
         '''
         Convenience function to obtain the keys of `output_input_mapping`.
 

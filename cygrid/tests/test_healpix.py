@@ -10,13 +10,15 @@ import pytest
 import numpy as np
 from numpy.testing import assert_equal, assert_allclose
 from astropy.utils.misc import NumpyRNGContext
-try:
-    import healpy as hp
-    DO_HEALPY = True
-except ImportError:
-    DO_HEALPY = False
+import importlib
+from ..healpix import Healpix
 
-from cygrid import Healpix
+
+# skip over healpy related tests (currently all), if package not present:
+skip_healpy = pytest.mark.skipif(
+    importlib.util.find_spec('healpy') is None,
+    reason='"healpy" package not installed'
+    )
 
 
 # for order in range(0, 12):
@@ -42,13 +44,13 @@ hpx_props = [
 
 class TestHealpix:
 
-    def setup(self):
+    def setup_method(self):
 
         pass
         # self.nside = 1024
         # self.hpx = Healpix(self.nside)
 
-    def teardown(self):
+    def teardown_method(self):
 
         pass
 
@@ -83,11 +85,10 @@ class TestHealpix:
         with pytest.raises(ValueError):
             hpx.get_ring_info_small(256)
 
+    @skip_healpy
     def test_pix2ring(self):
 
-        if not DO_HEALPY:
-            # not possible on Windows
-            return
+        import healpy as hp
 
         with NumpyRNGContext(12345):
 
@@ -95,18 +96,17 @@ class TestHealpix:
             hpx = Healpix(nside)
             npix = hpx.npix
 
-            hpx_idx = np.random.random_integers(0, npix - 1, 10000)
+            hpx_idx = np.random.randint(0, npix - 1, 10000)
 
             assert_equal(
                 hp.pix2ring(nside, hpx_idx),
                 hpx.pix2ring_many(hpx_idx)
                 )
 
+    @skip_healpy
     def test_ang2pix(self):
 
-        if not DO_HEALPY:
-            # not possible on Windows
-            return
+        import healpy as hp
 
         with NumpyRNGContext(12345):
 
@@ -121,11 +121,10 @@ class TestHealpix:
                 hpx.ang2pix_many(theta, phi)
                 )
 
+    @skip_healpy
     def test_pix2ang(self):
 
-        if not DO_HEALPY:
-            # not possible on Windows
-            return
+        import healpy as hp
 
         with NumpyRNGContext(12345):
 
@@ -133,18 +132,17 @@ class TestHealpix:
             hpx = Healpix(nside)
             npix = hpx.npix
 
-            hpx_idx = np.random.random_integers(0, npix - 1, 10000)
+            hpx_idx = np.random.randint(0, npix - 1, 10000)
 
             assert_allclose(
                 hp.pix2ang(nside, hpx_idx),
                 hpx.pix2ang_many(hpx_idx)
                 )
 
+    @skip_healpy
     def test_query_disc(self):
 
-        if not DO_HEALPY:
-            # not possible on Windows
-            return
+        import healpy as hp
 
         with NumpyRNGContext(12345):
 

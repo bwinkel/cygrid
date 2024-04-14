@@ -43,11 +43,11 @@ cdef:
 
     double gaussian_1d_kernel(
         double distance, double bearing, double[::1] kernel_params
-        ) nogil
+        ) noexcept nogil
     double gaussian_2d_kernel(
         double distance, double bearing, double[::1] kernel_params
-        ) nogil
+        ) noexcept nogil
     double tapered_sinc_1d_kernel(
         double distance, double bearing, double[::1] kernel_params
-        ) nogil
+        ) noexcept nogil
 

@@ -7,133 +7,51 @@ Allow cythonizing of our pyx files and provide custom compiler options.
 
 import os
 from setuptools.extension import Extension
+from extension_helpers import get_compiler, add_openmp_flags_if_available
 import platform
-# Note: importing numpy from here won't work, see:
-# http://docs.astropy.org/en/stable/development/ccython.html#using-numpy-c-headers
-# import numpy as np
-# 'include_dirs': [np.get_include()], --> 'include_dirs': 'numpy'
+import numpy as np
 
 PYXDIR = os.path.relpath(os.path.dirname(__file__))
+PYXFILES = [
+    'cygrid.pyx', 'helpers.pyx', 'healpix.pyx', 'hphashtab.pyx', 'kernels.pyx'
+    ]
 
 
 def get_extensions():
 
-    # comp_args = {
-    #     'extra_compile_args': ['-fopenmp', '-O3', '-std=c++11'],
-    #     'extra_link_args': ['-fopenmp'],
-    #     'language': 'c++',
-    #     # 'libraries': ['m'],
-    #     'include_dirs': ['numpy'],
-    #     }
+    comp_args = {
+        'extra_compile_args': ['-O3', '-std=c++11'],
+        'language': 'c++',
+        'libraries': ['m'],
+        # 'include_dirs': ['numpy'],
+        'include_dirs': [np.get_include()],
+        }
 
-    # if platform.system().lower() == 'windows':
-    #     comp_args = {
-    #         'extra_compile_args': ['/openmp'],
-    #         'language': 'c++',
-    #         'include_dirs': ['numpy'],
-    #         }
-    # elif 'darwin' in platform.system().lower():
-    #     # os.environ["CC"] = "g++-6"
-    #     # os.environ["CPP"] = "cpp-6"
-    #     # os.environ["CXX"] = "g++-6"
-    #     # os.environ["LD"] = "gcc-6"
-    #     from subprocess import getoutput
-
-    #     extra_compile_args = [
-    #         '-fopenmp', '-O3', '-mmacosx-version-min=10.7', '-std=c++11',
-    #         ]
-    #     # if ('clang' in getoutput('gcc -v')) and all(
-    #     #         'command not found' in getoutput('gcc-{:d} -v'.format(d))
-    #     #         for d in [6, 7, 8, 9]
-    #     #         ):
-    #     if 'clang' in getoutput('gcc -v'):
-    #         extra_compile_args += ['-stdlib=libc++', ]
-    #     comp_args = {
-    #         'extra_compile_args': extra_compile_args,
-    #         'extra_link_args': [
-    #             '-fopenmp',  # '-lgomp'
-    #             ],
-    #         'language': 'c++',
-    #         'include_dirs': ['numpy'],
-    #         }
-
-
-    EX_COMP_ARGS = []
-    if 'mac' in platform.system().lower():
-        EX_COMP_ARGS += ['-stdlib=libc++', '-mmacosx-version-min=10.7']
-
-
-    def get_compile_args():
-
-        import numpy
+    if platform.system().lower() == 'windows':
 
         comp_args = {
-            'extra_compile_args': ['-fopenmp', '-O3', '-std=c++11'],
-            'extra_link_args': ['-fopenmp'],
             'language': 'c++',
             # 'include_dirs': ['numpy'],
-            'include_dirs': [
-                numpy.get_include(),
-                ],
+            'include_dirs': [np.get_include()],
             }
 
-        if platform.system().lower() == 'windows':
-            comp_args['extra_compile_args'] = ['/openmp']
-            del comp_args['extra_link_args']
+    elif 'darwin' in platform.system().lower():
 
-        if 'darwin' in platform.system().lower():
+        extra_compile_args = ['-stdlib=libc++', '-mmacosx-version-min=10.7']
 
-            from subprocess import getoutput
+        if 'clang' in get_compiler():
+            extra_compile_args += ['-stdlib=libc++', ]
 
-            extra_compile_args = [
-                '-fopenmp', '-O3', '-std=c++11',
-                # '-mmacosx-version-min={:s}'.format(mac_version),
-                ]
-            if 'clang' in getoutput('gcc -v'):
-                extra_compile_args += ['-stdlib=libc++', ]
+        comp_args['extra_compile_args'] = extra_compile_args
 
-            comp_args['extra_compile_args'] = extra_compile_args
+    ext_list = []
+    for pyx in PYXFILES:
+        ext = Extension(
+            name='cygrid.{}'.format(pyx.replace('.pyx', '')),
+            sources=[os.path.join(PYXDIR, pyx)],
+            **comp_args
+            )
+        add_openmp_flags_if_available(ext)
+        ext_list.append(ext)
 
-        return comp_args
-
-
-    comp_args = get_compile_args()
-
-    ext_module_cygrid_cygrid = Extension(
-        name='cygrid.cygrid',
-        sources=[os.path.join(PYXDIR, 'cygrid.pyx')],
-        **comp_args
-        )
-
-    ext_module_cygrid_helpers = Extension(
-        name='cygrid.helpers',
-        sources=[os.path.join(PYXDIR, 'helpers.pyx')],
-        **comp_args
-        )
-
-    ext_module_cygrid_healpix = Extension(
-        name='cygrid.healpix',
-        sources=[os.path.join(PYXDIR, 'healpix.pyx')],
-        **comp_args
-        )
-
-    ext_module_cygrid_hphashtab = Extension(
-        name='cygrid.hphashtab',
-        sources=[os.path.join(PYXDIR, 'hphashtab.pyx')],
-        **comp_args
-        )
-
-    ext_module_cygrid_kernels = Extension(
-        name='cygrid.kernels',
-        sources=[os.path.join(PYXDIR, 'kernels.pyx')],
-        **comp_args
-        )
-
-    # print('get_extensions', ext_module_cygrid_cygrid)
-    return [
-        ext_module_cygrid_cygrid,
-        ext_module_cygrid_helpers,
-        ext_module_cygrid_healpix,
-        ext_module_cygrid_hphashtab,
-        ext_module_cygrid_kernels
-        ]
+    return ext_list

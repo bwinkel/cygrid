@@ -67,16 +67,16 @@ cdef class Healpix(object):
         uint64_t & startpix,
         uint64_t & num_pix_in_ring,
         bool & shifted,
-        ) nogil
-    cdef uint64_t _pix2ring(self, uint64_t pix) nogil
+        ) noexcept nogil
+    cdef uint64_t _pix2ring(self, uint64_t pix) noexcept nogil
     cdef uint64_t _loc2pix(
         self,
         double z,
         double phi,
         double sin_theta,
         bool have_sin_theta
-        ) nogil
-    cdef uint64_t _ang2pix(self, double theta, double phi) nogil
+        ) noexcept nogil
+    cdef uint64_t _ang2pix(self, double theta, double phi) noexcept nogil
     cdef void _pix2loc (
         self,
         uint64_t pix,
@@ -84,13 +84,13 @@ cdef class Healpix(object):
         double &phi,
         double &sin_theta,
         bool &have_sin_theta
-        ) nogil
+        ) noexcept nogil
     cdef void _pix2ang(
         self, uint64_t pix, double & theta, double & phi
-        ) nogil
+        ) noexcept nogil
     cdef vector[uint64_t] _query_disc_phi180(
         self, double disc_size_rad, uint64_t disc_ring
-        ) nogil
+        ) noexcept nogil
     cdef vector[uint64_t] _query_disc(
         self, double theta, double phi, double disc_size_rad
-        ) nogil
+        ) noexcept nogil

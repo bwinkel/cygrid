@@ -1,0 +1,32 @@
+name: cygrid-dev-env
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - astropy
+  - astroquery
+  - build
+  - cython
+  - extension-helpers
+  - gcc_linux-64
+  - gxx_linux-64
+  - healpy
+  - ipdb
+  - matplotlib
+  - numpy==1.23.4
+  - pip
+  - pytest
+  - pytest-astropy
+  - pytest-doctestplus
+  - reproject
+  - setuptools
+  - setuptools-scm
+  - scipy
+  - sphinx
+  - sphinx-astropy[confv2]
+  - sphinx-copybutton  # should be pulled in via [confv2], but isn't?
+  - pydata-sphinx-theme  # should be pulled in via [confv2], but isn't?
+  - sphinx-design
+  - twine
+  - wheel

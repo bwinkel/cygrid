@@ -67,7 +67,7 @@ cdef unicode ustring(s):
             )
 
 
-cdef uint64_t ilog2(uint64_t arg) nogil:
+cdef uint64_t ilog2(uint64_t arg) noexcept nogil:
     '''
     Compute integer base-2 logarithm.
 
@@ -105,7 +105,7 @@ cdef uint64_t ilog2(uint64_t arg) nogil:
     return r
 
 
-cdef uint64_t isqrt(uint64_t arg) nogil:
+cdef uint64_t isqrt(uint64_t arg) noexcept nogil:
     '''
     Compute integer square root.
 
@@ -126,7 +126,7 @@ cdef uint64_t isqrt(uint64_t arg) nogil:
     return (<uint64_t> sqrt(arg + 0.5))
 
 
-cdef int64_t imod(int64_t a, int64_t b) nogil:
+cdef int64_t imod(int64_t a, int64_t b) noexcept nogil:
     '''
     Integer modulo for C.
 
@@ -140,7 +140,7 @@ cdef int64_t imod(int64_t a, int64_t b) nogil:
         return r
 
 
-cdef double fmodulo(double v1, double v2) nogil:
+cdef double fmodulo(double v1, double v2) noexcept nogil:
     '''
     Compute remainder of division v1 / v2.
 
@@ -231,7 +231,7 @@ cpdef uint64_t npix_to_nside(uint64_t npix):
 
 cdef double true_angular_distance(
         double l1, double b1, double l2, double b2
-        ) nogil:
+        ) noexcept nogil:
     '''
     Calculate true angular distance between two points on the sphere.
 
@@ -256,7 +256,7 @@ cdef double true_angular_distance(
 
 cdef double great_circle_bearing(
         double l1, double b1, double l2, double b2
-        ) nogil:
+        ) noexcept nogil:
     '''
     Calculate great circle bearing of (l2, b2) w.r.t. (l1, b1).
 
@@ -288,7 +288,7 @@ cdef double great_circle_bearing(
 cdef void fill_time_info(
         vector[TimingInfo] &timing_info,
         char* info, ParallelState parstate,
-        ) nogil:
+        ) noexcept nogil:
 
     cdef TimingInfo this_info
 

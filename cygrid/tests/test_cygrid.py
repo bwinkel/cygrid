@@ -11,12 +11,12 @@ import numpy as np
 from numpy.testing import assert_allclose
 from astropy.utils.misc import NumpyRNGContext
 from astropy.utils.data import get_pkg_data_filename
-import cygrid
+from .. import cygrid
 
 
 class TestWcsGrid:
 
-    def setup(self):
+    def setup_method(self):
 
         mapcenter = (131., 50.)
         mapsize = (1., 1.)  # degrees
@@ -83,7 +83,7 @@ class TestWcsGrid:
             'data/cygrid_test_maps.npy'
             ))
 
-    def teardown(self):
+    def teardown_method(self):
 
         pass
 
@@ -263,7 +263,7 @@ class TestWcsGrid:
 
 class TestSlGrid:
 
-    def setup(self):
+    def setup_method(self):
 
         mapcenter = (131., 50.)
         mapsize = (1., 1.)  # degrees
@@ -320,7 +320,7 @@ class TestSlGrid:
             'data/cygrid_test_sightlines.npy'
             ))
 
-    def teardown(self):
+    def teardown_method(self):
 
         pass
 

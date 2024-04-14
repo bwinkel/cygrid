@@ -261,7 +261,7 @@ cdef class Healpix(object):
             uint64_t & startpix,
             uint64_t & num_pix_in_ring,
             bool & shifted,
-            ) nogil:
+            ) noexcept nogil:
         '''
         Return start index and number of pixels per healpix ring.
 
@@ -350,7 +350,7 @@ cdef class Healpix(object):
 
         return startpix, num_pix_in_ring, python_bool(shifted)
 
-    cdef uint64_t _pix2ring(self, uint64_t pix) nogil:
+    cdef uint64_t _pix2ring(self, uint64_t pix) noexcept nogil:
         '''
         Return 'ring' number that contains the HEALPix pixel, 'pix'.
 
@@ -453,7 +453,7 @@ cdef class Healpix(object):
             double phi,
             double sin_theta,
             bool have_sin_theta
-            ) nogil:
+            ) noexcept nogil:
         '''
         Convert location :math:`(z, \\varphi)` to HEALPix index.
 
@@ -531,7 +531,7 @@ cdef class Healpix(object):
             else:
                 return self._npix - 2 * ir * (ir + 1) + ip
 
-    cdef uint64_t _ang2pix(self, double theta, double phi) nogil:
+    cdef uint64_t _ang2pix(self, double theta, double phi) noexcept nogil:
         '''
         Return the pixel index containing the angular coordinates :math:`(\\varphi, \\vartheta)`.
 
@@ -629,7 +629,7 @@ cdef class Healpix(object):
             double &phi,
             double &sin_theta,
             bool &have_sin_theta
-            ) nogil:
+            ) noexcept nogil:
         '''
         Convert HEALPix index to location :math:`(z, \\varphi)`.
 
@@ -717,7 +717,7 @@ cdef class Healpix(object):
 
     cdef void _pix2ang(
             self, uint64_t pix, double & theta, double & phi
-            ) nogil:
+            ) noexcept nogil:
         '''
         Convert HEALPix index to angular coordinates :math:`(\\varphi, \\vartheta)`.
 
@@ -826,7 +826,7 @@ cdef class Healpix(object):
 
     cdef vector[uint64_t] _query_disc_phi180(
             self, double disc_size_rad, uint64_t disc_ring
-            ) nogil:
+            ) noexcept nogil:
         '''
         Return HEALPix indices of a disc around :math:`\\varphi=180^\\circ` for 'disc_ring'.
 
@@ -1030,7 +1030,7 @@ cdef class Healpix(object):
 
     cdef vector[uint64_t] _query_disc(
             self, double theta, double phi, double disc_size_rad
-            ) nogil:
+            ) noexcept nogil:
         '''
         Return hpx indices of a disc around :math:`(\\vartheta, \\varphi)`.
 
