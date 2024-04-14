@@ -11,7 +11,6 @@ try:
 except ImportError:
     ASTROPY_HEADER = False
 
-from astropy.tests.helper import enable_deprecations_as_exceptions
 
 def pytest_configure(config):
     if ASTROPY_HEADER:
@@ -28,5 +27,5 @@ def pytest_configure(config):
         # PYTEST_HEADER_MODULES.pop('h5py', None)  # noqa
 
         from .version import __version__
-        TESTED_VERSIONS['cygrid'] = __version__
+        TESTED_VERSIONS['pycraf'] = __version__
 

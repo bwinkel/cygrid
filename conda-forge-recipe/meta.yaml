@@ -1,6 +1,6 @@
 {% set name = "cygrid" %}
-{% set version = "1.0.0" %}
-{% set sha256 = "cb3a98757d96fadb8df72e712f0c1aa4fcb97e4e20d61096dfdf22d264985374" %}
+{% set version = "2.0.3" %}
+{% set sha256 = "f059b259a58328f6165590bf244fcdbf6abb85fa7ebfebc6156672979ff2b0e8" %}
 
 package:
   name: {{ name|lower }}
@@ -12,50 +12,56 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
-  skip: True  # [py27]
-  script: "{{ PYTHON }} setup.py install --single-version-externally-managed --record record.txt --offline"
+  number: 2
+  skip: true  # [py<=37]
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   build:
     - {{ compiler('cxx') }}
 
   host:
-    - openmp 4.0.*  # [osx]
+    - compilers  # [osx]
+    - llvm-openmp  # [osx]
     - python
     - pip
     - setuptools
-    - astropy >=2.1
-    - cython >=0.27
-    - numpy >=1.11
+    - setuptools_scm
+    - extension-helpers
+    - astropy
+    - cython
+    - numpy
 
   run:
     - python
-    - openmp 4.0.*  # [osx]
-    - astropy >=2.1
+    - compilers  # [osx]
+    - llvm-openmp  # [osx]
+    - astropy
+    - pytest
+    - pytest-astropy
+    - pytest-doctestplus
     - {{ pin_compatible('numpy') }}
 
 test:
   imports:
     - cygrid
 
-  commands:
-     python -c "import cygrid; cygrid.test()"
+  commands: python -c "import cygrid; cygrid.test()"
 
 about:
   home: https://github.com/bwinkel/{{ name }}
   license: GPL-3.0
   license_family: GPL
   license_file: licenses/README.rst
-  summary: 'Cygrid is a cython-powered convolution-based gridding module for astronomy'
+  summary: Cygrid is a cython-powered convolution-based gridding module for astronomy
   description: |
-      Cygrid allows to resample a number of spectra (or data points) to a
-      regular grid - a data cube - using any valid astronomical FITS/WCS
-      projection. The method is a based on serialized convolution with finite
-      gridding kernels. Currently, only Gaussian (radial-symmetric or
-      elliptical) kernels are provided (which has the drawback of slight
-      degradation of the effective resolution). The algorithm has very small
-      memory footprint, allows easy parallelization, and is very fast.
+    Cygrid allows to resample a number of spectra (or data points) to a
+    regular grid - a data cube - using any valid astronomical FITS/WCS
+    projection. The method is a based on serialized convolution with finite
+    gridding kernels. Currently, only Gaussian (radial-symmetric or
+    elliptical) kernels are provided (which has the drawback of slight
+    degradation of the effective resolution). The algorithm has very small
+    memory footprint, allows easy parallelization, and is very fast.
   dev_url: https://github.com/bwinkel/{{ name }}
 
 extra:

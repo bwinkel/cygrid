@@ -89,25 +89,25 @@ cdef class HpxHashTable(Healpix):
         unordered_map[uint64_t, vector[uint64_t]] & output_input_mapping,
         vector[uint64_t] & output_pixels,
         )
-    cdef void _fill_ring_info_hashes(self) nogil
+    cdef void _fill_ring_info_hashes(self) noexcept nogil
     cdef void _compute_target_hpx_pixels(
         self,
         uint64_t[::1] xpix_fs,
         uint64_t[::1] ypix_fs,
         double[::1] xwcs_fs,
         double[::1] ywcs_fs,
-        ) nogil
+        ) noexcept nogil
     cdef void _fill_disc_hash(
         self,
         vector[uint64_t] urings,
         double disc_size_rad,
-        ) nogil
+        ) noexcept nogil
     #cdef unordered_map[uint64_t, vector[uint64_t]] _compute_input_output_mapping(
         #self,
         #double[::1] lons,
         #double[::1] lats,
         #double disc_size_rad,
-        #) nogil
+        #) noexcept nogil
     cdef void _compute_input_output_mapping(
         self,
         double[::1] lons,
@@ -116,18 +116,18 @@ cdef class HpxHashTable(Healpix):
         vector[uint64_t] &intermediary_hpidxs_vec,
         unordered_map[uint64_t, vector[uint64_t]] &hpxidx_output_map,
         vector[TimingInfo] &timing_info,
-        ) nogil
+        ) noexcept nogil
     cdef void _compute_output_input_mapping(
         self,
         vector[uint64_t] &intermediary_hpidxs_vec,
         unordered_map[uint64_t, vector[uint64_t]] & hpxidx_output_map,
         unordered_map[uint64_t, vector[uint64_t]] & output_input_map,
         vector[TimingInfo] &timing_info,
-        ) nogil
+        ) noexcept nogil
     cdef void _get_output_pixels(
         self,
         unordered_map[uint64_t, vector[uint64_t]] & output_input_mapping,
         vector[uint64_t] & output_pixels,
-        ) nogil
+        ) noexcept nogil
 
 # cpdef dict test_varreduction(dict idict)

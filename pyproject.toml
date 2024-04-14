@@ -1,28 +1,129 @@
+[project]
+name = "cygrid"
+dynamic = [
+    "version"
+]
+description = "cygrid: is a cython-powered convolution-based gridding module for astronomy"
+readme = "README.rst"
+authors = [
+    { name = "Benjamin Winkel", email = "bwinkel@mpifr.de" },
+    { name = "Lars Flöer", email = "bwinkel@mpifr.de" },
+    { name = "Daniel Lenz", email = "mail@daniellenz.org" },
+]
+license = { text = "GPLv3" }
+requires-python = ">=3.8"
+classifiers = [
+    "Intended Audience :: Science/Research",
+    "Development Status :: 4 - Beta",
+    "Operating System :: OS Independent",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Programming Language :: C++",
+    "Programming Language :: Cython",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Topic :: Scientific/Engineering :: Astronomy",
+]
+keywords = [
+    "astronomy",
+    "science",
+]
+dependencies = [
+    "astropy",
+    "numpy",
+]
+
+[project.urls]
+Homepage = "https://pypi.org/project/cygrid/"
+Documentation = "https://bwinkel.github.io/cygrid/"
+Repository = "https://github.com/bwinkel/cygrid"
+Issues = "https://github.com/bwinkel/cygrid/issues"
+Changelog = "https://github.com/bwinkel/cygrid/CHANGES.rst"
+
+[project.optional-dependencies]
+test = [
+    "pytest>=7.0",
+    "pytest-astropy>=0.10",
+    "pytest-doctestplus",
+    "healpy",
+]
+recommended = [
+    "astroquery",
+    "healpy",
+    "scipy",
+    "matplotlib",
+]
+docs = [
+    "matplotlib",
+    "reproject",
+    "sphinx",
+    "sphinx-astropy[confv2]",
+    "sphinx-copybutton",
+    "pydata-sphinx-theme",
+    "pytest>=7.0",
+]
+
 [build-system]
 requires = [
-    "setuptools>=30.3.0",
-    "setuptools_scm>=6.2",
+    "setuptools",
     "wheel",
-    "cython>=0.29",
+    "setuptools_scm",
+    "cython",
     "numpy==1.13.1; python_version<'3.7'",
     "numpy==1.14.5; python_version=='3.7'",
     "numpy==1.18.1; python_version=='3.8'",
     "numpy==1.20.3; python_version=='3.9'",
     "numpy==1.21.6; python_version=='3.10'",
-    #"numpy==1.22.0; python_version=='3.10'",
     "numpy==1.23.4; python_version=='3.11'",
-    # "oldest-supported-numpy",
+    "numpy==1.26.4; python_version=='3.12'",
     "extension-helpers",
     ]
 build-backend = "setuptools.build_meta"
 
+[tool.extension-helpers]
+use_extension_helpers = true
+
+[tool.setuptools]
+include-package-data = true
+license-files = ["licenses/*"]
+
+[tool.setuptools.packages.find]
+include = ["cygrid*"]
+namespaces = true
+
+[tool.setuptools.package-data]
+"*" = [
+    "tests/data/*",
+]
+"cygrid" = ["*.cpp"]
+
 [tool.setuptools_scm]
 write_to = "cygrid/version.py"
 
-# [tool.pytest.ini_options]
-# minversion = "6.0"
-# addopts = '-rsx --doctest-rst  --doctest-modules --ignore-glob="*/setup_package.py"'
-# testpaths = [
-#     "cygrid",
-#     "docs",
-# ]
+[tool.pytest.ini_options]
+minversion = "7.0"
+testpaths = [
+    "cygrid",
+    "docs",
+]
+norecursedirs = [
+    "docs[\\/]_build",
+    "docs[\\/]generated",
+    "cygrid[\\/]extern",
+    "cygrid[\\/]_dev",
+]
+astropy_header = true
+doctest_plus = "enabled"
+text_file_format = "rst"
+remote_data_strict = true
+addopts = [
+    "--doctest-rst",
+    "-p no:legacypath",
+]
+doctest_optionflags = [
+    "NORMALIZE_WHITESPACE",
+    "ELLIPSIS",
+    "FLOAT_CMP",
+]
+doctest_norecursedirs = [
+    "*/setup_package.py",
+]

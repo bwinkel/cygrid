@@ -3,6 +3,7 @@ include CHANGES.rst
 
 include setup.cfg
 include cygrid/tests/coveragerc
+include cygrid/tests/data/*
 
 recursive-include cygrid  *.py *.pyx *.c *.cpp *.pxd *.h
 recursive-include docs *
@@ -11,10 +12,5 @@ recursive-include licenses *
 prune build
 prune docs/_build
 prune docs/api
-
-
-# the next few stanzas are for astropy_helpers.  It's derived from the
-# astropy_helpers/MANIFEST.in, but requires additional includes for the actual
-# package directory and egg-info.
 
 global-exclude *.pyc *.o

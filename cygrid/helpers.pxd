@@ -47,16 +47,16 @@ from libcpp cimport bool
 
 cdef:
     unicode ustring(s)
-    uint64_t ilog2(uint64_t arg) nogil
-    uint64_t isqrt(uint64_t arg) nogil
-    int64_t imod(int64_t a, int64_t b) nogil
-    double fmodulo (double v1, double v2) nogil
+    uint64_t ilog2(uint64_t arg) noexcept nogil
+    uint64_t isqrt(uint64_t arg) noexcept nogil
+    int64_t imod(int64_t a, int64_t b) noexcept nogil
+    double fmodulo (double v1, double v2) noexcept nogil
     double true_angular_distance(
         double l1, double b1, double l2, double b2
-        ) nogil
+        ) noexcept nogil
     double great_circle_bearing(
         double l1, double b1, double l2, double b2
-        ) nogil
+        ) noexcept nogil
 
 cpdef uint64_t nside_to_order(uint64_t nside)
 cpdef uint64_t npix_to_nside(uint64_t npix)
@@ -73,11 +73,11 @@ cdef struct TimingInfo:
 # cdef void fill_time_info(
 #     uint64_t code, uint64_t is_prange,
 #     vector[vector[uint64_t]] &timing_info
-#     ) nogil
+#     ) noexcept nogil
 # cdef void print_time_info(vector[vector[uint64_t]] timing_info)
 
 cdef void fill_time_info(
     vector[TimingInfo] &timing_info,
     char* info, ParallelState parstate,
-    ) nogil
+    ) noexcept nogil
 cdef void print_time_info(vector[TimingInfo] timing_info)
