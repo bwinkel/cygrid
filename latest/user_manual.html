@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Cygrid user manual &#8212; cygrid v2.0.4.dev4</title>
+    <title>Cygrid user manual &#8212; cygrid v2.0.5.dev2</title>
   
   
   
@@ -18,36 +18,36 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=eafc0fe6" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=4ae1632d" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="_static/_static/cygrid.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="_static/jquery.js?v=5d32c60e"></script>
     <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-    <script src="_static/documentation_options.js?v=5c51ac33"></script>
-    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/documentation_options.js?v=07812c3c"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=30646c52"></script>
-    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'user_manual';</script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -56,7 +56,7 @@
     <link rel="prev" title="Cygrid quick tour" href="quick_tour.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-    <meta name="docbuild:last-update" content="14 Apr 2024"/>
+    <meta name="docbuild:last-update" content="15 Oct 2024"/>
   </head>
   
   
@@ -64,27 +64,23 @@
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -106,18 +102,25 @@
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
 <div class="bd-header__inner bd-page-width">
-  <label class="sidebar-toggle primary-toggle" for="__primary">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
     <span class="fa-solid fa-bars"></span>
-  </label>
+  </button>
   
   
   <div class="col-lg-3 navbar-header-items__start">
     
       <div class="navbar-item">
 
+  
+    
   
 
 <a class="navbar-brand logo" href="index.html">
@@ -127,7 +130,7 @@
   
   
   
-    <p class="title logo__title">cygrid v2.0.4.dev4</p>
+    <p class="title logo__title">cygrid v2.0.5.dev2</p>
   
 </a></div>
     
@@ -138,62 +141,62 @@
     <div class="me-auto navbar-header-items__center">
       
         <div class="navbar-item">
-<nav class="navbar-nav">
+<nav>
   <ul class="bd-navbar-elements navbar-nav">
     
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="install.html">
-                        Installation
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="install.html">
+    Installation
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="importing_cygrid.html">
-                        Importing cygrid
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="quick_tour.html">
-                        Cygrid quick tour
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="importing_cygrid.html">
+    Importing cygrid
+  </a>
+</li>
 
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="#">
-                        Cygrid user manual
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-external" href="http://nbviewer.jupyter.org/github/bwinkel/cygrid/blob/master/notebooks/">
-                        Tutorials (Jupyter notebooks)
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="quick_tour.html">
+    Cygrid quick tour
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Cygrid user manual
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="http://nbviewer.jupyter.org/github/bwinkel/cygrid/blob/master/notebooks/">
+    Tutorials (Jupyter notebooks)
+  </a>
+</li>
+
             <li class="nav-item dropdown">
                 <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
                     More
                 </button>
                 <ul id="pst-nav-more-links" class="dropdown-menu">
                     
-                    <li class="nav-item">
-                      <a class="nav-link dropdown-item nav-internal" href="license.html">
-                        Licenses
-                      </a>
-                    </li>
-                
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="license.html">
+    Licenses
+  </a>
+</li>
 
-                <li class="nav-item">
-                  <a class="nav-link dropdown-item nav-external" href="https://github.com/bwinkel/cygrid/tree/master/notebooks">
-                    Tutorials
-                  </a>
-                </li>
-                
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-external" href="https://github.com/bwinkel/cygrid/tree/master/notebooks">
+    Tutorials
+  </a>
+</li>
+
                 </ul>
             </li>
             
@@ -210,7 +213,7 @@
 
  <script>
  document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
     <span class="search-button__default-text">Search</span>
     <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
@@ -224,15 +227,15 @@
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script></div>
       
-        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+        <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
         <li class="nav-item">
           
@@ -243,7 +246,7 @@ document.write(`
           
           
           
-          <a href="https://github.com/bwinkel/cygrid" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+          <a href="https://github.com/bwinkel/cygrid" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
 </ul></div>
@@ -257,7 +260,7 @@ document.write(`
 
  <script>
  document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
     <span class="search-button__default-text">Search</span>
     <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
@@ -268,9 +271,9 @@ document.write(`
   
 
   
-    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
       <span class="fa-solid fa-outdent"></span>
-    </label>
+    </button>
   
 </div>
 
@@ -291,68 +294,63 @@ document.write(`
     
       <div class="sidebar-header-items__center">
         
-          <div class="navbar-item">
-<nav class="navbar-nav">
+          
+          
+            <div class="navbar-item">
+<nav>
   <ul class="bd-navbar-elements navbar-nav">
     
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="install.html">
-                        Installation
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="install.html">
+    Installation
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="importing_cygrid.html">
-                        Importing cygrid
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="quick_tour.html">
-                        Cygrid quick tour
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="importing_cygrid.html">
+    Importing cygrid
+  </a>
+</li>
 
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="#">
-                        Cygrid user manual
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-external" href="http://nbviewer.jupyter.org/github/bwinkel/cygrid/blob/master/notebooks/">
-                        Tutorials (Jupyter notebooks)
-                      </a>
-                    </li>
-                
-            <li class="nav-item dropdown">
-                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links-2">
-                    More
-                </button>
-                <ul id="pst-nav-more-links-2" class="dropdown-menu">
-                    
-                    <li class="nav-item">
-                      <a class="nav-link dropdown-item nav-internal" href="license.html">
-                        Licenses
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="quick_tour.html">
+    Cygrid quick tour
+  </a>
+</li>
 
-                <li class="nav-item">
-                  <a class="nav-link dropdown-item nav-external" href="https://github.com/bwinkel/cygrid/tree/master/notebooks">
-                    Tutorials
-                  </a>
-                </li>
-                
-                </ul>
-            </li>
-            
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Cygrid user manual
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="http://nbviewer.jupyter.org/github/bwinkel/cygrid/blob/master/notebooks/">
+    Tutorials (Jupyter notebooks)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="license.html">
+    Licenses
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://github.com/bwinkel/cygrid/tree/master/notebooks">
+    Tutorials
+  </a>
+</li>
+
   </ul>
 </nav></div>
+          
         
       </div>
     
@@ -364,15 +362,15 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script></div>
         
-          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+          <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
         <li class="nav-item">
           
@@ -383,7 +381,7 @@ document.write(`
           
           
           
-          <a href="https://github.com/bwinkel/cygrid" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+          <a href="https://github.com/bwinkel/cygrid" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
 </ul></div>
@@ -434,13 +432,13 @@ document.write(`
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
@@ -449,7 +447,7 @@ document.write(`
 
 
 
-<nav aria-label="Breadcrumb">
+<nav aria-label="Breadcrumb" class="d-print-none">
   <ul class="bd-breadcrumbs">
     
     <li class="breadcrumb-item breadcrumb-home">
@@ -499,7 +497,7 @@ also provide packages for the <a class="reference external" href="https://www.an
 <p>Gridding data is a ubiquitous task in many scientific applications, for
 example to make maps from measured raw data sets in astronomy or geographic
 information systems (GIS). Therefore, it is not surprising that also the
-popular <a class="reference external" href="https://docs.scipy.org/doc/scipy/index.html#module-scipy" title="(in SciPy v1.13.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy</span></code></a> library provides a function, <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html#scipy.interpolate.griddata" title="(in SciPy v1.13.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">griddata</span></code></a>,
+popular <a class="reference external" href="https://docs.scipy.org/doc/scipy/index.html#module-scipy" title="(in SciPy v1.14.1)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scipy</span></code></a> library provides a function, <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html#scipy.interpolate.griddata" title="(in SciPy v1.14.1)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">griddata</span></code></a>,
 which can be used for this purpose:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example adapted from &quot;scipy.interpolate.griddata&quot; docs</span>
 
@@ -541,20 +539,20 @@ which can be used for this purpose:</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>(<a class="reference external" href=".//user_manual-1.png">png</a>, <a class="reference external" href=".//user_manual-1.svg">svg</a>, <a class="reference external" href=".//user_manual-1.pdf">pdf</a>)</p>
+<p>(<a class="reference download internal" download="" href="_downloads/1399567a5034591d5a6a1c7afa603e7a/user_manual-1.png"><code class="xref download docutils literal notranslate"><span class="pre">png</span></code></a>, <a class="reference download internal" download="" href="_downloads/2a81a0a5360384acd8ecf6e53ca63488/user_manual-1.svg"><code class="xref download docutils literal notranslate"><span class="pre">svg</span></code></a>, <a class="reference download internal" download="" href="_downloads/cfe298da206a27f61887e61211417d30/user_manual-1.pdf"><code class="xref download docutils literal notranslate"><span class="pre">pdf</span></code></a>)</p>
 <figure class="align-default">
 <img alt="_images/user_manual-1.png" class="plot-directive" src="_images/user_manual-1.png" />
 </figure>
 <p>The points in the left panel show the positions, where the underlying
 function was sampled. As can be seen in the right panel,
-<a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html#scipy.interpolate.griddata" title="(in SciPy v1.13.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">griddata</span></code></a> does a good job in estimating the function
+<a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html#scipy.interpolate.griddata" title="(in SciPy v1.14.1)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">griddata</span></code></a> does a good job in estimating the function
 values (on a regular grid) from these irregularly sampled points.</p>
 <p>But what happens, if we add noise to the sampled data? Obviously, the gridded
 data will somehow be affected by the decreased signal-to-noise ratio and may
 not be a good description of the original (noise-free) function anymore. One
 possible counter could be to sample (aka observe) the function at more
 positions, because this should increase the signal-to-noise ratio in the
-gridded map. Unfortunately, the <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html#scipy.interpolate.griddata" title="(in SciPy v1.13.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">griddata</span></code></a> algorithm
+gridded map. Unfortunately, the <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html#scipy.interpolate.griddata" title="(in SciPy v1.14.1)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">griddata</span></code></a> algorithm
 doesn’t work this way:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># generate some data</span>
 <span class="n">sigma</span> <span class="o">=</span> <span class="mf">0.01</span>  <span class="c1"># or 0.1</span>
@@ -567,14 +565,14 @@ doesn’t work this way:</p>
 <span class="n">grid_and_plot</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>(<a class="reference external" href=".//user_manual-2.png">png</a>, <a class="reference external" href=".//user_manual-2.svg">svg</a>, <a class="reference external" href=".//user_manual-2.pdf">pdf</a>)</p>
+<p>(<a class="reference download internal" download="" href="_downloads/79d4c1c09dc2d467b142dc0ce038be7f/user_manual-2.png"><code class="xref download docutils literal notranslate"><span class="pre">png</span></code></a>, <a class="reference download internal" download="" href="_downloads/4a301fb1fcfba9454f2ab2ad608fffb4/user_manual-2.svg"><code class="xref download docutils literal notranslate"><span class="pre">svg</span></code></a>, <a class="reference download internal" download="" href="_downloads/02c1b4d052593f7528a5d76af5aa36ef/user_manual-2.pdf"><code class="xref download docutils literal notranslate"><span class="pre">pdf</span></code></a>)</p>
 <figure class="align-default">
 <img alt="_images/user_manual-2.png" class="plot-directive" src="_images/user_manual-2.png" />
 </figure>
 <p>With a significantly small number of samples or too much noise (e.g., lower
 left panel), the gridded data is a very bad representation of the underlying
 function. But even with a large input sample size, the
-<a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html#scipy.interpolate.griddata" title="(in SciPy v1.13.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">griddata</span></code></a> algorithm produces strange outliers in the
+<a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html#scipy.interpolate.griddata" title="(in SciPy v1.14.1)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">griddata</span></code></a> algorithm produces strange outliers in the
 gridded map (bottom right panel), but at least one can still see traces of the
 original function.</p>
 </section>
@@ -657,8 +655,8 @@ gridding process. For details, we refer to the <a class="reference external" hre
 <section id="comparison-with-scipy-griddata">
 <h3>Comparison with scipy.griddata<a class="headerlink" href="#comparison-with-scipy-griddata" title="Link to this heading">#</a></h3>
 <p>After reading all of the above, you’re now probably curious, how <code class="xref py py-obj docutils literal notranslate"><span class="pre">cygrid</span></code>
-compares to <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html#scipy.interpolate.griddata" title="(in SciPy v1.13.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">griddata</span></code></a>. Here is the result:</p>
-<p>(<a class="reference external" href=".//user_manual-3.png">png</a>, <a class="reference external" href=".//user_manual-3.svg">svg</a>, <a class="reference external" href=".//user_manual-3.pdf">pdf</a>)</p>
+compares to <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html#scipy.interpolate.griddata" title="(in SciPy v1.14.1)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">griddata</span></code></a>. Here is the result:</p>
+<p>(<a class="reference download internal" download="" href="_downloads/c39b27f12fbe153ae344bb77fa594336/user_manual-3.png"><code class="xref download docutils literal notranslate"><span class="pre">png</span></code></a>, <a class="reference download internal" download="" href="_downloads/4b16c84f754f92270bfd1478c1297e0e/user_manual-3.svg"><code class="xref download docutils literal notranslate"><span class="pre">svg</span></code></a>, <a class="reference download internal" download="" href="_downloads/954e67c3c22561296a89d7ed9f233cf1/user_manual-3.pdf"><code class="xref download docutils literal notranslate"><span class="pre">pdf</span></code></a>)</p>
 <figure class="align-default">
 <img alt="_images/user_manual-3.png" class="plot-directive" src="_images/user_manual-3.png" />
 </figure>
@@ -924,16 +922,16 @@ package (for convenience, we provide the full script):</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>(<a class="reference external" href=".//user_manual-4.png">png</a>, <a class="reference external" href=".//user_manual-4.svg">svg</a>, <a class="reference external" href=".//user_manual-4.pdf">pdf</a>)</p>
+<p>(<a class="reference download internal" download="" href="_downloads/062000c5d594e74a77339f0d09a47a45/user_manual-4.png"><code class="xref download docutils literal notranslate"><span class="pre">png</span></code></a>, <a class="reference download internal" download="" href="_downloads/dd35fa4b1fb98acd2d303c1821fcc95d/user_manual-4.svg"><code class="xref download docutils literal notranslate"><span class="pre">svg</span></code></a>, <a class="reference download internal" download="" href="_downloads/122de04f0fcbc3a4d5550cd86fb8ce36/user_manual-4.pdf"><code class="xref download docutils literal notranslate"><span class="pre">pdf</span></code></a>)</p>
 <figure class="align-default">
 <img alt="_images/user_manual-4.png" class="plot-directive" src="_images/user_manual-4.png" />
 </figure>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If you use <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.imshow.html#matplotlib.pyplot.imshow" title="(in Matplotlib v3.8.4)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">imshow</span></code></a> for plotting, you need the
+<p>If you use <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.imshow.html#matplotlib.pyplot.imshow" title="(in Matplotlib v3.9.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">imshow</span></code></a> for plotting, you need the
 <code class="xref py py-obj docutils literal notranslate"><span class="pre">origin='lower'</span></code> option to ensure that the result is not vertically
 flipped. Also we recommend to use <code class="xref py py-obj docutils literal notranslate"><span class="pre">interpolation='nearest'</span></code> to avoid
-additional interpolation of the result by <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.imshow.html#matplotlib.pyplot.imshow" title="(in Matplotlib v3.8.4)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">imshow</span></code></a>.</p>
+additional interpolation of the result by <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.imshow.html#matplotlib.pyplot.imshow" title="(in Matplotlib v3.9.2)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">imshow</span></code></a>.</p>
 </div>
 <section id="gridding-spectral-data">
 <span id="d-label"></span><h3>Gridding spectral data<a class="headerlink" href="#gridding-spectral-data" title="Link to this heading">#</a></h3>
@@ -1037,7 +1035,7 @@ the awesome <a class="reference external" href="http://www.astropy.org/astroquer
 <span class="n">ax2</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="s1">&#39;glat&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_ticklabel_position</span><span class="p">(</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>(<a class="reference external" href=".//user_manual-6.png">png</a>, <a class="reference external" href=".//user_manual-6.svg">svg</a>, <a class="reference external" href=".//user_manual-6.pdf">pdf</a>)</p>
+<p>(<a class="reference download internal" download="" href="_downloads/c1266a47fee83635ac44e6778b13cb99/user_manual-6.png"><code class="xref download docutils literal notranslate"><span class="pre">png</span></code></a>, <a class="reference download internal" download="" href="_downloads/4a916406d1684597f01c3bbfd5dd7540/user_manual-6.svg"><code class="xref download docutils literal notranslate"><span class="pre">svg</span></code></a>, <a class="reference download internal" download="" href="_downloads/7a1bfacd6a38b9a51dc2ecb7b1e1941c/user_manual-6.pdf"><code class="xref download docutils literal notranslate"><span class="pre">pdf</span></code></a>)</p>
 <figure class="align-center">
 <img alt="_images/user_manual-6.png" class="plot-directive" src="_images/user_manual-6.png" />
 </figure>
@@ -1089,7 +1087,7 @@ into the <a class="reference internal" href="api/cygrid.WcsGrid.html#cygrid.WcsG
 <span class="n">ebhis_data_regridded</span> <span class="o">=</span> <span class="n">gridder</span><span class="o">.</span><span class="n">get_datacube</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>(<a class="reference external" href=".//user_manual-9.png">png</a>, <a class="reference external" href=".//user_manual-9.svg">svg</a>, <a class="reference external" href=".//user_manual-9.pdf">pdf</a>)</p>
+<p>(<a class="reference download internal" download="" href="_downloads/cc318907132e501ba645805323f743c5/user_manual-9.png"><code class="xref download docutils literal notranslate"><span class="pre">png</span></code></a>, <a class="reference download internal" download="" href="_downloads/2883e0be0effa480f8601b35681bd6cd/user_manual-9.svg"><code class="xref download docutils literal notranslate"><span class="pre">svg</span></code></a>, <a class="reference download internal" download="" href="_downloads/999743f1839aad73d4439ad02ccad2a8/user_manual-9.pdf"><code class="xref download docutils literal notranslate"><span class="pre">pdf</span></code></a>)</p>
 <figure class="align-center">
 <img alt="_images/user_manual-9.png" class="plot-directive" src="_images/user_manual-9.png" />
 </figure>
@@ -1111,7 +1109,7 @@ customization. One common use case would be to smooth the Planck satellite
 map to the EBHIS angular resolution, for example, which would all certain
 kinds of analyses, e.g., to compare the flux density per pixel of the two data
 sets. For the sake of completeness, here are the resulting plots:</p>
-<p>(<a class="reference external" href=".//user_manual-11.png">png</a>, <a class="reference external" href=".//user_manual-11.svg">svg</a>, <a class="reference external" href=".//user_manual-11.pdf">pdf</a>)</p>
+<p>(<a class="reference download internal" download="" href="_downloads/1295cbf3600ca0c9f33b6364d0e59f80/user_manual-11.png"><code class="xref download docutils literal notranslate"><span class="pre">png</span></code></a>, <a class="reference download internal" download="" href="_downloads/4307aedb3f5cb1553b884366eb8d9c96/user_manual-11.svg"><code class="xref download docutils literal notranslate"><span class="pre">svg</span></code></a>, <a class="reference download internal" download="" href="_downloads/b6c828e38da7ac15ba9b414594fac55d/user_manual-11.pdf"><code class="xref download docutils literal notranslate"><span class="pre">pdf</span></code></a>)</p>
 <figure class="align-center">
 <img alt="_images/user_manual-11.png" class="plot-directive" src="_images/user_manual-11.png" />
 </figure>
@@ -1243,7 +1241,8 @@ e.g.:</p>
 <p>The <code class="xref py py-obj docutils literal notranslate"><span class="pre">beam_PA</span></code> is the parallactic angle of the beam. It is non-trivial, to
 treat this properly, especially on the sphere. For the <a class="reference external" href="http://adsabs.harvard.edu/abs/2016A%26A...591A..12W">Cygrid paper</a> we made
 a nice example plot, which demonstrates this:</p>
-<a class="reference internal image-reference" href="_images/cygrid_demo_zea_elliptical.png"><img alt="cygrid elliptical demo" src="_images/cygrid_demo_zea_elliptical.png" style="width: 85%;" /></a>
+<a class="reference internal image-reference" href="_images/cygrid_demo_zea_elliptical.png"><img alt="cygrid elliptical demo" src="_images/cygrid_demo_zea_elliptical.png" style="width: 85%;" />
+</a>
 </section>
 </section>
 <section id="benchmarking">
@@ -1256,8 +1255,8 @@ find the relevant map pixels around each raw-data sample position.</p>
 <p>We did several tests to benchmark <code class="xref py py-obj docutils literal notranslate"><span class="pre">cygrid</span></code>, in which we vary the number of
 raw data samples or the target map size, and repeat for different numbers of
 CPU cores. The resulting processing speed is compared vs. the
-<a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html#scipy.interpolate.griddata" title="(in SciPy v1.13.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">griddata</span></code></a> function, which serves as a baseline
-(although, the <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html#scipy.interpolate.griddata" title="(in SciPy v1.13.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">griddata</span></code></a> function is not really useful
+<a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html#scipy.interpolate.griddata" title="(in SciPy v1.14.1)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">griddata</span></code></a> function, which serves as a baseline
+(although, the <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html#scipy.interpolate.griddata" title="(in SciPy v1.14.1)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">griddata</span></code></a> function is not really useful
 for many potential tasks that <code class="xref py py-obj docutils literal notranslate"><span class="pre">cygrid</span></code> can solve, it can be assumed that it
 is optimized for speed).</p>
 <p>The following figure shows the processing times for a
@@ -1269,28 +1268,32 @@ test was repeated for different number of input samples (uniformly distributed
 over the map), ranging from 1000 to 400 billion(!). The width of the gridding
 kernel was <span class="math notranslate nohighlight">\(\vartheta_\mathrm{fwhm} = 300''\)</span>, the map pixel size was
 <span class="math notranslate nohighlight">\(200''\)</span>. Below about 200 thousand samples, <code class="xref py py-obj docutils literal notranslate"><span class="pre">cygrid</span></code> was considerably
-slower than <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html#scipy.interpolate.griddata" title="(in SciPy v1.13.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">griddata</span></code></a> (with “linear” or “cubic”
+slower than <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html#scipy.interpolate.griddata" title="(in SciPy v1.14.1)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">griddata</span></code></a> (with “linear” or “cubic”
 interpolation method), because there is overhead involved with the
 construction of the internal caches. Beyond this point, and especially, when
 running <code class="xref py py-obj docutils literal notranslate"><span class="pre">cygrid</span></code> on a multi-core CPU, way faster (more than an order of
 magnitude with 16 cores). Furthermore, with “linear” and “cubic”
-interpolation, <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html#scipy.interpolate.griddata" title="(in SciPy v1.13.0)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">griddata</span></code></a> is limited to 16.7 million
+interpolation, <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html#scipy.interpolate.griddata" title="(in SciPy v1.14.1)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">griddata</span></code></a> is limited to 16.7 million
 samples. The “nearest neighbor” method is faster than <code class="xref py py-obj docutils literal notranslate"><span class="pre">cygrid</span></code> (single-core),
 but on a dual-core <code class="xref py py-obj docutils literal notranslate"><span class="pre">cygrid</span></code> is competitive, and much faster on quad-cores
 (once 10+ million samples are gridded).</p>
-<a class="reference internal image-reference" href="_images/cygrid_speed_testdensity_scipy.png"><img alt="cygrid vs. scipy speed test - fixed field size, increasing density" src="_images/cygrid_speed_testdensity_scipy.png" style="width: 85%;" /></a>
+<a class="reference internal image-reference" href="_images/cygrid_speed_testdensity_scipy.png"><img alt="cygrid vs. scipy speed test - fixed field size, increasing density" src="_images/cygrid_speed_testdensity_scipy.png" style="width: 85%;" />
+</a>
 <p>The speed gain for multi-core CPUs is only kicking in once a certain number of
 samples is involved, but unfortunately it is not linear with the number of
 cores:</p>
-<a class="reference internal image-reference" href="_images/cygrid_speed_testdensity_scipy_perfgain.png"><img alt="CPU cores performance gain - fixed field size, increasing density" src="_images/cygrid_speed_testdensity_scipy_perfgain.png" style="width: 85%;" /></a>
+<a class="reference internal image-reference" href="_images/cygrid_speed_testdensity_scipy_perfgain.png"><img alt="CPU cores performance gain - fixed field size, increasing density" src="_images/cygrid_speed_testdensity_scipy_perfgain.png" style="width: 85%;" />
+</a>
 <p>As can be seen, for a 16-core CPU, the speed gain is only about 8-fold (still,
 for this example, 400 billion samples were finished after only 300 seconds).</p>
 <p>In a second, more challenging test, we changed the target field size (from
 <span class="math notranslate nohighlight">\(0.1^\circ\times0.1^\circ\)</span> to <span class="math notranslate nohighlight">\(60^\circ\times60^\circ\)</span>). At the
 same time we increased the number of input samples, such that a constant
 density of 100 thousand samples per square degrees was maintained:</p>
-<a class="reference internal image-reference" href="_images/cygrid_speed_testfieldsize_scipy.png"><img alt="cygrid vs. scipy speed test - increasing field size, fixed density" src="_images/cygrid_speed_testfieldsize_scipy.png" style="width: 85%;" /></a>
-<a class="reference internal image-reference" href="_images/cygrid_speed_testfieldsize_scipy_perfgain.png"><img alt="CPU cores performance gain - increasing field size, fixed density" src="_images/cygrid_speed_testfieldsize_scipy_perfgain.png" style="width: 85%;" /></a>
+<a class="reference internal image-reference" href="_images/cygrid_speed_testfieldsize_scipy.png"><img alt="cygrid vs. scipy speed test - increasing field size, fixed density" src="_images/cygrid_speed_testfieldsize_scipy.png" style="width: 85%;" />
+</a>
+<a class="reference internal image-reference" href="_images/cygrid_speed_testfieldsize_scipy_perfgain.png"><img alt="CPU cores performance gain - increasing field size, fixed density" src="_images/cygrid_speed_testfieldsize_scipy_perfgain.png" style="width: 85%;" />
+</a>
 </section>
 <section id="see-also">
 <h2>See Also<a class="headerlink" href="#see-also" title="Link to this heading">#</a></h2>
@@ -1308,7 +1311,7 @@ density of 100 thousand samples per square degrees was maintained:</p>
 <h3>cygrid Package<a class="headerlink" href="#cygrid-package" title="Link to this heading">#</a></h3>
 <section id="functions">
 <h4>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h4>
-<table class="autosummary longtable table autosummary">
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="api/cygrid.npix_to_nside.html#cygrid.npix_to_nside" title="cygrid.npix_to_nside"><code class="xref py py-obj docutils literal notranslate"><span class="pre">npix_to_nside</span></code></a>(uint64_t npix)</p></td>
 <td><p>Compute HEALPix <code class="xref py py-obj docutils literal notranslate"><span class="pre">nside</span></code> from <code class="xref py py-obj docutils literal notranslate"><span class="pre">npix</span></code>.</p></td>
@@ -1324,10 +1327,11 @@ density of 100 thousand samples per square degrees was maintained:</p>
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 <section id="classes">
 <h4>Classes<a class="headerlink" href="#classes" title="Link to this heading">#</a></h4>
-<table class="autosummary longtable table autosummary">
+<div class="pst-scrollable-table-container"><table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="api/cygrid.Cygrid.html#cygrid.Cygrid" title="cygrid.Cygrid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Cygrid</span></code></a>(*args, **kwargs)</p></td>
 <td><p>Fast Cython-powered gridding software, base class.</p></td>
@@ -1349,6 +1353,7 @@ density of 100 thousand samples per square degrees was maintained:</p>
 </tr>
 </tbody>
 </table>
+</div>
 </section>
 </section>
 </section>
@@ -1361,7 +1366,7 @@ density of 100 thousand samples per square degrees was maintained:</p>
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -1473,8 +1478,8 @@ density of 100 thousand samples per square degrees was maintained:</p>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -1494,7 +1499,7 @@ density of 100 thousand samples per square degrees was maintained:</p>
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
     <br/>
   </p>
 </div>
@@ -1507,7 +1512,7 @@ density of 100 thousand samples per square degrees was maintained:</p>
       
         <div class="footer-item">
 <p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.2.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.4.
 </p></div>
       
     </div>
