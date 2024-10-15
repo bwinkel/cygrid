@@ -35,6 +35,7 @@ from numpy cimport (
     int8_t, int16_t, int32_t, int64_t, uint8_t, uint16_t,
     uint32_t, uint64_t, float32_t, float64_t
     )
+cimport scipy.special.cython_special as csc
 
 
 cdef:
@@ -50,4 +51,6 @@ cdef:
     double tapered_sinc_1d_kernel(
         double distance, double bearing, double[::1] kernel_params
         ) noexcept nogil
-
+    double gauss_bessel_kernel(
+        double distance, double bearing, double[::1] kernel_params
+        ) noexcept nogil
